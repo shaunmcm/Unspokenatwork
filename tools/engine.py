@@ -483,6 +483,103 @@ def prop_assets(p, W):
     if p["type"] == "follow":
         return follow_button(p, W)
 
+def score(path, seconds, seed, cuts):
+    """Story-synced emotional score. cuts = frame start times [hook, feeling, solution, follow].
+    Hook: minor pad + slow heartbeat + a piano 'ping' on frame 0 (sound from the first instant).
+    Feeling: chord drops to the sad VI, falling piano line.
+    Riser into the SOLUTION, soft low hit on the cut, lift to the relative MAJOR (relief).
+    Follow: warm major resolve, heartbeat gone. Every chord change lands on a text change."""
+    sr = 44100
+    rnd = random.Random(seed)
+    n = int(sr * seconds)
+    t = np.arange(n) / sr
+    hz = lambda m: 440 * 2 ** ((m - 69) / 12)
+    root = rnd.choice([57, 55, 52, 50, 53])
+    cuts = list(cuts) + [seconds]
+    # (semitone offset from root, chord quality)
+    minor = [0, 3, 7, 10]; major = [0, 4, 7, 11]; add9 = [0, 4, 7, 14]
+    plan = [(0, minor), (-4, major), (3, add9), (-2, major)]
+    if len(cuts) - 1 < 4:
+        plan = plan[:len(cuts) - 1]
+    out = np.zeros(n)
+
+    def add(sig, s0):
+        e = min(n, s0 + len(sig))
+        if s0 < n:
+            out[s0:e] += sig[:e - s0]
+
+    def piano(m, s0, amp=0.16, length=3.0):
+        ln = int(sr * length); tp = np.arange(ln) / sr; f = hz(m)
+        env = np.exp(-tp * 1.5) * np.minimum(1, tp / 0.006)
+        note = np.sin(2*np.pi*f*tp) + 0.45*np.sin(2*np.pi*2*f*tp)*np.exp(-tp*3) + 0.15*np.sin(2*np.pi*3*f*tp)*np.exp(-tp*6)
+        add(amp * note * env, s0)
+
+    for i, (step, q) in enumerate(plan):
+        a, b = cuts[i], cuts[i + 1]
+        s0 = int(a * sr); ln = int((b - a + 1.6) * sr)
+        tp = np.arange(ln) / sr
+        sec = b - a
+        att = 0.05 if i else 0.02
+        env = np.minimum(1, tp / max(att, 0.6 if i else 0.25)) * np.exp(-np.maximum(0, tp - sec) * 2.2)
+        bright = 1.0 + 0.35 * (i >= 2)
+        for k, iv in enumerate(q):
+            f = hz(root + step - 12 + iv)
+            tone = np.sin(2*np.pi*f*tp) + 0.22*bright*np.sin(2*np.pi*2*f*tp) + 0.07*np.sin(2*np.pi*3*f*tp)
+            add(0.085 * tone * env * (1.0 if k == 0 else 0.75), s0)
+        # bass
+        add(0.10 * np.sin(2*np.pi*hz(root + step - 24)*tp) * env, s0)
+        # piano line: hook = single ping then sparse; feeling = falling; solution = rising arpeggio
+        scale = [0, 2, 3, 5, 7, 8, 10, 12] if i < 2 else [0, 2, 4, 5, 7, 9, 11, 12]
+        if i == 0:
+            piano(root + 12 + q[2], s0, 0.2)
+            for j in range(1, int(sec // 1.4) + 1):
+                piano(root + 12 + rnd.choice(q), s0 + int(j * 1.4 * sr), 0.11)
+        elif i == 1:
+            notes = sorted([root + step + 12 + x for x in rnd.sample(scale, 4)], reverse=True)
+            for j, m in enumerate(notes):
+                piano(m, s0 + int(j * sec / len(notes) * sr), 0.13)
+        else:
+            notes = [root + step + 12 + x for x in q] + [root + step + 24]
+            for j, m in enumerate(notes):
+                piano(m, s0 + int(j * min(0.42, sec / (len(notes) + 1)) * sr), 0.12 if i == 2 else 0.1)
+    # heartbeat during hook + feeling (tension), gone at the solution (relief)
+    if len(cuts) > 2:
+        hb_end = cuts[2] - 0.4
+        tb = 0.35
+        while tb < hb_end:
+            for off, amp in [(0, 0.5), (0.22, 0.32)]:
+                ln = int(0.25 * sr); tp = np.arange(ln) / sr
+                add(amp * 0.5 * np.sin(2*np.pi*(52 - 20*tp)*tp) * np.exp(-tp * 18), int((tb + off) * sr))
+            tb += 1.05
+        # riser into the solution + soft low hit on the cut
+        r0 = max(0.0, cuts[2] - 0.9); ln = int((cuts[2] - r0) * sr); tp = np.arange(ln) / sr
+        rng = np.random.default_rng(seed)
+        noise = rng.normal(0, 1, ln)
+        noise = np.convolve(noise, np.ones(8) / 8, mode="same")
+        add(0.06 * noise * (tp / max(tp[-1], 1e-3)) ** 2, int(r0 * sr))
+        add(0.05 * np.sin(2*np.pi*(300 + 500*tp/ max(tp[-1],1e-3))*tp) * (tp / max(tp[-1],1e-3)) ** 2, int(r0 * sr))
+        ln = int(1.2 * sr); tp = np.arange(ln) / sr
+        add(0.35 * np.sin(2*np.pi*(70 - 25*tp)*tp) * np.exp(-tp * 4), int(cuts[2] * sr))
+    # reverb + gentle lowpass
+    wet = out.copy()
+    for dl, g in [(0.113, 0.42), (0.197, 0.33), (0.291, 0.27), (0.43, 0.2)]:
+        k = int(dl * sr)
+        for _ in range(4):
+            sh = np.zeros(n); sh[k:] = wet[:-k] * g
+            wet += sh * 0.5
+    mix = 0.62 * out + 0.38 * wet
+    a = 0.18; y = np.zeros(n); acc = 0.0
+    for idx in range(n):
+        acc += a * (mix[idx] - acc); y[idx] = acc
+    fade = np.minimum(1, t / 0.05) * np.minimum(1, (seconds - t) / 1.2)
+    y *= fade
+    y = y / (np.max(np.abs(y)) + 1e-9) * 0.6
+    st = np.stack([y, np.roll(y, int(0.012 * sr))], 1)
+    with wave.open(path, "wb") as wf:
+        wf.setnchannels(2); wf.setsampwidth(2); wf.setframerate(sr)
+        wf.writeframes((st * 32767).astype("<i2").tobytes())
+
+
 # ---------------------------------------------------------------- reel
 def render_reel(spec, out_dir):
     W, H, FPS = 1080, 1920, 30
@@ -497,14 +594,23 @@ def render_reel(spec, out_dir):
         d = ImageDraw.Draw(layer)
         size = fr.get("size", 84)
         top = fr.get("y", 520)
-        draw_block(d, fr["text"], 90, top, W - 180 - 60, size, max_lines=6)
+        if fr.get("style") == "quote":
+            d.text((80, top - 40), "\u201c", font=font(F_SERIF_I, 200), fill=AMBER)
+            yb = draw_block(d, fr["text"], 90, top + 120, W - 180 - 40, fr.get("size", 76), fpath=F_SERIF_I, max_lines=6, lh=1.25)
+        else:
+            yb = draw_block(d, fr["text"], 90, top, W - 180 - 60, size, max_lines=6)
+        if fr.get("sub"):
+            draw_block(d, fr["sub"], 90, yb + 30, W - 180 - 60, 40, fpath=F_MED, color=MUTED, max_lines=2, lh=1.3)
         text_layers.append(layer)
     chrome = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     brand_marks(ImageDraw.Draw(chrome), W, H, spec.get("series"), top=230, handle_y=360)
     props = spec.get("props", [])
     passets = [prop_assets(pp, W) for pp in props]
     wav = os.path.join(out_dir, spec["id"] + ".wav")
-    music(wav, dur, seed)
+    if len(frames) >= 3:
+        score(wav, dur, seed, [f['start'] for f in frames])
+    else:
+        music(wav, dur, seed)
     mp4 = os.path.join(out_dir, spec["id"] + ".mp4")
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS),
            "-i", "-", "-i", wav, "-c:v", "libx264", "-pix_fmt", "yuv420p", "-preset", "medium", "-crf", "19",
@@ -516,6 +622,8 @@ def render_reel(spec, out_dir):
         tt = i / FPS
         k = tt / dur
         z = 1.0 + 0.06 * (k if zdir != "out" else 1 - k)
+        if tt < 0.4:
+            z += 0.05 * (1 - tt / 0.4) ** 2
         cw, ch = W * 1.12 / z / 1.12 * 1.0, H / z
         cw = W / z * 1.0
         ox = (bw - cw) / 2 + (k - 0.5) * (40 if zdir == "pan" else 0)

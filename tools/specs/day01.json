@@ -90,8 +90,9 @@
      "text": "Being dependable should never mean being *endlessly available.*",
      "start": 4.9,
      "end": 8.2,
-     "size": 80,
-     "y": 540
+     "size": 76,
+     "y": 500,
+     "style": "quote"
     },
     {
      "text": "Next time, don't just take it. *Trade it.*",
@@ -105,7 +106,8 @@
      "start": 13.1,
      "end": 16,
      "size": 88,
-     "y": 540
+     "y": 540,
+     "sub": "Send this to the coworker who always says yes."
     }
    ]
   }
