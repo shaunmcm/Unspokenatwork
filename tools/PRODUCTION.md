@@ -46,6 +46,8 @@ then MASTER_PROMPT.txt.
   Mapped, Kids & Money or Warriors for Christ, and never post theirs here.
 
 ## Daily package (3 posts, MASTER_PROMPT section 5)
+User, Oct 19: always exactly 3 posts per day = 2 Reels + 1 carousel. Keep this format:
+very strong emotional hook, music under every Reel, very relatable human work situations.
 1. Emotional Recognition Reel ("that is exactly what my boss does")
 2. Uncomfortable Workplace Truth Reel (contrarian / curiosity gap, no invented facts)
 3. Saveable Educational Carousel (specific steps)
@@ -72,8 +74,10 @@ real insights, 15-21 series, 22-30 introduce a free resource only once it exists
   https://raw.githubusercontent.com/shaunmcm/Unspokenatwork/main/<path>.
   Commit as Claude <noreply@anthropic.com>.
 - Reels: publish_video (Reel). Carousels: publish_media_v2 with slide URLs in order.
-- If Instagram says "still processing": wait 75 s, check the account's latest media, retry
-  only if it did not post. Never post twice.
+- If Instagram says "still processing": wait 75 s, check the account's latest media
+  (Make API GET Request: https://graph.facebook.com/v19.0/17841420504964559/media?fields=id,permalink,timestamp),
+  retry only if it did not post. Never post twice. A successful publish returns a media id;
+  GET https://graph.facebook.com/v19.0/<id>?fields=permalink for the link.
 - Times (PT): Reel 1 at 12:00 PM, carousel at 5:30 PM, Reel 2 at 8:30 PM. Adjust from real
   Insights later; never claim a time is "optimal" without data.
 - After each post: append to posted.log, set content_log status to posted, and
