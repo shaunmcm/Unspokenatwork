@@ -3,5 +3,5 @@ date	day	post_id	type	series	topic	hook	scene	keyword	cta	status
 2026-10-19	1	R002_reliable	reel	What Your Boss Won't Admit	reliability rewarded with more work	You finished early. Your reward? More work.	lamp+tasks	burnout at work	comment which part	ready
 2026-10-19	1	C001_document	carousel	The Workplace Survival Files	documenting incidents	Your memory will fade. Your notes won't.	lamp/conference/rain_window/hallway/monitor/night_office	dealing with a bad boss	save + follow	ready
 2026-10-19	1	R003_quickchat	reel	Read This Before Your Next Shift	vague Friday 4:55 PM meeting invite	Your boss wants a "quick chat." Friday at 4:55 PM.	monitor+invite+reply+follow	workplace anxiety	follow + send to coworker	posted
-2026-10-20	2	R004_credit	reel	What Your Boss Won't Admit	boss presents your work as theirs	You did the work. Your boss presented it.	night_office+mail+reply+follow	toxic boss	send + follow	scheduled
+2026-10-19	1	R004_credit	reel	What Your Boss Won't Admit	boss presents your work as theirs	You did the work. Your boss presented it.	night_office+mail+reply+follow	toxic boss	send + follow	posted
 2026-10-20	2	C002_rules	carousel	Workplace Red Flags	double standards / favoritism	Same mistake. Different consequences.	hallway/conference/rain_window/lamp/monitor/lamp/night_office	workplace favoritism	save + send + follow	scheduled
