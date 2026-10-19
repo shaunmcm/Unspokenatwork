@@ -1,0 +1,69 @@
+{
+ "reels": [
+  {
+   "id": "R003_quickchat",
+   "series": "Read This Before Your Next Shift",
+   "scene": "monitor",
+   "duration": 16,
+   "motion": "in",
+   "props": [
+    {
+     "type": "invite",
+     "title": "Quick chat",
+     "when": "Fri, Oct 24 · 4:55–5:10 PM",
+     "from": "From: Manager",
+     "note": "No description",
+     "month": "FRI",
+     "day": "24",
+     "start": 0.3,
+     "end": 8.4,
+     "y": 1040
+    },
+    {
+     "type": "reply",
+     "text": "Happy to! What's it about, so I can come prepared?",
+     "start": 8.8,
+     "end": 13.1,
+     "y": 1060
+    },
+    {
+     "type": "follow",
+     "start": 13.4,
+     "end": 16,
+     "y": 1080,
+     "sub": "Unspoken at Work"
+    }
+   ],
+   "frames": [
+    {
+     "text": "Your boss wants a \"quick chat.\" *Friday at 4:55 PM.*",
+     "start": 0,
+     "end": 4.6,
+     "size": 92,
+     "y": 540
+    },
+    {
+     "text": "And just like that, *your whole weekend* is gone.",
+     "start": 4.9,
+     "end": 8.4,
+     "size": 90,
+     "y": 540
+    },
+    {
+     "text": "Ask for the agenda. *That's not rude. It's preparation.*",
+     "start": 8.7,
+     "end": 13.1,
+     "size": 84,
+     "y": 540
+    },
+    {
+     "text": "Follow so this finds you again *when you need it.*",
+     "start": 13.4,
+     "end": 16,
+     "size": 88,
+     "y": 540
+    }
+   ]
+  }
+ ]
+}

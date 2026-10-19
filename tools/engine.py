@@ -362,15 +362,89 @@ def task_assets(p, W):
     return head, rows
 
 
+def invite_card(p, W):
+    """Calendar invite: date tile, title, time, organizer, Accept/Decline."""
+    cw, ch = W - 140, 400
+    card = _rr(cw, ch, 40, (44, 48, 58, 240))
+    d = ImageDraw.Draw(card)
+    tile = _rr(120, 130, 22, (250, 250, 252, 255))
+    dt = ImageDraw.Draw(tile)
+    dt.rounded_rectangle([0, 0, 119, 40], 22, fill=(220, 60, 55))
+    dt.rectangle([0, 22, 119, 40], fill=(220, 60, 55))
+    mf = font(F_BLACK, 24)
+    m = p.get("month", "FRI").upper()
+    dt.text(((120 - dt.textlength(m, font=mf)) / 2, 8), m, font=mf, fill=(255, 255, 255))
+    df = font(F_HEAD, 60)
+    dd = str(p.get("day", "24"))
+    dt.text(((120 - dt.textlength(dd, font=df)) / 2, 50), dd, font=df, fill=(30, 30, 34))
+    card.alpha_composite(tile, (34, 34))
+    d.text((180, 34), p.get("app", "CALENDAR INVITE").upper(), font=font(F_MED, 26), fill=(170, 176, 188))
+    d.text((180, 70), p["title"], font=font(F_HEAD, 48), fill=(255, 255, 255))
+    d.text((180, 132), p["when"], font=font(F_MED, 34), fill=(225, 228, 234))
+    d.text((180, 178), p.get("from", "From: Manager"), font=font(F_MED, 30), fill=AMBER)
+    if p.get("note"):
+        d.text((180, 220), p["note"], font=font(F_SERIF_I, 30), fill=(150, 156, 168))
+    bw_, by = (cw - 34 * 3) // 2, ch - 34 - 10
+    for i, (lab, col) in enumerate([("Accept", (52, 120, 246)), ("Decline", (70, 74, 86))]):
+        x = 34 + i * (bw_ + 34)
+        d.rounded_rectangle([x, by - 46, x + bw_, by + 10], 18, fill=col)
+        f = font(F_HEAD, 30)
+        d.text((x + (bw_ - d.textlength(lab, font=f)) / 2, by - 38), lab, font=f, fill=(255, 255, 255))
+    return card
+
+
+def reply_bubble(p, W):
+    """Outgoing message bubble (what YOU say) - the solution script."""
+    maxw = W - 260
+    d0 = ImageDraw.Draw(Image.new("RGB", (10, 10)))
+    f = font(F_MED, 42)
+    lines = wrap(parse(p["text"]), f, maxw - 80, d0)
+    bh = 48 + len(lines) * 56 + 20
+    bw_ = int(max(d0.textlength(" ".join(w for w, _ in ln), font=f) for ln in lines)) + 80
+    im = Image.new("RGBA", (W - 140, bh + 50), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    x0 = im.width - bw_
+    d.rounded_rectangle([x0, 0, im.width - 1, bh], 40, fill=(52, 120, 246, 250))
+    y = 30
+    for ln in lines:
+        d.text((x0 + 40, y), " ".join(w for w, _ in ln), font=f, fill=(255, 255, 255))
+        y += 56
+    lab = p.get("label", "You")
+    lf = font(F_MED, 26)
+    d.text((im.width - d.textlength(lab, font=lf) - 10, bh + 12), lab, font=lf, fill=(150, 156, 168))
+    return im
+
+
+def follow_button(p, W):
+    """Profile-style follow row: avatar, handle, Follow pill."""
+    cw, ch = W - 140, 170
+    card = _rr(cw, ch, 40, (36, 40, 50, 235))
+    d = ImageDraw.Draw(card)
+    d.ellipse([34, 35, 134, 135], fill=(26, 28, 34), outline=AMBER, width=4)
+    uf = font(F_BLACK, 34)
+    d.text((84 - d.textlength("UW", font=uf) / 2, 64), "UW", font=uf, fill=AMBER)
+    d.text((164, 44), HANDLE, font=font(F_HEAD, 40), fill=(255, 255, 255))
+    d.text((164, 96), p.get("sub", "Unspoken at Work"), font=font(F_MED, 28), fill=(170, 176, 188))
+    lab = "Follow"; f = font(F_HEAD, 34)
+    bw_ = int(d.textlength(lab, font=f)) + 70
+    bx = cw - 34 - bw_
+    d.rounded_rectangle([bx, 52, bx + bw_, 118], 20, fill=(52, 120, 246))
+    d.text((bx + 35, 62), lab, font=f, fill=(255, 255, 255))
+    return card
+
+
 def prop_layer(p, W, H, tt, assets):
     """Return an RGBA layer with the prop drawn at time tt (None = nothing yet)."""
-    if tt < p.get("start", 0):
+    if tt < p.get("start", 0) or tt > p.get("end", 1e9):
         return None
+    out_a = 1.0
+    if "end" in p and tt > p["end"] - 0.35:
+        out_a = max(0.0, (p["end"] - tt) / 0.35)
     layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     x0, y0 = 70, p.get("y", 1080)
-    if p["type"] == "notification":
+    if p["type"] in ("notification", "invite", "reply", "follow"):
         k = _ease((tt - p.get("start", 0)) / 0.4)
-        layer.alpha_composite(_fade(assets, k), (x0, int(y0 + (1 - k) * 80)))
+        layer.alpha_composite(_fade(assets, k * out_a), (x0, int(y0 + (1 - k) * 80)))
         return layer
     if p["type"] == "tasks":
         head, rows = assets
@@ -393,7 +467,7 @@ def prop_layer(p, W, H, tt, assets):
         bx = x0 + head.width - 40 - bw_
         d.rounded_rectangle([bx, y0 + 30, bx + bw_, y0 + 90], 30, fill=(205, 70, 60))
         d.text((bx + (bw_ - d.textlength(badge, font=bf)) / 2, y0 + 38), badge, font=bf, fill=(255, 255, 255))
-        return layer
+        return _fade(layer, out_a)
     return None
 
 
@@ -402,6 +476,12 @@ def prop_assets(p, W):
         return notification_card(p, W)
     if p["type"] == "tasks":
         return task_assets(p, W)
+    if p["type"] == "invite":
+        return invite_card(p, W)
+    if p["type"] == "reply":
+        return reply_bubble(p, W)
+    if p["type"] == "follow":
+        return follow_button(p, W)
 
 # ---------------------------------------------------------------- reel
 def render_reel(spec, out_dir):
@@ -467,7 +547,7 @@ def render_reel(spec, out_dir):
     cover = bg.crop((int((bw - W) / 2), int((bh - H) / 2), int((bw + W) / 2), int((bh + H) / 2))).convert("RGBA")
     cover.alpha_composite(chrome)
     for pp, pa in zip(props, passets):
-        pl = prop_layer(pp, W, H, dur, pa)
+        pl = prop_layer(pp, W, H, min(frames[0]['end'] - 0.6, dur), pa)
         if pl is not None:
             cover.alpha_composite(pl)
     cover.alpha_composite(text_layers[0])

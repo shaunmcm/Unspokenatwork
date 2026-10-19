@@ -38,7 +38,7 @@
    "id": "R002_reliable",
    "series": "What Your Boss Won't Admit",
    "scene": "lamp",
-   "duration": 10.5,
+   "duration": 16,
    "motion": "in",
    "props": [
     {
@@ -60,22 +60,51 @@
       {
        "text": "Redo the slides by 9 AM"
       }
-     ]
+     ],
+     "end": 8.2
+    },
+    {
+     "type": "reply",
+     "text": "I can take this on if the report moves to Monday.",
+     "start": 8.8,
+     "end": 12.8,
+     "y": 1060
+    },
+    {
+     "type": "follow",
+     "start": 13.1,
+     "end": 16,
+     "y": 1080,
+     "sub": "Unspoken at Work"
     }
    ],
    "frames": [
     {
      "text": "You finished early. Your reward? *More work.*",
      "start": 0,
-     "end": 5.2,
+     "end": 4.6,
      "size": 92,
      "y": 540
     },
     {
      "text": "Being dependable should never mean being *endlessly available.*",
-     "start": 5.6,
-     "end": 10.5,
+     "start": 4.9,
+     "end": 8.2,
      "size": 80,
+     "y": 540
+    },
+    {
+     "text": "Next time, don't just take it. *Trade it.*",
+     "start": 8.5,
+     "end": 12.8,
+     "size": 90,
+     "y": 540
+    },
+    {
+     "text": "Follow so this finds you again *when you need it.*",
+     "start": 13.1,
+     "end": 16,
+     "size": 88,
      "y": 540
     }
    ]
@@ -121,8 +150,8 @@
     {
      "scene": "night_office",
      "kicker": "Before you go",
-     "text": "Save this for the day *you need it.*",
-     "sub": "Follow for more truths that rarely get said out loud."
+     "text": "Follow *@unspokenatwork1* so this finds you again when you need it.",
+     "sub": "And save it. Your future self will thank you."
     }
    ]
   }
