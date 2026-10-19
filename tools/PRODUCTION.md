@@ -65,7 +65,7 @@ real insights, 15-21 series, 22-30 introduce a free resource only once it exists
 
 ## Posting
 - Instagram account: @unspokenatwork1, Zapier InstagramBusinessCLIAPI.
-  instagramPageId: SEE PAGE_ID.txt (look it up from the instagramPageId dropdown, label
+  instagramPageId 17841420504964559 ("Unspoken At Work | Toxic Bosses"; also in PAGE_ID.txt). Verify the label
   containing "Unspoken"). If it is not there, do not post anywhere; tell the user once.
 - Media host: public repo shaunmcm/Unspokenatwork, cloned at /home/claude/unspokenatwork
   (folders r/ and c/, tools/), raw URLs
