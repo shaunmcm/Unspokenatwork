@@ -13,6 +13,17 @@ then MASTER_PROMPT.txt.
   Rotate the patterns: unspoken truth, emotional recognition, contrarian, curiosity gap,
   personal realization, pattern recognition. Never start with "POV", "Nobody talks about"
   or "Here are 5 signs". Write 5 options, keep the strongest, score it.
+- **Every post ends with a SOLUTION, then a FOLLOW call to action** (user, Oct 19). Not just
+  relatable: after the hook and the recognition, give one concrete thing to do, such as a
+  boundary to set, an exact script to say or send, a way to protect your time, or a way to
+  take care of yourself first. Then close with a follow CTA, e.g. "Follow so this finds you
+  again when you need it." (honest, no fake urgency or threats).
+  Reel structure (14-17 s, music throughout): 1) emotional hook + literal prop
+  (0-4.6 s) 2) recognition/feeling (to ~8.3 s) 3) SOLUTION with a `reply` bubble prop
+  showing the exact words, or a short action (to ~12.8 s) 4) FOLLOW frame with the `follow`
+  prop (last ~3 s). Carousels: slides 5-6 are the solution, slide 7 is "Follow
+  @unspokenatwork1 so this finds you again when you need it." + a save line. Captions end
+  with the solution in paragraph 3 and "Follow @unspokenatwork1 ..." in paragraph 4.
 - **Every post must make sense on its own in 2 seconds** (user, Oct 19: "make sure what
   you're creating makes sense"). A stranger who has never seen the page must instantly know
   WHO (say "your boss" / "your manager", never a vague "they" or "their name"), WHAT is
@@ -27,7 +38,7 @@ then MASTER_PROMPT.txt.
   no photos, no faces. Brand: off-white Inter Display Bold, amber #D9A15B accent words
   (wrap them in *asterisks* in specs), "UNSPOKEN AT WORK" tag, @unspokenatwork1.
 - Text stays in the upper/middle area; bright scene parts are kept low by the engine.
-  Reels: 6-18 overlay words total, 2 frames max, 9-12 s, hook from 0 s.
+  Reels: 4 frames (hook / feeling / solution / follow), 14-17 s, hook from 0 s, short lines.
   Carousels: 7 slides (hook / recognition / hidden pattern / mistake / solution / example /
   CTA), <= 15 words main copy per slide.
 - Captions: 4 short paragraphs, primary search phrase in the first sentence (toxic boss,
