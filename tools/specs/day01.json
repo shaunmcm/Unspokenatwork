@@ -1,0 +1,130 @@
+{
+ "reels": [
+  {
+   "id": "R001_stomachdrops",
+   "series": "Read This Before Your Next Shift",
+   "scene": "rain_window",
+   "duration": 11,
+   "motion": "in",
+   "props": [
+    {
+     "type": "notification",
+     "app": "Messages",
+     "time": "9:47 PM",
+     "sender": "Boss",
+     "body": "Call me as soon as you see this.",
+     "start": 0.3,
+     "y": 1060
+    }
+   ],
+   "frames": [
+    {
+     "text": "Your boss texts at 9:47 PM. *Your stomach drops.*",
+     "start": 0,
+     "end": 5.2,
+     "size": 92,
+     "y": 540
+    },
+    {
+     "text": "That's not overreacting. That's what *walking on eggshells* does to you.",
+     "start": 5.6,
+     "end": 11,
+     "size": 80,
+     "y": 540
+    }
+   ]
+  },
+  {
+   "id": "R002_reliable",
+   "series": "What Your Boss Won't Admit",
+   "scene": "lamp",
+   "duration": 10.5,
+   "motion": "in",
+   "props": [
+    {
+     "type": "tasks",
+     "title": "Your to-do list",
+     "start": 0.5,
+     "interval": 0.8,
+     "y": 1000,
+     "items": [
+      {
+       "text": "Finish the quarterly report"
+      },
+      {
+       "text": "Cover Friday's late shift"
+      },
+      {
+       "text": "Train the new hire"
+      },
+      {
+       "text": "Redo the slides by 9 AM"
+      }
+     ]
+    }
+   ],
+   "frames": [
+    {
+     "text": "You finished early. Your reward? *More work.*",
+     "start": 0,
+     "end": 5.2,
+     "size": 92,
+     "y": 540
+    },
+    {
+     "text": "Being dependable should never mean being *endlessly available.*",
+     "start": 5.6,
+     "end": 10.5,
+     "size": 80,
+     "y": 540
+    }
+   ]
+  }
+ ],
+ "carousels": [
+  {
+   "id": "C001_document",
+   "series": "The Workplace Survival Files",
+   "slides": [
+    {
+     "scene": "lamp",
+     "text": "Your memory will fade. *Your notes won't.*",
+     "sub": "How to document a difficult boss, the right way."
+    },
+    {
+     "scene": "conference",
+     "kicker": "Sound familiar?",
+     "text": "Another comment in front of everyone. You tell yourself *you'll remember it.*"
+    },
+    {
+     "scene": "rain_window",
+     "kicker": "The pattern",
+     "text": "One incident is easy to dismiss. *A dated pattern* is much harder to ignore."
+    },
+    {
+     "scene": "hallway",
+     "kicker": "The mistake",
+     "text": "Vague notes written weeks later: *\"He's always rude to me.\"*"
+    },
+    {
+     "scene": "lamp",
+     "kicker": "Do this instead",
+     "text": "Same day, write down: *date, time, place, exact words,* who was there."
+    },
+    {
+     "scene": "monitor",
+     "kicker": "What it looks like",
+     "mono": true,
+     "text": "Oct 19, 9:40 a.m. Team call. Manager said: \"This is useless.\" Present: Sam, Priya.",
+     "sub": "Calm. Factual. No labels."
+    },
+    {
+     "scene": "night_office",
+     "kicker": "Before you go",
+     "text": "Save this for the day *you need it.*",
+     "sub": "Follow for more truths that rarely get said out loud."
+    }
+   ]
+  }
+ ]
+}
