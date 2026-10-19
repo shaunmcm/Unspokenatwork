@@ -41,7 +41,7 @@ then MASTER_PROMPT.txt.
   Reels: 4 frames (hook / feeling / solution / follow), 14-17 s, hook from 0 s, short lines.
   Carousels: 7 slides (hook / recognition / hidden pattern / mistake / solution / example /
   CTA), <= 15 words main copy per slide.
-- Captions: 4 short paragraphs, primary search phrase in the first sentence (toxic boss,
+- Captions: follow the CAPTION STRUCTURE section below (it replaces the old 4-paragraph rule); primary search phrase early (toxic boss,
   toxic workplace, bad manager, burnout at work, micromanaging boss, workplace favoritism,
   workplace anxiety, setting boundaries at work, leaving a toxic job...), 90-160 words,
   context-specific CTA, then exactly 5 hashtags with #UnspokenAtWork as one of them.
@@ -74,6 +74,49 @@ sends per reach.) Copy methods only, never their words, images or audio.
 5. Short, readable lines: <= 10 words per frame where possible, nothing that needs pausing.
 6. Relatable specifics beat general statements (a real time, a real task, a real message).
 7. Captions: first line = keyword + emotion; keep 5 hashtags (keywords in text matter more).
+
+## Caption + hook formula (added Oct 19 from studying @corporateclarity.career, @ccjenniferbrick,
+## @fearlessworkplace; user: use their formatting and structure, never copy their words)
+What the top posts had in common (views/likes seen Oct 19):
+- corporateclarity.career (171K followers): best Reels 903K "what happens behind closed doors when you
+  report something to HR", 261K "the truth no one tells high performers", 250K "when a high
+  performer stops doing this, they're already gone", 167K "coworker is smearing your name... do NOT
+  do this", 139K "never ask a senior leader this, ask this instead".
+- fearlessworkplace (73K): pinned 87K likes "competence is threatening in the wrong workplace",
+  49K "leadership knows". Metaphor banner headlines ("they light the match, then blame the smoke").
+- ccjenniferbrick (79K): one giant emphasized word in the hook, numbers ("3 microhabits"),
+  "Can't quit your toxic job? Do this instead", short captions + comment-keyword CTA.
+
+ON-SCREEN HOOK PATTERNS to rotate (write our own words):
+ a) Insider reveal: "What really happens when ___" / "What your boss won't tell you about ___"
+ b) Warning + swap: "Your boss does ___? Do NOT ___. Do this instead."
+ c) Paradox truth: "In toxic workplaces, ___ is a threat." (the 87K / 261K style)
+ d) Exit signal: "When someone stops ___, they're already gone."
+ e) Can't-X? Do-Y: "Can't quit yet? Do this instead."
+ f) Number promise: "3 things toxic bosses do in every meeting"
+ g) Metaphor headline: "They make the mess. You get the cleanup."
+ Plus our emotional-moment hooks ("Your boss texts at 9:47 PM...").
+
+CAPTION STRUCTURE (every post, 90-160 words, one idea per line, blank line between blocks):
+ 1. HOOK LINE: one sentence that restates the on-screen hook as a bold truth, optional single
+    emoji (👀). It must work on its own in the 2-line preview. Primary search phrase
+    (toxic boss / toxic workplace / bad manager / burnout at work ...) in line 1 or 2.
+ 2. STAIRCASE: 3 short lines that build ("You stayed late. / You fixed the numbers. / You built
+    every slide.") or a cause-effect chain ("Questions expose problems. / Problems expose
+    leadership.").
+ 3. TWIST: the moment it turns ("Then in the meeting it became 'the plan I put together.'").
+ 4. CONTRAST PAIR: "In healthy workplaces, ___. / In toxic ones, ___." or "Now it's X... but Y."
+ 5. SOLUTION: what to do, with the exact words to say in quotes. One reframe line
+    ("That's not bragging. It's a paper trail."). Never just validation.
+ 6. QUESTION + 👇: a specific yes/no-or-story question with ONE word in CAPS for emphasis
+    ("Has a boss ever taken credit for YOUR work? 👇").
+ 7. SEND LINE: "Send this to the coworker who ___." (specific person).
+ 8. FOLLOW LINE with a value promise: "Follow @unspokenatwork1 for the workplace truths nobody
+    says out loud, and what to do about them."
+ 9. 5 hashtags, lowercase, last line: mix #toxicboss #toxicworkplace #corporatelife
+    #officepolitics #careeradvice #workplaceanxiety #burnout + #UnspokenAtWork.
+ Emojis: 0-3 total, never decorative strings. No comment-keyword DM CTA until a real freebie and
+ DM automation exist (then: "Comment SURVIVAL and I'll send it").
 
 ## Daily package (3 posts, MASTER_PROMPT section 5)
 User, Oct 19: always exactly 3 posts per day = 2 Reels + 1 carousel. Keep this format:

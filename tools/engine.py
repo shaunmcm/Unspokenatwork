@@ -325,10 +325,16 @@ def notification_card(p, W):
     card = _rr(cw, ch, 44, (44, 48, 58, 238))
     d = ImageDraw.Draw(card)
     # app icon: green rounded square with a white speech bubble
-    icon = _rr(76, 76, 18, (52, 199, 89, 255))
-    di = ImageDraw.Draw(icon)
-    di.ellipse([14, 16, 62, 52], fill=(255, 255, 255, 255))
-    di.polygon([(22, 44), (18, 62), (36, 50)], fill=(255, 255, 255, 255))
+    if p.get("app", "").lower() in ("mail", "email", "outlook", "gmail"):
+        icon = _rr(76, 76, 18, (20, 122, 250, 255))
+        di = ImageDraw.Draw(icon)
+        di.rectangle([14, 22, 62, 56], fill=(255, 255, 255, 255))
+        di.line([(14, 22), (38, 42), (62, 22)], fill=(20, 122, 250, 255), width=4)
+    else:
+        icon = _rr(76, 76, 18, (52, 199, 89, 255))
+        di = ImageDraw.Draw(icon)
+        di.ellipse([14, 16, 62, 52], fill=(255, 255, 255, 255))
+        di.polygon([(22, 44), (18, 62), (36, 50)], fill=(255, 255, 255, 255))
     card.alpha_composite(icon, (34, 34))
     d.text((132, 36), p.get("app", "MESSAGES").upper(), font=font(F_MED, 28), fill=(170, 176, 188))
     tf = font(F_MED, 28)
