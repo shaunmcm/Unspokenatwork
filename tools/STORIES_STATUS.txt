@@ -1,0 +1,5 @@
+supported (tested Oct 20 04:5xZ): POST /17841420504964559/media?media_type=STORIES&image_url=<raw url> -> creation id,
+then POST /17841420504964559/media_publish?creation_id=<id> via the Zapier "Make API Mutating Request" action
+(tool instagram_for_business_make_api_mutating_request). Image Stories only; no poll/question stickers via API,
+so ask viewers to DM or comment. Render with engine.render_story(spec, out_dir) (1080x1920), push to repo s/.
+Plan: 2-3 Story frames per day, scheduled with send_later between posts (e.g. 9:30 AM, 2:30 PM, 7:00 PM PT).
