@@ -1,3 +1,23 @@
+# >>> PERMANENT GROWTH SYSTEM (user, Oct 19 evening): GROWTH_SYSTEM.md in this folder is now the
+# top-level operating system for @unspokenatwork1. It ADDS to everything below (keep: emotional
+# hooks, literal props, solution + follow endings, 9-part captions, music). Key additions:
+# - 30-day mission: 10,000 followers (target, not promise). Baseline Oct 19: 1 follower.
+#   Track daily in growth_log.tsv: followers, net gain, avg daily gain, days left, needed/day, projection.
+# - Adaptive volume: start 2 Reels + 1 carousel (+ 5-8 Story frames if publishing allows). Scale Reels
+#   to 3-4/day only when real reach/shares/follows support it; scale back if quality drops.
+# - Recurring series: What Your Boss Really Means (satire translations, labelled as commentary),
+#   Toxic Boss Red Flags, Things Employees Are Afraid to Say, The Employee Survival Playbook,
+#   The Workplace Double Standard, Burnout Nobody Talks About, Workplace Confessions (hypothetical,
+#   labelled), Would You Quit?. Voice: blunt r/antiwork-style relatability, defensible opinions.
+# - One CTA per post matched to its goal (share / save / comment / follow) in the caption; the Reel
+#   itself still ends with the follow frame.
+# - Evaluate posts at ~24/48/72 h with real insights; replicate winners' insight (never repost).
+# - Daily report (actual metrics only, mark unavailable): followers, net growth, progress, needed/day,
+#   Reels/carousels/Stories published, top post, key insight, tomorrow's adjustments.
+# - Stories: Zapier has no Story action and the API cannot add poll/question stickers. Try image
+#   Stories via the Make API Mutating Request (POST /{ig-id}/media media_type=STORIES image_url=...,
+#   then /media_publish); if refused, report the limitation once and skip Stories.
+
 # Unspoken at Work (@unspokenatwork1) — production rules
 
 The user's MASTER_PROMPT.txt (in this folder) is the permanent framework. This file is how
