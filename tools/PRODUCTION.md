@@ -1,3 +1,13 @@
+# >>> USER UPDATE Oct 20, 3:15 AM (overrides older timing/CTA wording below):
+# - Hook is 1 second faster. Reel timing (15 s total): hook frame 0-3.6 s (prop appears at 0.15 s),
+#   feeling/quote 3.9-7.2, SOLUTION 7.5-11.8 (reply bubble 7.8-11.8), FOLLOW 12.1-15.
+# - Hooks must be STRONGER and more emotional: a vivid, painful, specific moment
+#   ("You're burning with fever. Your boss asks for proof." / "You gave them six years. They gave
+#   you 15 minutes." / "You got written up. They got a laugh."), leading straight into the solution.
+# - Follow ending wording (Reels, carousel last slide, captions): "Follow now, or you might never see
+#   this page again." (Reel frame: "Follow now, or you might *never see this page again.*" + the
+#   "Send this to..." sub line; caption: "Follow @unspokenatwork1 now, or you might never see this
+#   page again."). This replaces the older "finds you again" / value-promise follow lines.
 # >>> PERMANENT GROWTH SYSTEM (user, Oct 19 evening): GROWTH_SYSTEM.md in this folder is now the
 # top-level operating system for @unspokenatwork1. It ADDS to everything below (keep: emotional
 # hooks, literal props, solution + follow endings, 9-part captions, music). Key additions:

@@ -68,7 +68,7 @@
    "id": "R006_sickday",
    "series": "Things Employees Are Afraid to Say",
    "scene": "lamp",
-   "duration": 16,
+   "duration": 15,
    "motion": "in",
    "props": [
     {
@@ -77,51 +77,51 @@
      "time": "7:04 AM",
      "sender": "Boss",
      "body": "Are you REALLY sick? We're slammed today.",
-     "start": 0.3,
-     "end": 8.2,
+     "start": 0.15,
+     "end": 7.2,
      "y": 1060
     },
     {
      "type": "reply",
      "text": "I'm unwell and won't be in today. I'll update you tomorrow.",
-     "start": 8.8,
-     "end": 12.8,
+     "start": 7.8,
+     "end": 11.8,
      "y": 1060
     },
     {
      "type": "follow",
-     "start": 13.1,
-     "end": 16,
+     "start": 12.1,
+     "end": 15,
      "y": 1080
     }
    ],
    "frames": [
     {
-     "text": "You call in sick. *Your boss asks for proof.*",
+     "text": "You're burning with fever. *Your boss asks for proof.*",
      "start": 0,
-     "end": 4.6,
-     "size": 94,
+     "end": 3.6,
+     "size": 86,
      "y": 540
     },
     {
      "text": "You shouldn't have to prove you're sick *enough* to deserve a day off.",
-     "start": 4.9,
-     "end": 8.2,
+     "start": 3.9,
+     "end": 7.2,
      "size": 72,
      "y": 500,
      "style": "quote"
     },
     {
      "text": "Keep it short. *No over-explaining.*",
-     "start": 8.5,
-     "end": 12.8,
+     "start": 7.5,
+     "end": 11.8,
      "size": 94,
      "y": 540
     },
     {
-     "text": "Follow so this finds you again *when you need it.*",
-     "start": 13.1,
-     "end": 16,
+     "text": "Follow now, or you might *never see this page again.*",
+     "start": 12.1,
+     "end": 15,
      "size": 88,
      "y": 540,
      "sub": "Send this to the coworker who works through every cold."
@@ -132,7 +132,7 @@
    "id": "R007_notice",
    "series": "The Workplace Double Standard",
    "scene": "conference",
-   "duration": 16,
+   "duration": 15,
    "motion": "in",
    "props": [
     {
@@ -143,16 +143,16 @@
      "note": "No agenda",
      "month": "TUE",
      "day": "20",
-     "start": 0.3,
-     "end": 8.2,
+     "start": 0.15,
+     "end": 7.2,
      "y": 1040
     },
     {
      "type": "tasks",
      "title": "Your quiet backup plan",
-     "start": 8.5,
+     "start": 7.5,
      "interval": 0.6,
-     "end": 12.8,
+     "end": 11.8,
      "y": 1000,
      "items": [
       {
@@ -171,38 +171,38 @@
     },
     {
      "type": "follow",
-     "start": 13.1,
-     "end": 16,
+     "start": 12.1,
+     "end": 15,
      "y": 1080
     }
    ],
    "frames": [
     {
-     "text": "You owe them two weeks' notice. *They need one meeting.*",
+     "text": "You gave them six years. *They gave you 15 minutes.*",
      "start": 0,
-     "end": 4.6,
+     "end": 3.6,
      "size": 88,
      "y": 540
     },
     {
      "text": "Loyalty should go *both ways.* Too often, it doesn't.",
-     "start": 4.9,
-     "end": 8.2,
+     "start": 3.9,
+     "end": 7.2,
      "size": 76,
      "y": 500,
      "style": "quote"
     },
     {
      "text": "Don't wait for the meeting. *Keep a backup plan.*",
-     "start": 8.5,
-     "end": 12.8,
+     "start": 7.5,
+     "end": 11.8,
      "size": 84,
      "y": 540
     },
     {
-     "text": "Follow so this finds you again *when you need it.*",
-     "start": 13.1,
-     "end": 16,
+     "text": "Follow now, or you might *never see this page again.*",
+     "start": 12.1,
+     "end": 15,
      "size": 88,
      "y": 540,
      "sub": "Send this to the coworker who survived the last layoff."
@@ -217,13 +217,13 @@
    "slides": [
     {
      "scene": "hallway",
-     "text": "Same mistake. *Different consequences.*",
-     "sub": "If the rules only seem to apply to you, read this."
+     "text": "You got written up. *They got a laugh.*",
+     "sub": "Same mistake. If the rules only apply to you, read this."
     },
     {
      "scene": "conference",
      "kicker": "Sound familiar?",
-     "text": "You get a written warning. *Their* mistake gets a laugh."
+     "text": "Same policy. Same mistake. *Different person, different rules.*"
     },
     {
      "scene": "rain_window",
@@ -250,8 +250,8 @@
     {
      "scene": "night_office",
      "kicker": "Before you go",
-     "text": "Follow *@unspokenatwork1* so this finds you again when you need it.",
-     "sub": "And save it for the next time the rules change."
+     "text": "Follow *@unspokenatwork1* now, or you might never see this page again.",
+     "sub": "Save this for the next time the rules change."
     }
    ]
   }
