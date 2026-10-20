@@ -716,3 +716,22 @@ if __name__ == "__main__":
     items = spec if isinstance(spec, list) else [spec]
     for it in items:
         print(render_reel(it, od) if kind == "reel" else render_carousel(it, od))
+
+
+# ---------------------------------------------------------------- story (1080x1920 still)
+def render_story(spec, out_dir):
+    W, H = 1080, 1920
+    seed = spec.get("seed", zlib.crc32(spec["id"].encode()) & 0xFFFF)
+    bg = finish(scene(spec.get("scene", "rain_window"), W, H, seed), seed, darken_top=0.6).convert("RGBA")
+    d = ImageDraw.Draw(bg)
+    brand_marks(d, W, H, spec.get("series"), top=260, show_handle=False)
+    y = 560
+    if spec.get("kicker"):
+        d.text((90, y), spec["kicker"].upper(), font=font(F_BLACK, 34), fill=AMBER); y += 80
+    y = draw_block(d, spec["text"], 90, y, W - 180, spec.get("size", 92), max_lines=7)
+    if spec.get("sub"):
+        draw_block(d, spec["sub"], 90, y + 40, W - 180, 46, fpath=F_SERIF_I, color=MUTED, max_lines=4, lh=1.3)
+    d.text((90, H - 420), HANDLE, font=font(F_MED, 34), fill=MUTED)
+    out = os.path.join(out_dir, spec["id"] + ".jpg")
+    bg.convert("RGB").save(out, quality=92)
+    return out
