@@ -1,3 +1,4 @@
+# >>> NO HEART SYMBOLS (user, Oct 20 10:52 PM): never use heart emojis/symbols (❤ 🤍 💙 ♥ <3 etc.) anywhere: captions, on-screen text, Stories, comment replies, DM texts.
 # >>> COMMENTS + DMs (user, Oct 20 10:49 PM): auto-reply to every comment per COMMENTS.md (kind, general
 # niche info backed by the FACT BANK, nothing secret, nothing offensive). A separate send_later chain
 # "Unspoken at Work: comment replies" checks every 2 h, 8 AM-10:30 PM PT. Instagram DMs can't be sent
