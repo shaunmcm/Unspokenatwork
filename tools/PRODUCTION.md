@@ -1,3 +1,8 @@
+# >>> COMMENTS + DMs (user, Oct 20 10:49 PM): auto-reply to every comment per COMMENTS.md (kind, general
+# niche info backed by the FACT BANK, nothing secret, nothing offensive). A separate send_later chain
+# "Unspoken at Work: comment replies" checks every 2 h, 8 AM-10:30 PM PT. Instagram DMs can't be sent
+# through this Zapier connection (missing instagram_manage_messages); DM auto-replies live in Meta
+# Business Suite (Inbox > Automations), set up by the user with text from DM_REPLIES.md.
 # >>> OUTCOME + CURIOSITY LOOPS (user, Oct 20 5:05 PM; PERMANENT; applies to EVERY Reel and carousel).
 # Keep niche, style, visuals, pacing, CTAs, hashtags and post counts the same. This block overrides
 # any older wording/timing below where they conflict.
