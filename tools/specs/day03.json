@@ -1,0 +1,297 @@
+{
+ "reels": [
+  {
+   "id": "R008_after6",
+   "series": "Burnout Nobody Talks About",
+   "scene": "monitor",
+   "duration": 16.1,
+   "motion": "in",
+   "outcome": "By the end of this post, viewers will be able to send one calm message that stops after-hours replies without sounding lazy.",
+   "loops": [
+    {
+     "open": "Logged off at 6. Why still answering at 10?",
+     "payoff": "It's not just you: the average worker gets 50+ messages outside core hours (Microsoft)."
+    },
+    {
+     "open": "So how do you stop?",
+     "payoff": "Set your hours once, in writing, with a script.",
+     "delivers_outcome": true
+    }
+   ],
+   "sources": [
+    "https://www.axios.com/2025/06/17/microsoft-remote-work-meetings (Microsoft Work Trend Index 2025: average employee sends or receives 50+ messages outside core business hours)"
+   ],
+   "props": [
+    {
+     "type": "notification",
+     "app": "Messages",
+     "time": "10:12 PM",
+     "sender": "Boss",
+     "body": "Quick one before tomorrow?",
+     "start": 0.15,
+     "end": 3.6,
+     "y": 1060
+    },
+    {
+     "type": "stat",
+     "kicker": "It's not just you",
+     "number": "50+",
+     "label": "messages the average worker sends or gets outside core hours",
+     "source": "Microsoft, 2025",
+     "start": 3.9,
+     "end": 7.2,
+     "y": 1040
+    },
+    {
+     "type": "reply",
+     "text": "I'm offline after 6. I'll handle this first thing tomorrow.",
+     "start": 7.8,
+     "end": 11.8,
+     "y": 1060
+    },
+    {
+     "type": "tasks",
+     "title": "Tonight",
+     "start": 9.7,
+     "interval": 0.7,
+     "end": 11.8,
+     "y": 1330,
+     "items": [
+      {
+       "text": "Turn on Do Not Disturb at 6 PM",
+       "tag": "then rest"
+      }
+     ]
+    },
+    {
+     "type": "follow",
+     "start": 12.1,
+     "end": 16.1,
+     "y": 1080
+    }
+   ],
+   "frames": [
+    {
+     "text": "Logged off at 6. *Why still answering at 10?*",
+     "start": 0,
+     "end": 3.6,
+     "size": 92,
+     "y": 540,
+     "beat": "emotion,curiosity"
+    },
+    {
+     "text": "Not just you. *So how do you stop?*",
+     "start": 3.9,
+     "end": 7.2,
+     "size": 92,
+     "y": 540,
+     "beat": "proof,curiosity"
+    },
+    {
+     "text": "Set your hours once, *in writing, while you're calm.*",
+     "start": 7.5,
+     "end": 11.8,
+     "size": 84,
+     "y": 540,
+     "beat": "emotion,proof"
+    },
+    {
+     "text": "Follow now, or you might *never see this page again.*",
+     "start": 12.1,
+     "end": 16.1,
+     "size": 88,
+     "y": 540,
+     "sub": "Send this to the 10 PM replier.",
+     "beat": "emotion"
+    }
+   ]
+  },
+  {
+   "id": "R009_mondays",
+   "series": "Toxic Boss Red Flags",
+   "scene": "hallway",
+   "duration": 16.1,
+   "motion": "in",
+   "outcome": "By the end of this post, viewers will feel the dread may be about their manager, not them, and know three ways to protect themselves this week.",
+   "loops": [
+    {
+     "open": "Loved the job. Why dread Mondays now?",
+     "payoff": "Usually it's the boss: managers drive at least 70% of the variance in team engagement (Gallup)."
+    },
+    {
+     "open": "Can you fix that?",
+     "payoff": "You can't fix your boss, but you can change three things you control.",
+     "delivers_outcome": true
+    }
+   ],
+   "sources": [
+    "https://news.gallup.com/businessjournal/182792/managers-account-variance-employee-engagement.aspx (Gallup: managers account for at least 70% of the variance in employee engagement scores across business units)"
+   ],
+   "props": [
+    {
+     "type": "invite",
+     "title": "Monday 1:1",
+     "when": "Mon · 8:00–8:30 AM",
+     "from": "From: Manager",
+     "note": "Agenda: we need to talk",
+     "month": "MON",
+     "day": "26",
+     "start": 0.15,
+     "end": 3.6,
+     "y": 1040
+    },
+    {
+     "type": "stat",
+     "kicker": "It's often not you",
+     "number": "70%",
+     "label": "of team engagement differences trace to the manager (at least)",
+     "source": "Gallup",
+     "start": 3.9,
+     "end": 7.2,
+     "y": 1040
+    },
+    {
+     "type": "tasks",
+     "title": "What you control this week",
+     "start": 7.5,
+     "interval": 0.7,
+     "end": 11.8,
+     "y": 1000,
+     "items": [
+      {
+       "text": "Ask for every 1:1 agenda",
+       "tag": "before it"
+      },
+      {
+       "text": "Write down your wins",
+       "tag": "weekly"
+      },
+      {
+       "text": "Talk to another team",
+       "tag": "this month"
+      }
+     ]
+    },
+    {
+     "type": "follow",
+     "start": 12.1,
+     "end": 16.1,
+     "y": 1080
+    }
+   ],
+   "frames": [
+    {
+     "text": "Loved the job. *Why dread Mondays now?*",
+     "start": 0,
+     "end": 3.6,
+     "size": 96,
+     "y": 540,
+     "beat": "emotion,curiosity"
+    },
+    {
+     "text": "Usually it's the boss. *Can you fix that?*",
+     "start": 3.9,
+     "end": 7.2,
+     "size": 88,
+     "y": 540,
+     "beat": "proof,curiosity"
+    },
+    {
+     "text": "Not your boss. *Fix what you control.*",
+     "start": 7.5,
+     "end": 11.8,
+     "size": 92,
+     "y": 540,
+     "beat": "emotion,proof"
+    },
+    {
+     "text": "Follow now, or you might *never see this page again.*",
+     "start": 12.1,
+     "end": 16.1,
+     "size": 88,
+     "y": 540,
+     "sub": "Send this to someone who dreads Mondays.",
+     "beat": "emotion"
+    }
+   ]
+  }
+ ],
+ "carousels": [
+  {
+   "id": "C003_sayno",
+   "series": "The Employee Survival Playbook",
+   "outcome": "By the end of this post, viewers will be able to say no to extra work with one of three scripts that keep them professional.",
+   "loops": [
+    {
+     "open": "Your boss asks for one more thing. Why can't you say no?",
+     "payoff": "Because no feels dangerous at work."
+    },
+    {
+     "open": "Is it really that dangerous?",
+     "payoff": "Toxic workplaces are common: 19% of U.S. workers call theirs toxic (APA)."
+    },
+    {
+     "open": "So what do you say?",
+     "payoff": "Not a flat no or a silent yes."
+    },
+    {
+     "open": "What works instead?",
+     "payoff": "Three scripts: trade it, delay it, or name your capacity.",
+     "delivers_outcome": true
+    }
+   ],
+   "sources": [
+    "https://ohsonline.com/articles/2023/07/19/new-apa-poll-pinpoints-the-extent-of-toxicity-in-the-workplace.aspx (APA 2023 Work in America Survey: 19% of employed U.S. adults say their workplace is very or somewhat toxic)"
+   ],
+   "slides": [
+    {
+     "scene": "lamp",
+     "text": "Your boss asks for one more thing. *Why can't you say no?*",
+     "sub": "3 scripts that keep you professional.",
+     "beat": "emotion,curiosity"
+    },
+    {
+     "scene": "conference",
+     "kicker": "Sound familiar?",
+     "text": "Because \"no\" feels dangerous at work. *Is it, really?*",
+     "beat": "emotion,curiosity"
+    },
+    {
+     "scene": "rain_window",
+     "kicker": "The numbers",
+     "text": "19% of U.S. workers call their workplace toxic. *So what do you say?*",
+     "sub": "APA Work in America Survey, 2023",
+     "beat": "proof,curiosity"
+    },
+    {
+     "scene": "hallway",
+     "kicker": "The mistake",
+     "text": "A flat \"no\" or a silent \"yes.\" *Both cost you. What works?*",
+     "beat": "emotion,curiosity"
+    },
+    {
+     "scene": "monitor",
+     "kicker": "Script 1 · Trade it",
+     "mono": true,
+     "text": "\"Happy to. Which project should move so I can fit this in?\"",
+     "beat": "proof"
+    },
+    {
+     "scene": "lamp",
+     "kicker": "Scripts 2 + 3",
+     "mono": true,
+     "text": "\"Not today, but Friday works.\" \"I'm at capacity. Revisit Monday?\"",
+     "sub": "Calm. Clear. Still professional.",
+     "beat": "proof,emotion"
+    },
+    {
+     "scene": "night_office",
+     "kicker": "Before you go",
+     "text": "Follow *@unspokenatwork1* now, or you might never see this page again.",
+     "sub": "Save these scripts for your next ask.",
+     "beat": "emotion"
+    }
+   ]
+  }
+ ]
+}
