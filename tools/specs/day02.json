@@ -132,7 +132,7 @@
    "id": "R007_notice",
    "series": "The Workplace Double Standard",
    "scene": "conference",
-   "duration": 15,
+   "duration": 16.1,
    "motion": "in",
    "props": [
     {
@@ -144,6 +144,16 @@
      "month": "TUE",
      "day": "20",
      "start": 0.15,
+     "end": 3.6,
+     "y": 1040
+    },
+    {
+     "type": "stat",
+     "kicker": "It's not just you",
+     "number": "1.6M",
+     "label": "U.S. layoffs and discharges in August 2026",
+     "source": "BLS JOLTS",
+     "start": 3.9,
      "end": 7.2,
      "y": 1040
     },
@@ -151,7 +161,7 @@
      "type": "tasks",
      "title": "Your quiet backup plan",
      "start": 7.5,
-     "interval": 0.6,
+     "interval": 0.7,
      "end": 11.8,
      "y": 1000,
      "items": [
@@ -172,41 +182,59 @@
     {
      "type": "follow",
      "start": 12.1,
-     "end": 15,
+     "end": 16.1,
      "y": 1080
     }
    ],
    "frames": [
     {
-     "text": "You gave them six years. *They gave you 15 minutes.*",
+     "text": "Six years of loyalty. *Why only 15 minutes' notice?*",
      "start": 0,
      "end": 3.6,
      "size": 88,
-     "y": 540
+     "y": 540,
+     "beat": "emotion,curiosity"
     },
     {
-     "text": "Loyalty should go *both ways.* Too often, it doesn't.",
+     "text": "More common than you think. *What protects you?*",
      "start": 3.9,
      "end": 7.2,
-     "size": 76,
-     "y": 500,
-     "style": "quote"
+     "size": 84,
+     "y": 540,
+     "beat": "proof,curiosity"
     },
     {
-     "text": "Don't wait for the meeting. *Keep a backup plan.*",
+     "text": "A quiet backup plan, *started before you need it.*",
      "start": 7.5,
      "end": 11.8,
      "size": 84,
-     "y": 540
+     "y": 540,
+     "beat": "emotion,proof"
     },
     {
      "text": "Follow now, or you might *never see this page again.*",
      "start": 12.1,
-     "end": 15,
+     "end": 16.1,
      "size": 88,
      "y": 540,
-     "sub": "Send this to the coworker who survived the last layoff."
+     "sub": "Send this to a layoff survivor.",
+     "beat": "emotion"
     }
+   ],
+   "outcome": "By the end of this post, viewers will be able to start a 3-step backup plan today, so a surprise layoff meeting can't blindside them.",
+   "loops": [
+    {
+     "open": "Six years of loyalty. Why only 15 minutes' notice?",
+     "payoff": "Because layoffs are common: 1.6 million in August alone (BLS)."
+    },
+    {
+     "open": "So what protects you?",
+     "payoff": "A quiet backup plan started before you need it: resume, 3 wins, one old coworker.",
+     "delivers_outcome": true
+    }
+   ],
+   "sources": [
+    "https://www.bls.gov/news.release/archives/jolts_09292026.htm (JOLTS, Aug 2026: layoffs and discharges 1.6 million)"
    ]
   }
  ],

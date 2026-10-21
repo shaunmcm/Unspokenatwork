@@ -1,3 +1,31 @@
+# >>> OUTCOME + CURIOSITY LOOPS (user, Oct 20 5:05 PM; PERMANENT; applies to EVERY Reel and carousel).
+# Keep niche, style, visuals, pacing, CTAs, hashtags and post counts the same. This block overrides
+# any older wording/timing below where they conflict.
+# 1. OUTCOME FIRST: before writing, put one sentence in the spec field "outcome":
+#    "By the end of this post, viewers will know / feel / be able to ___." Cut anything that doesn't serve it.
+# 2. HOOK = strong emotion built around an OPEN QUESTION (literal "?" or an obvious unanswered why/what/how).
+# 3. LOOPS ALL THE WAY THROUGH: open a question -> pay it off -> open the next question. The LAST payoff
+#    delivers the outcome (the solution), then the usual ending (follow frame / follow slide + CTA).
+#    Record them in the spec field "loops": [{"open": "...", "payoff": "..."}, ...].
+#    Reel shape: F1 hook opens Q1 -> F2 pays off Q1 + opens Q2 -> F3 pays off Q2 = outcome/solution -> F4 follow.
+#    Carousel shape: each slide pays off the previous slide's question and opens the next; slide 6 = outcome.
+# 4. SOMETHING NEW EVERY 2-4 SECONDS on Reels: a number, an example, a screenshot-style visual (notification,
+#    mail, invite, task list, reply bubble, stat card) or a short story beat. Use prop timings to guarantee it.
+# 5. EMOTION + CURIOSITY + PROOF in every post. Tag every frame/slide "beat": emotion | curiosity | proof
+#    (can be several, e.g. "emotion,curiosity"). Cut any beat that gives none. PROOF = real numbers only:
+#    a stat from an official/reputable source with the source on screen (engine `stat` prop, e.g. BLS) and
+#    recorded in the spec field "sources", or concrete on-screen evidence (the actual message/invite).
+#    Never invent statistics. Scenario details (a time on a text) are examples, not stats.
+# 6. READABILITY: on-screen time >= 0.4 s per word of the main text AND >= 2.5 s per screen; sub lines <= 7
+#    words; simple words. If it doesn't fit, CUT WORDS OR BEATS, don't speed up. Current 15-16 s Reel slots:
+#    hook 0-3.6 s (<= 9 words), F2 3.9-7.2 s (<= 8 words), F3 7.5-11.8 s (<= 10 words),
+#    follow 12.1-16.1 s (the fixed 10-word follow line needs 4.0 s, so Reels run ~16 s).
+#    Carousels: <= 15 words main copy per slide (readability is per-swipe).
+# 7. QA: run `python3 qa.py specs/dayNN.json` before rendering/scheduling. It must print PASS for every
+#    post (outcome present, hook has an open question, loops present, last loop = outcome, beat tags on
+#    every frame/slide with emotion+curiosity+proof all present, proof has a source, 0.4 s/word + 2.5 s
+#    minimum, sub lines <= 7 words, a new visual at least every 4 s). Fix and re-run until all PASS.
+
 # >>> USER UPDATE Oct 20, 3:15 AM (overrides older timing/CTA wording below):
 # - Hook is 1 second faster. Reel timing (15 s total): hook frame 0-3.6 s (prop appears at 0.15 s),
 #   feeling/quote 3.9-7.2, SOLUTION 7.5-11.8 (reply bubble 7.8-11.8), FOLLOW 12.1-15.

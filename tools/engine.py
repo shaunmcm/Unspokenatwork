@@ -439,6 +439,21 @@ def follow_button(p, W):
     return card
 
 
+def stat_card(p, W):
+    """Proof card: big real number + label + on-screen source."""
+    cw, ch = W - 140, 300
+    card = _rr(cw, ch, 40, (36, 40, 50, 240))
+    d = ImageDraw.Draw(card)
+    d.text((44, 34), p.get("kicker", "THE NUMBERS").upper(), font=font(F_BLACK, 26), fill=AMBER)
+    nf = font(F_BLACK, 110)
+    d.text((40, 70), p["number"], font=nf, fill=(255, 255, 255))
+    draw_block(d, p["label"], 44, 200, cw - 88, 34, fpath=F_MED, color=(225, 228, 234), max_lines=2, lh=1.2)
+    sf = font(F_MED, 24)
+    src = "Source: " + p["source"]
+    d.text((cw - 40 - d.textlength(src, font=sf), 40), src, font=sf, fill=(150, 156, 168))
+    return card
+
+
 def prop_layer(p, W, H, tt, assets):
     """Return an RGBA layer with the prop drawn at time tt (None = nothing yet)."""
     if tt < p.get("start", 0) or tt > p.get("end", 1e9):
@@ -448,7 +463,7 @@ def prop_layer(p, W, H, tt, assets):
         out_a = max(0.0, (p["end"] - tt) / 0.35)
     layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     x0, y0 = 70, p.get("y", 1080)
-    if p["type"] in ("notification", "invite", "reply", "follow"):
+    if p["type"] in ("notification", "invite", "reply", "follow", "stat"):
         k = _ease((tt - p.get("start", 0)) / 0.4)
         layer.alpha_composite(_fade(assets, k * out_a), (x0, int(y0 + (1 - k) * 80)))
         return layer
@@ -488,6 +503,8 @@ def prop_assets(p, W):
         return reply_bubble(p, W)
     if p["type"] == "follow":
         return follow_button(p, W)
+    if p["type"] == "stat":
+        return stat_card(p, W)
 
 def score(path, seconds, seed, cuts):
     """Story-synced emotional score. cuts = frame start times [hook, feeling, solution, follow].
