@@ -63,10 +63,15 @@ If unsure, choose the shorter, safer reply or skip and flag it.
 - Managers account for at least 70% of the variance in employee engagement across business
   units. Source: Gallup.
   https://news.gallup.com/businessjournal/182792/managers-account-variance-employee-engagement.aspx
-- 19% of employed U.S. adults said their workplace is very or somewhat toxic; 52% of those in
-  toxic workplaces reported their mental health declined (vs 15% of others).
+- 19% of employed U.S. adults said their workplace is very or somewhat toxic.
   Source: APA 2023 Work in America Survey.
   https://ohsonline.com/articles/2023/07/19/new-apa-poll-pinpoints-the-extent-of-toxicity-in-the-workplace.aspx
+- Among workers in toxic workplaces: 76% agree work has negatively impacted their mental health;
+  58% have fair/poor mental health; 52% have experienced harm to their mental health at work.
+  (Corrected Oct 22: 52% is "harm at work", not "declined".) Source: APA 2023 Work in America.
+  https://www.apa.org/pubs/reports/work-in-america/2023-infographics/mental-health-concerns-infographic
+- U.S. quits were 3.1 million in August 2026 (rate 1.9%). Source: BLS JOLTS.
+  https://www.bls.gov/news.release/archives/jolts_09292026.htm
 - The average employee sends or receives 50+ messages outside core business hours; meetings
   after 8 PM up 16% year over year. Source: Microsoft Work Trend Index 2025.
   https://www.axios.com/2025/06/17/microsoft-remote-work-meetings

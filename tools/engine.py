@@ -748,7 +748,7 @@ def render_story(spec, out_dir):
     y = draw_block(d, spec["text"], 90, y, W - 180, spec.get("size", 92), max_lines=7)
     if spec.get("sub"):
         draw_block(d, spec["sub"], 90, y + 40, W - 180, 46, fpath=F_SERIF_I, color=MUTED, max_lines=4, lh=1.3)
-    d.text((90, 340), HANDLE, font=font(F_MED, 32), fill=MUTED)
+    d.text((90, 400 if spec.get("series") else 340), HANDLE, font=font(F_MED, 32), fill=MUTED)
     out = os.path.join(out_dir, spec["id"] + ".jpg")
     bg.convert("RGB").save(out, quality=92)
     return out

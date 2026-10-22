@@ -1,0 +1,293 @@
+{
+ "reels": [
+  {
+   "id": "R010_yelled",
+   "series": "Things Employees Are Afraid to Say",
+   "scene": "rain_window",
+   "duration": 16.1,
+   "motion": "in",
+   "outcome": "By the end of this post, viewers will feel that being yelled at is not their fault and be able to ask for a calm conversation, then write it down.",
+   "loops": [
+    {
+     "open": "Your boss yelled. Why do you feel guilty?",
+     "payoff": "Because toxic jobs hurt: 76% of workers in toxic workplaces say work has hurt their mental health (APA)."
+    },
+    {
+     "open": "So what do you do?",
+     "payoff": "Ask for a calm conversation, then write down what happened.",
+     "delivers_outcome": true
+    }
+   ],
+   "sources": [
+    "https://www.apa.org/pubs/reports/work-in-america/2023-infographics/mental-health-concerns-infographic (APA 2023 Work in America: 76% of workers in toxic workplaces agree work has negatively impacted their mental health)"
+   ],
+   "props": [
+    {
+     "type": "notification",
+     "app": "Messages",
+     "time": "2:14 PM",
+     "sender": "Boss",
+     "body": "My office. NOW.",
+     "start": 0.15,
+     "end": 3.6,
+     "y": 1060
+    },
+    {
+     "type": "stat",
+     "kicker": "It's not just you",
+     "number": "76%",
+     "label": "of workers in toxic workplaces say work has hurt their mental health",
+     "source": "APA, 2023",
+     "start": 3.9,
+     "end": 7.2,
+     "y": 1040
+    },
+    {
+     "type": "reply",
+     "text": "I want to fix this. Can we talk when it's calm?",
+     "start": 7.8,
+     "end": 11.8,
+     "y": 1060
+    },
+    {
+     "type": "tasks",
+     "title": "Tonight",
+     "start": 9.7,
+     "interval": 0.7,
+     "end": 11.8,
+     "y": 1330,
+     "items": [
+      {
+       "text": "Write down the date and exact words",
+       "tag": "then rest"
+      }
+     ]
+    },
+    {
+     "type": "follow",
+     "start": 12.1,
+     "end": 16.1,
+     "y": 1080
+    }
+   ],
+   "frames": [
+    {
+     "text": "Your boss yelled. *Why do you feel guilty?*",
+     "start": 0,
+     "end": 3.6,
+     "size": 96,
+     "y": 540,
+     "beat": "emotion,curiosity"
+    },
+    {
+     "text": "It's not you. *So what do you do?*",
+     "start": 3.9,
+     "end": 7.2,
+     "size": 92,
+     "y": 540,
+     "beat": "proof,curiosity"
+    },
+    {
+     "text": "Ask for calm. *Then write it down.*",
+     "start": 7.5,
+     "end": 11.8,
+     "size": 92,
+     "y": 540,
+     "beat": "emotion,proof"
+    },
+    {
+     "text": "Follow now, or you might *never see this page again.*",
+     "start": 12.1,
+     "end": 16.1,
+     "size": 88,
+     "y": 540,
+     "sub": "Send this to someone who feels guilty.",
+     "beat": "emotion"
+    }
+   ]
+  },
+  {
+   "id": "R011_raise",
+   "series": "Would You Quit?",
+   "scene": "night_office",
+   "duration": 16.1,
+   "motion": "in",
+   "outcome": "By the end of this post, viewers will be able to ask for a written path to a raise and set a deadline before deciding to stay or go.",
+   "loops": [
+    {
+     "open": "Raise denied by your boss. Stay or go?",
+     "payoff": "Lots of people go: 3.1 million Americans quit in August 2026 (BLS)."
+    },
+    {
+     "open": "But should you?",
+     "payoff": "First ask what it takes, in writing, with a date. Then decide.",
+     "delivers_outcome": true
+    }
+   ],
+   "sources": [
+    "https://www.bls.gov/news.release/archives/jolts_09292026.htm (BLS JOLTS: the number of quits was 3.1 million in August 2026)"
+   ],
+   "props": [
+    {
+     "type": "notification",
+     "app": "Mail",
+     "time": "4:48 PM",
+     "sender": "Boss",
+     "body": "Re: Raise. Not this year. Budgets are tight.",
+     "start": 0.15,
+     "end": 3.6,
+     "y": 1060
+    },
+    {
+     "type": "stat",
+     "kicker": "You're not the only one",
+     "number": "3.1M",
+     "label": "Americans quit their jobs in August 2026",
+     "source": "BLS, 2026",
+     "start": 3.9,
+     "end": 7.2,
+     "y": 1040
+    },
+    {
+     "type": "reply",
+     "text": "What would I need to do to earn a raise by spring?",
+     "start": 7.8,
+     "end": 11.8,
+     "y": 1060
+    },
+    {
+     "type": "tasks",
+     "title": "Then",
+     "start": 9.7,
+     "interval": 0.7,
+     "end": 11.8,
+     "y": 1330,
+     "items": [
+      {
+       "text": "Get the answer in writing",
+       "tag": "90 days"
+      }
+     ]
+    },
+    {
+     "type": "follow",
+     "start": 12.1,
+     "end": 16.1,
+     "y": 1080
+    }
+   ],
+   "frames": [
+    {
+     "text": "Raise denied by your boss. *Stay or go?*",
+     "start": 0,
+     "end": 3.6,
+     "size": 88,
+     "y": 540,
+     "beat": "emotion,curiosity"
+    },
+    {
+     "text": "Millions quit every month. *But should you?*",
+     "start": 3.9,
+     "end": 7.2,
+     "size": 88,
+     "y": 540,
+     "beat": "proof,curiosity"
+    },
+    {
+     "text": "Ask what it takes. *In writing. Then decide.*",
+     "start": 7.5,
+     "end": 11.8,
+     "size": 88,
+     "y": 540,
+     "beat": "emotion,proof"
+    },
+    {
+     "text": "Follow now, or you might *never see this page again.*",
+     "start": 12.1,
+     "end": 16.1,
+     "size": 88,
+     "y": 540,
+     "sub": "Send this to someone underpaid and unsure.",
+     "beat": "emotion"
+    }
+   ]
+  }
+ ],
+ "carousels": [
+  {
+   "id": "C004_later",
+   "series": "What Your Boss Really Means",
+   "outcome": "By the end of this post, viewers will be able to turn a boss's vague promise into a date, in writing, with one sentence.",
+   "loops": [
+    {
+     "open": "Your boss says \"We'll revisit it later.\" What does that really mean?",
+     "payoff": "Often: never, unless you follow up."
+    },
+    {
+     "open": "Hear other phrases like that?",
+     "payoff": "\"Wear many hats\" = three jobs, one paycheck. \"Take this offline\" = not where others can hear."
+    },
+    {
+     "open": "Why does it matter?",
+     "payoff": "Managers account for at least 70% of the variance in team engagement (Gallup)."
+    },
+    {
+     "open": "So what do you say?",
+     "payoff": "\"Sounds good. Can we put a date on it? Next Friday?\"",
+     "delivers_outcome": true
+    }
+   ],
+   "sources": [
+    "https://news.gallup.com/businessjournal/182792/managers-account-variance-employee-engagement.aspx (Gallup: managers account for at least 70% of the variance in employee engagement scores across business units)"
+   ],
+   "slides": [
+    {
+     "scene": "lamp",
+     "text": "Your boss says \"We'll revisit it later.\" *What does that really mean?*",
+     "sub": "Boss phrases, translated. Then what to say.",
+     "beat": "emotion,curiosity"
+    },
+    {
+     "scene": "conference",
+     "kicker": "Translation",
+     "text": "\"Later\" often means *never, unless you follow up.* Heard others?",
+     "beat": "emotion,curiosity"
+    },
+    {
+     "scene": "rain_window",
+     "kicker": "Translation",
+     "text": "\"You'll wear many hats\" = *three jobs, one paycheck.* Sound familiar?",
+     "beat": "emotion,curiosity"
+    },
+    {
+     "scene": "hallway",
+     "kicker": "Translation",
+     "text": "\"Let's take this offline\" = *not where others can hear.* Why does it matter?",
+     "beat": "emotion,curiosity"
+    },
+    {
+     "scene": "monitor",
+     "kicker": "Why it matters",
+     "text": "Managers drive at least 70% of team engagement differences. *So what do you say?*",
+     "sub": "Gallup",
+     "beat": "proof,curiosity"
+    },
+    {
+     "scene": "lamp",
+     "kicker": "Say this instead",
+     "mono": true,
+     "text": "\"Sounds good. Can we put a date on it? Next Friday?\"",
+     "sub": "Vague words, pinned down in writing.",
+     "beat": "proof,emotion"
+    },
+    {
+     "scene": "night_office",
+     "kicker": "Before you go",
+     "text": "Follow *@unspokenatwork1* now, or you might never see this page again.",
+     "sub": "Save this for the next \"later.\"",
+     "beat": "emotion"
+    }
+   ]
+  }
+ ]
+}
