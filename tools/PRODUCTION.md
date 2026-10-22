@@ -1,3 +1,26 @@
+# >>> CAROUSELS (user, Oct 22 12:59 AM; PERMANENT): EVERY carousel uses the light background:
+#   spec "look": "paper" on the carousel (all 7 slides). Reels keep rotating dark / paper / thread.
+#   Hooks must be MORE curiosity-driven and built on RELATABLE things people go through at work,
+#   and the carousel must show HOW TO DEAL WITH IT.
+#   Slide 1 formula: a specific moment the reader has lived + a question they need answered,
+#   and the sub line promises the fix ("Swipe for what to say." / "Here's how to handle it.").
+#   Make the answer impossible to guess from slide 1 (curiosity gap); pay it off on slides 2-5,
+#   slide 6 = exactly what to say or do, slide 7 = follow.
+#   Idea bank (rotate; never repeat a used one; stats only from verified sources):
+#   - "Your boss is nice to everyone but you. Why?"
+#   - "You got 'feedback' in front of the whole team. What do you say next?"
+#   - "Why does one coworker get away with everything?" (favoritism)
+#   - "Your boss keeps 'forgetting' what they promised. Accident or pattern?"
+#   - "Your boss changed the story. Which email saves you?"
+#   - "Why are you exhausted after a day you 'did nothing'?"
+#   - "'Got a minute?' Why does your heart race?"
+#   - "Your coworker took credit in the meeting. Do you speak up?"
+#   - "Doing two jobs for one paycheck. How did that happen?"
+#   - "Why do the best employees quit first?"
+#   - "Your 1:1 got canceled again. What is it telling you?"
+#   - "'We're a family here.' So why do you feel replaceable?"
+#   - "Your boss only notices your mistakes. Why?"
+#   - "You're dreading tomorrow already. Is it you, or the job?"
 # >>> REACH FIX (user, Oct 22 12:46 AM: "do what you need to do to fix this"; PERMANENT).
 # Views were low and every post used the same dark template. From now on:
 # 1. LOOK ROTATION: never run a whole day (or 3 feed posts in a row) in one look. Looks in engine.py:
