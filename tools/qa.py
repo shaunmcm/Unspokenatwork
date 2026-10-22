@@ -74,7 +74,12 @@ def qa_reel(r):
         events.add(round(f["start"], 2))
     for p in r.get("props", []):
         events.add(round(p.get("start", 0), 2))
-        if p["type"] == "tasks":
+        if p["type"] in ("tasks", "thread"):
+            st = p.get("start", 0) + (0.3 if p["type"] == "tasks" else 0.15)
+            items = p.get("items") or p.get("messages")
+            for k in range(len(items)):
+                events.add(round(st + k * p.get("interval", 0.7), 2))
+        if False:
             st = p.get("start", 0) + 0.3
             for k in range(len(p["items"])):
                 events.add(round(st + k * p.get("interval", 0.7), 2))

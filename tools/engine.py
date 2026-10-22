@@ -26,6 +26,29 @@ INK = (242, 240, 235)       # off-white text
 AMBER = (217, 161, 91)      # brand accent
 MUTED = (160, 166, 178)     # secondary text
 HANDLE = "@unspokenatwork1"
+THEMES = {"dark": ((242, 240, 235), (217, 161, 91), (160, 166, 178)),
+          "paper": ((26, 26, 30), (178, 64, 34), (98, 94, 88))}
+
+
+def set_theme(name):
+    """Switch the text palette (dark = off-white on night scenes, paper = ink on cream)."""
+    global INK, AMBER, MUTED
+    INK, AMBER, MUTED = THEMES.get(name or "dark", THEMES["dark"])
+
+
+def paper_bg(w, h, seed):
+    """Light 'paper' look: warm cream gradient, faint ruled lines, soft grain. Breaks up the dark feed."""
+    rnd = np.random.default_rng(seed)
+    arr = _grad(w, h, (246, 241, 231), (230, 222, 207))
+    yy = np.arange(h)[:, None]
+    lines = ((yy % 64) < 2).astype(float) * 10
+    arr = arr - lines[..., None] * np.array([0.2, 0.6, 1.0])
+    arr += rnd.normal(0, 4, (h, w, 1))
+    yy2, xx = np.mgrid[0:h, 0:w]
+    v = np.sqrt(((xx - w / 2) / (w * 0.8)) ** 2 + ((yy2 - h / 2) / (h * 0.8)) ** 2)
+    arr *= np.clip(1.06 - 0.16 * v ** 2, 0.8, 1)[..., None]
+    return Image.fromarray(np.clip(arr, 0, 255).astype("uint8"))
+
 BRAND = "UNSPOKEN AT WORK"
 
 
@@ -206,16 +229,22 @@ def wrap(words, fnt, maxw, draw):
     return lines
 
 
-def draw_block(draw, text, x, y, maxw, size, fpath=F_HEAD, color=INK, accent=AMBER, lh=1.18, max_lines=None):
+def draw_block(draw, text, x, y, maxw, size, fpath=F_HEAD, color=None, accent=None, lh=1.18, max_lines=None, upto=None):
+    color = INK if color is None else color
+    accent = AMBER if accent is None else accent
     fnt = font(fpath, size)
     words = parse(text)
     lines = wrap(words, fnt, maxw, draw)
     while max_lines and len(lines) > max_lines and size > 30:
         size -= 4; fnt = font(fpath, size); lines = wrap(words, fnt, maxw, draw)
+    k = 0
     for line in lines:
         cx = x
         for i, (wd, acc) in enumerate(line):
             s = wd + (" " if i < len(line) - 1 else "")
+            k += 1
+            if upto is not None and k > upto:
+                continue
             draw.text((cx, y), s, font=fnt, fill=accent if acc else color)
             cx += draw.textlength(s, font=fnt)
         y += int(size * lh)
@@ -454,6 +483,37 @@ def stat_card(p, W):
     return card
 
 
+def thread_assets(p, W):
+    """Full chat thread from the boss: header + incoming gray bubbles that pop in one by one."""
+    pw = W - 140
+    head = _rr(pw, 130, 36, (30, 32, 38, 245))
+    d = ImageDraw.Draw(head)
+    d.ellipse([30, 25, 110, 105], fill=(120, 126, 140))
+    af = font(F_BLACK, 34)
+    ini = p.get("initials", "B")
+    d.text((70 - d.textlength(ini, font=af) / 2, 44), ini, font=af, fill=(255, 255, 255))
+    d.text((134, 28), p.get("sender", "Boss"), font=font(F_HEAD, 44), fill=(255, 255, 255))
+    d.text((134, 80), p.get("status", "iMessage"), font=font(F_MED, 26), fill=(160, 166, 178))
+    d0 = ImageDraw.Draw(Image.new("RGB", (10, 10)))
+    f = font(F_MED, 40)
+    bubbles = []
+    for m in p["messages"]:
+        lines = wrap(parse(m["text"]), f, pw - 240, d0)
+        bh = 40 + len(lines) * 52
+        bw_ = int(max(d0.textlength(" ".join(w for w, _ in ln), font=f) for ln in lines)) + 76
+        im = Image.new("RGBA", (pw, bh + (40 if m.get("time") else 0)), (0, 0, 0, 0))
+        di = ImageDraw.Draw(im)
+        di.rounded_rectangle([0, 0, bw_, bh], 36, fill=(58, 60, 68, 250))
+        y = 22
+        for ln in lines:
+            di.text((38, y), " ".join(w for w, _ in ln), font=f, fill=(255, 255, 255))
+            y += 52
+        if m.get("time"):
+            di.text((12, bh + 8), m["time"], font=font(F_MED, 24), fill=(150, 156, 168))
+        bubbles.append(im)
+    return head, bubbles
+
+
 def prop_layer(p, W, H, tt, assets):
     """Return an RGBA layer with the prop drawn at time tt (None = nothing yet)."""
     if tt < p.get("start", 0) or tt > p.get("end", 1e9):
@@ -467,6 +527,21 @@ def prop_layer(p, W, H, tt, assets):
         k = _ease((tt - p.get("start", 0)) / 0.4)
         layer.alpha_composite(_fade(assets, k * out_a), (x0, int(y0 + (1 - k) * 80)))
         return layer
+    if p["type"] == "thread":
+        head, bubs = assets
+        k0 = _ease((tt - p.get("start", 0)) / 0.3)
+        layer.alpha_composite(_fade(head, k0), (x0, y0))
+        y = y0 + 150
+        for i, b in enumerate(bubs):
+            st = p.get("start", 0) + 0.15 + i * p.get("interval", 0.6)
+            if tt < st:
+                break
+            k = _ease((tt - st) / 0.25)
+            sc = 0.85 + 0.15 * k
+            bb = b.resize((max(1, int(b.width * sc)), max(1, int(b.height * sc))), Image.BILINEAR)
+            layer.alpha_composite(_fade(bb, k), (x0, int(y + (1 - k) * 20)))
+            y += b.height + 18
+        return _fade(layer, out_a)
     if p["type"] == "tasks":
         head, rows = assets
         layer.alpha_composite(head, (x0, y0))
@@ -497,6 +572,8 @@ def prop_assets(p, W):
         return notification_card(p, W)
     if p["type"] == "tasks":
         return task_assets(p, W)
+    if p["type"] == "thread":
+        return thread_assets(p, W)
     if p["type"] == "invite":
         return invite_card(p, W)
     if p["type"] == "reply":
@@ -609,10 +686,24 @@ def render_reel(spec, out_dir):
     dur = float(spec["duration"])
     seed = spec.get("seed", zlib.crc32(spec["id"].encode()) & 0xFFFF)
     bw, bh = int(W * 1.12), int(H * 1.12)
-    bg = finish(scene(spec["scene"], bw, bh, seed), seed, darken_top=0.5)
+    look = spec.get("look", "dark")
+    set_theme(look)
+    if look == "paper":
+        bg = paper_bg(bw, bh, seed)
+    else:
+        bg = finish(scene(spec["scene"], bw, bh, seed), seed, darken_top=0.5)
     frames = spec["frames"]  # [{text, start, end, size}]
     text_layers = []
-    for fr in frames:
+    reveal_layers = {}
+    for fi, fr in enumerate(frames):
+        if fr.get("reveal"):
+            nwords = len(parse(fr["text"]))
+            seq = []
+            for k in range(1, nwords + 1):
+                lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+                draw_block(ImageDraw.Draw(lay), fr["text"], 90, fr.get("y", 520), W - 180 - 60, fr.get("size", 84), max_lines=6, upto=k)
+                seq.append(lay)
+            reveal_layers[fi] = seq
         layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
         d = ImageDraw.Draw(layer)
         size = fr.get("size", 84)
@@ -657,8 +748,14 @@ def render_reel(spec, out_dir):
             pl = prop_layer(pp, W, H, tt, pa)
             if pl is not None:
                 frame.alpha_composite(pl)
-        for fr, layer in zip(frames, text_layers):
+        for fi, (fr, layer) in enumerate(zip(frames, text_layers)):
             s, e = fr["start"], fr["end"]
+            rv = fr.get("reveal_time", 1.0)
+            if fi in reveal_layers and s <= tt < s + rv:
+                seq = reveal_layers[fi]
+                idx = min(len(seq) - 1, int((tt - s) / rv * len(seq)))
+                frame.alpha_composite(seq[idx])
+                continue
             fade = fr.get("fade", 0.45)
             if tt < s or tt > e:
                 continue
@@ -684,6 +781,7 @@ def render_reel(spec, out_dir):
     cover.alpha_composite(text_layers[0])
     cover.convert("RGB").save(os.path.join(out_dir, spec["id"] + "_cover.jpg"), quality=92)
     os.remove(wav)
+    set_theme("dark")
     return mp4
 
 
@@ -696,7 +794,12 @@ def render_carousel(spec, out_dir):
     paths = []
     for i, s in enumerate(slides):
         seed = seed0 + i
-        bg = finish(scene(s.get("scene", spec.get("scene", "lamp")), W, H, seed), seed, darken_top=0.72).convert("RGBA")
+        lk = s.get("look", spec.get("look", "dark"))
+        set_theme(lk)
+        if lk == "paper":
+            bg = paper_bg(W, H, seed).convert("RGBA")
+        else:
+            bg = finish(scene(s.get("scene", spec.get("scene", "lamp")), W, H, seed), seed, darken_top=0.72).convert("RGBA")
         d = ImageDraw.Draw(bg)
         first, last = i == 0, i == n - 1
         brand_marks(d, W, H, spec.get("series") if first else None, top=90, show_handle=False)
@@ -723,6 +826,7 @@ def render_carousel(spec, out_dir):
         out = os.path.join(out_dir, f"{spec['id']}_{i + 1}.jpg")
         bg.convert("RGB").save(out, quality=92)
         paths.append(out)
+    set_theme("dark")
     return paths
 
 
@@ -739,7 +843,11 @@ if __name__ == "__main__":
 def render_story(spec, out_dir):
     W, H = 1080, 1920
     seed = spec.get("seed", zlib.crc32(spec["id"].encode()) & 0xFFFF)
-    bg = finish(scene(spec.get("scene", "rain_window"), W, H, seed), seed, darken_top=0.6).convert("RGBA")
+    set_theme(spec.get("look"))
+    if spec.get("look") == "paper":
+        bg = paper_bg(W, H, seed).convert("RGBA")
+    else:
+        bg = finish(scene(spec.get("scene", "rain_window"), W, H, seed), seed, darken_top=0.6).convert("RGBA")
     d = ImageDraw.Draw(bg)
     brand_marks(d, W, H, spec.get("series"), top=260, show_handle=False)
     y = 560
@@ -751,4 +859,5 @@ def render_story(spec, out_dir):
     d.text((90, 400 if spec.get("series") else 340), HANDLE, font=font(F_MED, 32), fill=MUTED)
     out = os.path.join(out_dir, spec["id"] + ".jpg")
     bg.convert("RGB").save(out, quality=92)
+    set_theme("dark")
     return out

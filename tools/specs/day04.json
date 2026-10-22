@@ -23,14 +23,26 @@
    ],
    "props": [
     {
-     "type": "notification",
-     "app": "Messages",
-     "time": "2:14 PM",
+     "type": "thread",
      "sender": "Boss",
-     "body": "My office. NOW.",
-     "start": 0.15,
+     "initials": "B",
+     "status": "Today 2:14 PM",
+     "start": 0.0,
+     "interval": 0.55,
      "end": 3.6,
-     "y": 1060
+     "y": 980,
+     "messages": [
+      {
+       "text": "Where is the report?"
+      },
+      {
+       "text": "Hello??"
+      },
+      {
+       "text": "My office. NOW.",
+       "time": "Read 2:14 PM"
+      }
+     ]
     },
     {
      "type": "stat",
@@ -77,7 +89,9 @@
      "end": 3.6,
      "size": 96,
      "y": 540,
-     "beat": "emotion,curiosity"
+     "beat": "emotion,curiosity",
+     "reveal": true,
+     "reveal_time": 0.9
     },
     {
      "text": "It's not you. *So what do you do?*",
@@ -183,7 +197,9 @@
      "end": 3.6,
      "size": 88,
      "y": 540,
-     "beat": "emotion,curiosity"
+     "beat": "emotion,curiosity",
+     "reveal": true,
+     "reveal_time": 0.9
     },
     {
      "text": "Millions quit every month. *But should you?*",
@@ -210,7 +226,8 @@
      "sub": "Send this to someone underpaid and unsure.",
      "beat": "emotion"
     }
-   ]
+   ],
+   "look": "paper"
   }
  ],
  "carousels": [
@@ -287,7 +304,8 @@
      "sub": "Save this for the next \"later.\"",
      "beat": "emotion"
     }
-   ]
+   ],
+   "look": "paper"
   }
  ]
 }
