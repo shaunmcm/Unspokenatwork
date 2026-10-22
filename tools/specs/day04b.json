@@ -1,0 +1,73 @@
+{
+ "carousels": [
+  {
+   "id": "C005_exhausted",
+   "series": "Burnout Nobody Talks About",
+   "look": "paper",
+   "outcome": "By the end of this post, viewers will know why a 'do-nothing' day drains them and be able to protect one focus block tomorrow with a single status message.",
+   "loops": [
+    {
+     "open": "You 'did nothing' all day. So why are you this exhausted?",
+     "payoff": "Because you never got to finish one thing."
+    },
+    {
+     "open": "Why does that hurt so much?",
+     "payoff": "The average worker gets interrupted about every 2 minutes, 275 times a day (Microsoft)."
+    },
+    {
+     "open": "What does that do to you?",
+     "payoff": "Every switch restarts your focus, so your brain worked all day."
+    },
+    {
+     "open": "So what helps?",
+     "payoff": "Not staying late. Block 90 minutes and say so.",
+     "delivers_outcome": true
+    }
+   ],
+   "sources": [
+    "https://www.unleash.ai/artificial-intelligence/microsoft-employees-are-interrupted-every-2-minutes-how-can-ai-help-us-re-focus-on-the-work-that-matters/ (Microsoft Work Trend Index 2025, 'Breaking Down the Infinite Workday': workers get about two minutes of uninterrupted time between meetings, emails or messages in core hours; 275 interruptions a day)"
+   ],
+   "slides": [
+    {
+     "text": "You \"did nothing\" all day. *So why are you this exhausted?*",
+     "sub": "What's really draining you, and the fix.",
+     "beat": "emotion,curiosity"
+    },
+    {
+     "kicker": "Sound familiar?",
+     "text": "Meetings. Pings. \"Quick question?\" *You never finished one thing.* Why does that hurt?",
+     "beat": "emotion,curiosity"
+    },
+    {
+     "kicker": "The numbers",
+     "text": "The average worker gets interrupted *about every 2 minutes.* What does that do?",
+     "sub": "Microsoft Work Trend Index, 2025",
+     "beat": "proof,curiosity"
+    },
+    {
+     "kicker": "The hidden cost",
+     "text": "Every switch restarts your focus. *Your brain worked all day.* So what helps?",
+     "beat": "emotion,curiosity"
+    },
+    {
+     "kicker": "The mistake",
+     "text": "Staying late to \"catch up.\" *It makes tomorrow worse.* What works instead?",
+     "beat": "emotion,curiosity"
+    },
+    {
+     "kicker": "Do this tomorrow",
+     "mono": true,
+     "text": "Block 90 minutes. Status: \"Heads down until 11. Urgent? Call me.\"",
+     "sub": "Then take a real lunch, away from your desk.",
+     "beat": "proof,emotion"
+    },
+    {
+     "kicker": "Before you go",
+     "text": "Follow *@unspokenatwork1* now, or you might never see this page again.",
+     "sub": "Save this for your next \"nothing\" day.",
+     "beat": "emotion"
+    }
+   ]
+  }
+ ]
+}
