@@ -1,3 +1,22 @@
+# >>> REACH FIX (user, Oct 22 12:46 AM: "do what you need to do to fix this"; PERMANENT).
+# Views were low and every post used the same dark template. From now on:
+# 1. LOOK ROTATION: never run a whole day (or 3 feed posts in a row) in one look. Looks in engine.py:
+#    "dark" (night scenes, default) and "paper" (spec "look": "paper": ink on cream, rust accent).
+#    Each day: at least one Reel or the carousel in "paper"; at least one Reel opening on the
+#    "thread" prop (full chat from Boss, 2-3 messages popping in from 0.0 s, interval ~0.55, y ~980).
+# 2. HOOK MOTION: Reel hook frame uses "reveal": true, "reveal_time": 0.9 (word-by-word in the first
+#    second) so something moves instantly; the prop must be on screen by 0.15 s.
+# 3. FIRST COMMENT: every feed post gets "first_comment" in posts/dayNN.json: a one-line question
+#    with a one-word answer (YES/NO, STAY/GO, JOB/BOSS) + one emoji, no hearts. The posting task
+#    POSTs it right after publishing: POST /<new media id>/comments?message=<first_comment>
+#    (Make API Mutating Request). Pinning is not possible through the API.
+# 4. LIMITS FOUND Oct 22: insights (#10) are blocked on all 3 Zapier Instagram connections (it's the
+#    Zapier app's permission, reconnecting won't fix it). Trial Reels work through the API
+#    (POST /media media_type=REELS video_url=... trial_params={"graduation_strategy":"SS_PERFORMANCE"},
+#    then /media_publish) but Instagram refuses them below its follower minimum. Re-test once
+#    followers >= 1,000 and switch one Reel a day to trial if accepted. Library/trending audio
+#    cannot be added through this API.
+# Keep all user timing, CTA and loop rules unchanged.
 # >>> NO HEART SYMBOLS (user, Oct 20 10:52 PM): never use heart emojis/symbols (❤ 🤍 💙 ♥ <3 etc.) anywhere: captions, on-screen text, Stories, comment replies, DM texts.
 # >>> COMMENTS + DMs (user, Oct 20 10:49 PM): auto-reply to every comment per COMMENTS.md (kind, general
 # niche info backed by the FACT BANK, nothing secret, nothing offensive). A separate send_later chain
