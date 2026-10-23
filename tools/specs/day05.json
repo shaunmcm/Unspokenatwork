@@ -1,0 +1,324 @@
+{
+ "reels": [
+  {
+   "id": "R012_dayoff",
+   "series": "Burnout Nobody Talks About",
+   "scene": "lamp",
+   "duration": 16.1,
+   "motion": "in",
+   "outcome": "By the end of this post, viewers will be able to answer a day-off text from their boss with one calm line and then actually rest.",
+   "loops": [
+    {
+     "open": "It's your day off. Why does your boss text?",
+     "payoff": "Because always-on is normal now: the average worker gets 50+ messages outside core hours (Microsoft)."
+    },
+    {
+     "open": "So what now?",
+     "payoff": "Reply once, calmly, then put the phone down.",
+     "delivers_outcome": true
+    }
+   ],
+   "sources": [
+    "https://www.axios.com/2025/06/17/microsoft-remote-work-meetings (Microsoft Work Trend Index 2025: average employee sends or receives 50+ messages outside core business hours)"
+   ],
+   "props": [
+    {
+     "type": "thread",
+     "sender": "Boss",
+     "initials": "B",
+     "status": "Saturday 10:06 AM",
+     "start": 0.0,
+     "interval": 0.55,
+     "end": 3.6,
+     "y": 980,
+     "messages": [
+      {
+       "text": "Hey, you around?"
+      },
+      {
+       "text": "Need you on a call for 5 min"
+      },
+      {
+       "text": "I know it's your day off, but...",
+       "time": "Read 10:07 AM"
+      }
+     ]
+    },
+    {
+     "type": "stat",
+     "kicker": "It's not just you",
+     "number": "50+",
+     "label": "messages the average worker sends or gets outside core hours",
+     "source": "Microsoft, 2025",
+     "start": 3.9,
+     "end": 7.2,
+     "y": 1040
+    },
+    {
+     "type": "reply",
+     "text": "I'm off today. I'll handle it first thing tomorrow.",
+     "start": 7.8,
+     "end": 11.8,
+     "y": 1060
+    },
+    {
+     "type": "tasks",
+     "title": "Then",
+     "start": 9.7,
+     "interval": 0.7,
+     "end": 11.8,
+     "y": 1330,
+     "items": [
+      {
+       "text": "Mute work apps until tomorrow",
+       "tag": "and rest"
+      }
+     ]
+    },
+    {
+     "type": "follow",
+     "start": 12.1,
+     "end": 16.1,
+     "y": 1080
+    }
+   ],
+   "frames": [
+    {
+     "text": "It's your day off. *Why does your boss text?*",
+     "start": 0,
+     "end": 3.6,
+     "size": 92,
+     "y": 540,
+     "reveal": true,
+     "reveal_time": 0.9,
+     "beat": "emotion,curiosity"
+    },
+    {
+     "text": "Because you always answer. *So what now?*",
+     "start": 3.9,
+     "end": 7.2,
+     "size": 90,
+     "y": 540,
+     "beat": "proof,curiosity"
+    },
+    {
+     "text": "Reply once, calmly. *Then put the phone down.*",
+     "start": 7.5,
+     "end": 11.8,
+     "size": 88,
+     "y": 540,
+     "beat": "emotion,proof"
+    },
+    {
+     "text": "Follow now, or you might *never see this page again.*",
+     "start": 12.1,
+     "end": 16.1,
+     "size": 88,
+     "y": 540,
+     "sub": "Send this to the always-on coworker.",
+     "beat": "emotion"
+    }
+   ]
+  },
+  {
+   "id": "R013_twojobs",
+   "series": "The Workplace Double Standard",
+   "scene": "conference",
+   "look": "paper",
+   "duration": 16.1,
+   "motion": "in",
+   "outcome": "By the end of this post, viewers will be able to push back on absorbing a departed coworker's job by asking what should pause.",
+   "loops": [
+    {
+     "open": "Your coworker quit. Why is their job now yours?",
+     "payoff": "Because quits are common: 3.1 million Americans quit in August 2026 (BLS), and the work lands on whoever stays."
+    },
+    {
+     "open": "Who gets their work?",
+     "payoff": "You don't have to silently take it all: ask which of your work pauses.",
+     "delivers_outcome": true
+    }
+   ],
+   "sources": [
+    "https://www.bls.gov/news.release/archives/jolts_09292026.htm (BLS JOLTS: the number of quits was 3.1 million in August 2026)"
+   ],
+   "props": [
+    {
+     "type": "tasks",
+     "title": "Your to-do list",
+     "start": 0.15,
+     "interval": 0.6,
+     "end": 3.6,
+     "y": 1000,
+     "items": [
+      {
+       "text": "Your projects",
+       "tag": "yours"
+      },
+      {
+       "text": "Sam's projects",
+       "tag": "from Manager"
+      },
+      {
+       "text": "Sam's clients",
+       "tag": "from Manager"
+      },
+      {
+       "text": "Sam's weekly report",
+       "tag": "from Manager"
+      }
+     ]
+    },
+    {
+     "type": "stat",
+     "kicker": "It happens a lot",
+     "number": "3.1M",
+     "label": "Americans quit their jobs in August 2026",
+     "source": "BLS, 2026",
+     "start": 3.9,
+     "end": 7.2,
+     "y": 1040
+    },
+    {
+     "type": "reply",
+     "text": "Happy to help short-term. Which of my projects should pause?",
+     "start": 7.8,
+     "end": 11.8,
+     "y": 1060
+    },
+    {
+     "type": "tasks",
+     "title": "Then",
+     "start": 9.7,
+     "interval": 0.7,
+     "end": 11.8,
+     "y": 1330,
+     "items": [
+      {
+       "text": "Put the new priorities in writing",
+       "tag": "same day"
+      }
+     ]
+    },
+    {
+     "type": "follow",
+     "start": 12.1,
+     "end": 16.1,
+     "y": 1080
+    }
+   ],
+   "frames": [
+    {
+     "text": "Your coworker quit. *Why is their job now yours?*",
+     "start": 0,
+     "end": 3.6,
+     "size": 90,
+     "y": 540,
+     "reveal": true,
+     "reveal_time": 0.9,
+     "beat": "emotion,curiosity"
+    },
+    {
+     "text": "Millions quit monthly. *Who gets their work?*",
+     "start": 3.9,
+     "end": 7.2,
+     "size": 90,
+     "y": 540,
+     "beat": "proof,curiosity"
+    },
+    {
+     "text": "Don't just absorb it. *Ask what pauses.*",
+     "start": 7.5,
+     "end": 11.8,
+     "size": 92,
+     "y": 540,
+     "beat": "emotion,proof"
+    },
+    {
+     "text": "Follow now, or you might *never see this page again.*",
+     "start": 12.1,
+     "end": 16.1,
+     "size": 88,
+     "y": 540,
+     "sub": "Send this to whoever's doing two jobs.",
+     "beat": "emotion"
+    }
+   ]
+  }
+ ],
+ "carousels": [
+  {
+   "id": "C006_canceled",
+   "series": "The Employee Survival Playbook",
+   "look": "paper",
+   "outcome": "By the end of this post, viewers will know a repeatedly canceled 1:1 is a pattern worth fixing and be able to ask for a short, specific meeting their boss can say yes to.",
+   "loops": [
+    {
+     "open": "Your 1:1 got canceled again. What is it really telling you?",
+     "payoff": "It's become a pattern: moved, then canceled again."
+    },
+    {
+     "open": "Does it matter?",
+     "payoff": "Yes: managers account for at least 70% of the variance in team engagement (Gallup)."
+    },
+    {
+     "open": "So what does skipping you say?",
+     "payoff": "Often overload, not dislike, but the pattern still costs you."
+    },
+    {
+     "open": "So what helps?",
+     "payoff": "Not waiting quietly to be rescheduled."
+    },
+    {
+     "open": "What works instead?",
+     "payoff": "Ask for 15 minutes on a set day with two specific questions.",
+     "delivers_outcome": true
+    }
+   ],
+   "sources": [
+    "https://news.gallup.com/businessjournal/182792/managers-account-variance-employee-engagement.aspx (Gallup: managers account for at least 70% of the variance in employee engagement scores across business units)"
+   ],
+   "slides": [
+    {
+     "text": "Your 1:1 got canceled. *Again.* What is it really telling you?",
+     "sub": "What it means, and what to say.",
+     "beat": "emotion,curiosity"
+    },
+    {
+     "kicker": "Sound familiar?",
+     "text": "\"Something came up.\" Moved to next week. *Then canceled again.* Does it matter?",
+     "beat": "emotion,curiosity"
+    },
+    {
+     "kicker": "Why it matters",
+     "text": "Managers drive at least 70% of team engagement differences. *So what does skipping you say?*",
+     "sub": "Gallup",
+     "beat": "proof,curiosity"
+    },
+    {
+     "kicker": "What it can mean",
+     "text": "Often it's overload, not dislike. *But the pattern costs you.* So what helps?",
+     "beat": "emotion,curiosity"
+    },
+    {
+     "kicker": "The mistake",
+     "text": "Waiting quietly to be rescheduled. *Out of sight, out of mind.* What works instead?",
+     "beat": "emotion,curiosity"
+    },
+    {
+     "kicker": "Say this instead",
+     "mono": true,
+     "text": "\"Can we keep 15 minutes Thursday? I need your call on two things.\"",
+     "sub": "Short, specific, easy to say yes to.",
+     "beat": "proof,emotion"
+    },
+    {
+     "kicker": "Before you go",
+     "text": "Follow *@unspokenatwork1* now, or you might never see this page again.",
+     "sub": "Save this for the next cancel.",
+     "beat": "emotion"
+    }
+   ]
+  }
+ ]
+}
