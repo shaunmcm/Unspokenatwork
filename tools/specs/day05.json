@@ -6,15 +6,15 @@
    "scene": "lamp",
    "duration": 16.1,
    "motion": "in",
-   "outcome": "By the end of this post, viewers will be able to answer a day-off text from their boss with one calm line and then actually rest.",
+   "outcome": "By the end of this post, viewers will be able to answer a day-off text from their boss with one calm line (not silence, not a call) and then actually rest.",
    "loops": [
     {
-     "open": "It's your day off. Why does your boss text?",
-     "payoff": "Because always-on is normal now: the average worker gets 50+ messages outside core hours (Microsoft)."
+     "open": "Day-off text from your boss. What do you send?",
+     "payoff": "Not silence, not a call: one calm line."
     },
     {
-     "open": "So what now?",
-     "payoff": "Reply once, calmly, then put the phone down.",
+     "open": "Is it just you?",
+     "payoff": "No: the average worker gets 50+ messages outside core hours (Microsoft). Mute work apps until tomorrow.",
      "delivers_outcome": true
     }
    ],
@@ -33,9 +33,6 @@
      "y": 980,
      "messages": [
       {
-       "text": "Hey, you around?"
-      },
-      {
        "text": "Need you on a call for 5 min"
       },
       {
@@ -45,29 +42,29 @@
      ]
     },
     {
+     "type": "reply",
+     "text": "I'm off today. I'll handle it first thing tomorrow.",
+     "start": 3.9,
+     "end": 7.2,
+     "y": 1060
+    },
+    {
      "type": "stat",
      "kicker": "It's not just you",
      "number": "50+",
      "label": "messages the average worker sends or gets outside core hours",
      "source": "Microsoft, 2025",
-     "start": 3.9,
-     "end": 7.2,
-     "y": 1040
-    },
-    {
-     "type": "reply",
-     "text": "I'm off today. I'll handle it first thing tomorrow.",
-     "start": 7.8,
+     "start": 7.5,
      "end": 11.8,
-     "y": 1060
+     "y": 1000
     },
     {
      "type": "tasks",
      "title": "Then",
-     "start": 9.7,
+     "start": 9.6,
      "interval": 0.7,
      "end": 11.8,
-     "y": 1330,
+     "y": 1340,
      "items": [
       {
        "text": "Mute work apps until tomorrow",
@@ -84,7 +81,7 @@
    ],
    "frames": [
     {
-     "text": "It's your day off. *Why does your boss text?*",
+     "text": "Day-off text from your boss. *What do you send?*",
      "start": 0,
      "end": 3.6,
      "size": 92,
@@ -94,20 +91,20 @@
      "beat": "emotion,curiosity"
     },
     {
-     "text": "Because you always answer. *So what now?*",
+     "text": "Not silence. Not a call. *Just this.*",
      "start": 3.9,
      "end": 7.2,
-     "size": 90,
+     "size": 96,
      "y": 540,
      "beat": "proof,curiosity"
     },
     {
-     "text": "Reply once, calmly. *Then put the phone down.*",
+     "text": "It's not just you. *Then mute work apps.*",
      "start": 7.5,
      "end": 11.8,
-     "size": 88,
+     "size": 90,
      "y": 540,
-     "beat": "emotion,proof"
+     "beat": "proof,emotion"
     },
     {
      "text": "Follow now, or you might *never see this page again.*",
@@ -118,7 +115,8 @@
      "sub": "Send this to the always-on coworker.",
      "beat": "emotion"
     }
-   ]
+   ],
+   "hook_master": "Oct 27: rebuilt with the Hook Master suite (Teacher format in a question; reply bubble moved from 7.8 s to 3.9 s; cut 'Because you always answer')"
   },
   {
    "id": "R013_twojobs",

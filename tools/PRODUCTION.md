@@ -1,3 +1,10 @@
+# >>> HOOK MASTER (user, Oct 27: installed the 9-skill Hook Master suite and ran it). Before rendering,
+#   check every Reel hook against the four failures (delay, confusion, irrelevance, DISINTEREST):
+#   the hook question must not have an obvious answer the viewer can give and swipe; text must ADD to the
+#   on-screen prop, not repeat it; max ~15 words readable in the first 3.6 s (hook + prop together);
+#   the payoff (reply bubble / exact words) must appear by ~4 s, not 8 s; never blame the viewer
+#   ("because you always answer"); a stat card must support the exact line it sits under.
+#   If the hook-master skills are installed (~/.claude/skills), run them on Reel 1 each night.
 # >>> CAROUSELS (user, Oct 22 12:59 AM; PERMANENT): EVERY carousel uses the light background:
 #   spec "look": "paper" on the carousel (all 7 slides). Reels keep rotating dark / paper / thread.
 #   Hooks must be MORE curiosity-driven and built on RELATABLE things people go through at work,
