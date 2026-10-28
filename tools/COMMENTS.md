@@ -1,3 +1,5 @@
+# STOPPED by the user Oct 27, 2026. Do not check or reply to comments.
+
 # Unspoken at Work — auto comment replies (user, Oct 20 2026)
 
 User request: reply to every comment in a kind way, never reveal anything secret or important,

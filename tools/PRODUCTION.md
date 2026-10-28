@@ -1,3 +1,7 @@
+# >>> COMMENT CHECKS STOPPED (user, Oct 27 11:13 AM: "Stop checking comment"). Do NOT run, restart or
+#   reschedule the "Unspoken at Work: comment replies" chain, and ignore the nightly step that restarts it.
+#   If a comment-check task fires anyway, do nothing and do not schedule another. First comments on new
+#   posts are not comment checks and continue.
 # >>> HOOK MASTER (user, Oct 27: installed the 9-skill Hook Master suite and ran it). Before rendering,
 #   check every Reel hook against the four failures (delay, confusion, irrelevance, DISINTEREST):
 #   the hook question must not have an obvious answer the viewer can give and swipe; text must ADD to the
@@ -17,16 +21,16 @@
 #   - "Your boss is nice to everyone but you. Why?"
 #   - "You got 'feedback' in front of the whole team. What do you say next?"
 #   - "Why does one coworker get away with everything?" (favoritism)
-#   - "Your boss keeps 'forgetting' what they promised. Accident or pattern?"
+#   - [USED Oct 28 C007] "Your boss keeps 'forgetting' what they promised. Accident or pattern?"
 #   - "Your boss changed the story. Which email saves you?"
 #   - [USED Oct 22 C005] "Why are you exhausted after a day you did nothing?"
-#   - "'Got a minute?' Why does your heart race?"
+#   - [USED Oct 28 R014 reel] "'Got a minute?' Why does your heart race?"
 #   - "Your coworker took credit in the meeting. Do you speak up?"
 #   - "Doing two jobs for one paycheck. How did that happen?"
 #   - "Why do the best employees quit first?"
 #   - [USED Oct 23 C006] "Your 1:1 got canceled again. What is it telling you?"
 #   - "'We're a family here.' So why do you feel replaceable?"
-#   - "Your boss only notices your mistakes. Why?"
+#   - [USED Oct 28 R015 reel] "Your boss only notices your mistakes. Why?"
 #   - "You're dreading tomorrow already. Is it you, or the job?"
 # >>> REACH FIX (user, Oct 22 12:46 AM: "do what you need to do to fix this"; PERMANENT).
 # Views were low and every post used the same dark template. From now on:

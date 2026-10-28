@@ -1,0 +1,315 @@
+{
+ "reels": [
+  {
+   "id": "R014_gotaminute",
+   "series": "Things Employees Are Afraid to Say",
+   "scene": "rain_window",
+   "duration": 16.1,
+   "motion": "in",
+   "outcome": "By the end of this post, viewers will feel their panic at a vague 'got a minute?' is normal and be able to ask one calm question that turns it into a plan.",
+   "loops": [
+    {
+     "open": "\"Got a minute?\" Why does your heart race?",
+     "payoff": "Vague messages can feel like danger, so ask what it's about."
+    },
+    {
+     "open": "Does asking help?",
+     "payoff": "A topic turns panic into a plan: jot 2 notes, then go.",
+     "delivers_outcome": true
+    }
+   ],
+   "sources": [],
+   "props": [
+    {
+     "type": "thread",
+     "sender": "Boss",
+     "initials": "B",
+     "status": "Today 3:52 PM",
+     "start": 0.0,
+     "interval": 0.55,
+     "end": 3.6,
+     "y": 980,
+     "messages": [
+      {
+       "text": "Got a minute?"
+      },
+      {
+       "text": "Need to talk to you about something.",
+       "time": "Read 3:52 PM"
+      }
+     ]
+    },
+    {
+     "type": "reply",
+     "text": "Sure! What's it about, so I can bring the right info?",
+     "start": 3.9,
+     "end": 7.2,
+     "y": 1060
+    },
+    {
+     "type": "tasks",
+     "title": "Before you walk in",
+     "start": 7.5,
+     "interval": 0.7,
+     "end": 11.8,
+     "y": 1000,
+     "items": [
+      {
+       "text": "Write down the topic",
+       "tag": "10 sec"
+      },
+      {
+       "text": "Jot 2 notes you might need",
+       "tag": "60 sec"
+      },
+      {
+       "text": "One slow breath, then go",
+       "tag": "you're ready"
+      }
+     ]
+    },
+    {
+     "type": "follow",
+     "start": 12.1,
+     "end": 16.1,
+     "y": 1080
+    }
+   ],
+   "frames": [
+    {
+     "text": "\"Got a minute?\" *Why does your heart race?*",
+     "start": 0,
+     "end": 3.6,
+     "size": 96,
+     "y": 540,
+     "reveal": true,
+     "reveal_time": 0.9,
+     "beat": "emotion,curiosity"
+    },
+    {
+     "text": "Vague messages can feel like danger. *So ask.*",
+     "start": 3.9,
+     "end": 7.2,
+     "size": 88,
+     "y": 540,
+     "beat": "proof,curiosity"
+    },
+    {
+     "text": "A topic turns panic *into a plan.*",
+     "start": 7.5,
+     "end": 11.8,
+     "size": 96,
+     "y": 540,
+     "beat": "emotion,proof"
+    },
+    {
+     "text": "Follow now, or you might *never see this page again.*",
+     "start": 12.1,
+     "end": 16.1,
+     "size": 88,
+     "y": 540,
+     "sub": "Send this to the overthinker.",
+     "beat": "emotion"
+    }
+   ]
+  },
+  {
+   "id": "R015_mistakes",
+   "series": "Toxic Boss Red Flags",
+   "scene": "monitor",
+   "look": "paper",
+   "duration": 16.1,
+   "motion": "in",
+   "outcome": "By the end of this post, viewers will be able to make their wins visible with one short weekly email so mistakes aren't the only thing their boss sees.",
+   "loops": [
+    {
+     "open": "Your boss only sees your mistakes. Why?",
+     "payoff": "Wins go quiet, mistakes get noticed."
+    },
+    {
+     "open": "Now what?",
+     "payoff": "Make wins visible every Friday, in writing, and keep a copy.",
+     "delivers_outcome": true
+    }
+   ],
+   "sources": [],
+   "props": [
+    {
+     "type": "tasks",
+     "title": "Your month",
+     "start": 0.1,
+     "interval": 0.55,
+     "end": 3.6,
+     "y": 1000,
+     "items": [
+      {
+       "text": "Hit the quarterly target",
+       "tag": "done"
+      },
+      {
+       "text": "Trained 2 new hires",
+       "tag": "done"
+      },
+      {
+       "text": "Fixed the client issue",
+       "tag": "done"
+      },
+      {
+       "text": "Missed one deadline",
+       "tag": "noticed"
+      }
+     ]
+    },
+    {
+     "type": "notification",
+     "app": "Messages",
+     "time": "5:41 PM",
+     "sender": "Boss",
+     "body": "Saw the missed deadline. We need to talk.",
+     "start": 3.9,
+     "end": 7.2,
+     "y": 1060
+    },
+    {
+     "type": "notification",
+     "app": "Mail",
+     "time": "Fri 4:30 PM",
+     "sender": "You → Boss",
+     "body": "Weekly update: 3 wins, 1 fix, next week's plan",
+     "start": 7.6,
+     "end": 11.8,
+     "y": 1000
+    },
+    {
+     "type": "tasks",
+     "title": "Then",
+     "start": 9.7,
+     "interval": 0.7,
+     "end": 11.8,
+     "y": 1290,
+     "items": [
+      {
+       "text": "Keep a copy for your review",
+       "tag": "every week"
+      }
+     ]
+    },
+    {
+     "type": "follow",
+     "start": 12.1,
+     "end": 16.1,
+     "y": 1080
+    }
+   ],
+   "frames": [
+    {
+     "text": "Your boss only sees your mistakes. *Why?*",
+     "start": 0,
+     "end": 3.6,
+     "size": 96,
+     "y": 540,
+     "reveal": true,
+     "reveal_time": 0.9,
+     "beat": "emotion,curiosity"
+    },
+    {
+     "text": "Wins go quiet. *Mistakes get noticed.* Now what?",
+     "start": 3.9,
+     "end": 7.2,
+     "size": 84,
+     "y": 540,
+     "beat": "emotion,curiosity"
+    },
+    {
+     "text": "Make your wins visible. *Every Friday, in writing.*",
+     "start": 7.5,
+     "end": 11.8,
+     "size": 86,
+     "y": 540,
+     "beat": "proof,emotion"
+    },
+    {
+     "text": "Follow now, or you might *never see this page again.*",
+     "start": 12.1,
+     "end": 16.1,
+     "size": 88,
+     "y": 540,
+     "sub": "Send this to the unseen hard worker.",
+     "beat": "emotion"
+    }
+   ]
+  }
+ ],
+ "carousels": [
+  {
+   "id": "C007_forgot",
+   "series": "The Employee Survival Playbook",
+   "look": "paper",
+   "outcome": "By the end of this post, viewers will be able to tell a forgotten promise from a pattern and lock the next promise in with one friendly recap email.",
+   "loops": [
+    {
+     "open": "Your boss 'forgot' what they promised. Again. Accident or pattern?",
+     "payoff": "The raise, the day off, the training: all forgotten."
+    },
+    {
+     "open": "Does it matter which?",
+     "payoff": "Once is human. Three times is a pattern."
+    },
+    {
+     "open": "So how do you stop it?",
+     "payoff": "Not by reminding them out loud again."
+    },
+    {
+     "open": "What works?",
+     "payoff": "Recap it in writing the same day."
+    },
+    {
+     "open": "What do you write?",
+     "payoff": "A friendly, dated recap email.",
+     "delivers_outcome": true
+    }
+   ],
+   "sources": [],
+   "slides": [
+    {
+     "text": "Your boss \"forgot\" what they promised. *Again.* Accident or pattern?",
+     "sub": "How to tell, and what to say.",
+     "beat": "emotion,curiosity"
+    },
+    {
+     "kicker": "Sound familiar?",
+     "text": "The raise. The day off. The training. *All \"forgotten.\"* Does it matter which?",
+     "beat": "emotion,curiosity"
+    },
+    {
+     "kicker": "The test",
+     "text": "Once is human. *Three times is a pattern.* So how do you stop it?",
+     "beat": "emotion,curiosity"
+    },
+    {
+     "kicker": "The mistake",
+     "text": "Reminding them out loud, again. *Spoken promises are easy to forget.* What works?",
+     "beat": "emotion,curiosity"
+    },
+    {
+     "kicker": "Do this instead",
+     "text": "Recap it in writing, same day. *Emails are hard to forget.* What do you write?",
+     "beat": "curiosity,proof"
+    },
+    {
+     "kicker": "Send this",
+     "mono": true,
+     "text": "\"Thanks for today! Confirming: training approved for March. Let me know if I missed anything.\"",
+     "sub": "Friendly. Dated. On the record.",
+     "beat": "proof,emotion"
+    },
+    {
+     "kicker": "Before you go",
+     "text": "Follow *@unspokenatwork1* now, or you might never see this page again.",
+     "sub": "Save this for the next \"I forgot.\"",
+     "beat": "emotion"
+    }
+   ]
+  }
+ ]
+}
