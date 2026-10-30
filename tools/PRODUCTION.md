@@ -1,3 +1,8 @@
+# >>> REELS, NOT PHOTOS (Oct 30, after the user asked why the raccoon photo got 3 views): the reference page
+#   (beak.manifesto) posts every quote as a REEL (still image + music, its Reels tab shows 788K to 3.7M views).
+#   Photo posts only reach followers (we have 2). Every raccoon post is now a 7 s 9:16 Reel made with
+#   raccoon/render_reels.py (quote at top, big raccoon at bottom, slow push-in, original upbeat music),
+#   posted with publish_video. Trending/licensed songs cannot be added through the API.
 # >>> RESEARCHED JOKE SHAPES (user, Oct 29 9:32 PM: earlier quotes were "unfunny and don't make sense"; researched
 #   viral workplace humor: Corporate Humor, When's Happy Hour (714K), Corporate Natalie (859K), Bored Panda/BuzzFeed
 #   work-tweet roundups). Use ONLY these proven shapes, rewritten in fresh words (never copy a real post):
