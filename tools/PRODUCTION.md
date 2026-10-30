@@ -1,3 +1,10 @@
+# >>> STYLE V2 (user, Oct 30 2:20 AM, shared two example posts): make posts catchy and memorable with MORE text so
+#   people stay longer. Format now: pastel background, ALL-CAPS Bebas Neue text, 3 to 5 short lines revealed one
+#   by one (punchline last, held ~3 s), raccoon at the bottom, music. Renderer: raccoon/render_reels2.py, batch items
+#   {"id","lines":[...]}. Joke mechanics to use: escalation that builds to an unexpected last line ("about a raise?
+#   about a promotion? about my attitude? it was the attitude."), treating work/job like a relationship or person,
+#   wordplay twists ("not circling. he's in orbit."), "WHEN MY BOSS SAYS X, I ...". Original wording only; never
+#   copy or lightly reword another page's posts. Approved set: raccoon/batch05.json.
 # >>> CLARITY RULE (user, Oct 30 12:56 AM: "didn't make sense"): every joke must be an everyday work situation anyone gets on first read (raise, meetings, PTO, boss at 4:55, "we're a family"), with a plain punchline. No internet slang ("perceived", "locked in"), no inside references. Write original jokes in these proven shapes; never copy or lightly reword another page's posts. Approved set: raccoon/batch04.json.
 # >>> REELS ONLY (user, Oct 30 12:52 AM): post every raccoon quote ONLY as a Reel (the image turned into a short video). Never publish a photo or carousel post.
 # >>> REELS, NOT PHOTOS (Oct 30, after the user asked why the raccoon photo got 3 views): the reference page
