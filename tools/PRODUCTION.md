@@ -1,3 +1,4 @@
+# >>> CLARITY RULE (user, Oct 30 12:56 AM: "didn't make sense"): every joke must be an everyday work situation anyone gets on first read (raise, meetings, PTO, boss at 4:55, "we're a family"), with a plain punchline. No internet slang ("perceived", "locked in"), no inside references. Write original jokes in these proven shapes; never copy or lightly reword another page's posts. Approved set: raccoon/batch04.json.
 # >>> REELS ONLY (user, Oct 30 12:52 AM): post every raccoon quote ONLY as a Reel (the image turned into a short video). Never publish a photo or carousel post.
 # >>> REELS, NOT PHOTOS (Oct 30, after the user asked why the raccoon photo got 3 views): the reference page
 #   (beak.manifesto) posts every quote as a REEL (still image + music, its Reels tab shows 788K to 3.7M views).

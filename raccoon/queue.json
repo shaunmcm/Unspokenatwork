@@ -21,6 +21,78 @@
   "posted_at": "2026-10-30T07:54:29Z"
  },
  {
+  "id": "P018_lockedin",
+  "text": "Locked in at work today.\n\nDo not contact me for the next 12 minutes.",
+  "bg": "#ff5aa8",
+  "image": "raccoon/out/P018_lockedin.jpg",
+  "caption": "Peak productivity. Briefly. 🦝\n\nHow long does YOUR focus last? Be honest 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
+  "status": "dropped",
+  "video": "raccoon/reels/P018_lockedin.mp4"
+ },
+ {
+  "id": "P020_offline",
+  "text": "I can't tell my coworker their idea is terrible.\n\nSo I say \"interesting... let's take that offline.\"",
+  "bg": "#c9a7f5",
+  "image": "raccoon/out/P020_offline.jpg",
+  "caption": "Offline is where bad ideas go to die. 🦝\n\nWhat's YOUR polite code for \"absolutely not\"? 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
+  "status": "dropped",
+  "video": "raccoon/reels/P020_offline.mp4"
+ },
+ {
+  "id": "P023_doilove",
+  "text": "Do I love my job? Some days.\nDo I love my coworkers? Most of them.\nDo I love my boss?\n\nNext question.",
+  "bg": "#a8a46a",
+  "image": "raccoon/out/P023_doilove.jpg",
+  "caption": "We're keeping it professional. 🦝\n\nAnswer the third question honestly. We'll wait 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
+  "status": "dropped",
+  "video": "raccoon/reels/P023_doilove.mp4"
+ },
+ {
+  "id": "P024_outsidebox",
+  "text": "My boss told me to think outside the box.\n\nSo I thought about leaving.",
+  "bg": "#f7d774",
+  "image": "raccoon/out/P024_outsidebox.jpg",
+  "caption": "Technically, that's outside the box. 🦝\n\nWhat's the most useless advice YOUR boss gave you? 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
+  "status": "dropped",
+  "video": "raccoon/reels/P024_outsidebox.mp4"
+ },
+ {
+  "id": "P026_resume",
+  "text": "My résumé says \"thrives under pressure.\"\n\nMy search history says \"how to fake a sick voice.\"",
+  "bg": "#ff5aa8",
+  "image": "raccoon/out/P026_resume.jpg",
+  "caption": "Both are technically true. 🦝\n\nWhat's the biggest lie on YOUR résumé? 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
+  "status": "dropped",
+  "video": "raccoon/reels/P026_resume.mp4"
+ },
+ {
+  "id": "P029_fastpaced",
+  "text": "\"We're a fast-paced environment\"\n\nmeans nobody knows what's going on, but everyone is yelling about it.",
+  "bg": "#ffa35c",
+  "image": "raccoon/out/P029_fastpaced.jpg",
+  "caption": "Job ad translation, free of charge. 🦝\n\nWhat job ad phrase was a red flag for YOU? 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
+  "status": "dropped",
+  "video": "raccoon/reels/P029_fastpaced.mp4"
+ },
+ {
+  "id": "P030_ooo",
+  "text": "Out of office: physically.\n\nEmotionally, I left in 2022.",
+  "bg": "#f25c3c",
+  "image": "raccoon/out/P030_ooo.jpg",
+  "caption": "Still here. Spiritually checked out. 🦝\n\nWhat year did YOU emotionally leave your job? 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
+  "status": "dropped",
+  "video": "raccoon/reels/P030_ooo.mp4"
+ },
+ {
+  "id": "P031_pizza",
+  "text": "I asked for a raise.\n\nThey gave me a pizza party.",
+  "bg": "#f25c3c",
+  "image": "",
+  "video": "raccoon/reels/P031_pizza.mp4",
+  "caption": "Can't pay rent with pepperoni. 🦝\n\nWhat did YOUR job give you instead of a raise? 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
+  "status": "queued"
+ },
+ {
   "id": "P017_rent",
   "text": "Interviewer: Why do you want to work here?\n\nMe: I've developed a strong interest in paying rent.",
   "bg": "#8fe8a4",
@@ -30,40 +102,22 @@
   "video": "raccoon/reels/P017_rent.mp4"
  },
  {
-  "id": "P018_lockedin",
-  "text": "Locked in at work today.\n\nDo not contact me for the next 12 minutes.",
-  "bg": "#ff5aa8",
-  "image": "raccoon/out/P018_lockedin.jpg",
-  "caption": "Peak productivity. Briefly. 🦝\n\nHow long does YOUR focus last? Be honest 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
-  "status": "queued",
-  "video": "raccoon/reels/P018_lockedin.mp4"
+  "id": "P032_week",
+  "text": "Monday: I hate my job.\nWednesday: I hate my job.\nFriday: I love my job.\nSunday night: I hate my job.",
+  "bg": "#f7d774",
+  "image": "",
+  "video": "raccoon/reels/P032_week.mp4",
+  "caption": "The emotional cycle of the work week. 🦝\n\nWhat day are YOU on right now? 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
+  "status": "queued"
  },
  {
-  "id": "P019_65",
-  "text": "Work until I'm 65?\n\nI'm not even sure I'll make it to lunch.",
-  "bg": "#7cc8f5",
-  "image": "raccoon/out/P019_65.jpg",
-  "caption": "One day at a time. One hour, actually. 🦝\n\nTag the coworker counting down to lunch 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
-  "status": "queued",
-  "video": "raccoon/reels/P019_65.mp4"
- },
- {
-  "id": "P020_offline",
-  "text": "I can't tell my coworker their idea is terrible.\n\nSo I say \"interesting... let's take that offline.\"",
-  "bg": "#c9a7f5",
-  "image": "raccoon/out/P020_offline.jpg",
-  "caption": "Offline is where bad ideas go to die. 🦝\n\nWhat's YOUR polite code for \"absolutely not\"? 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
-  "status": "queued",
-  "video": "raccoon/reels/P020_offline.mp4"
- },
- {
-  "id": "P021_happytohelp",
-  "text": "My job is 90% saying \"happy to help\" to things that make me deeply unhappy.",
-  "bg": "#ffa35c",
-  "image": "raccoon/out/P021_happytohelp.jpg",
-  "caption": "The other 10% is \"sounds good!\" 🦝\n\nWhat's the phrase YOU say most at work? 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
-  "status": "queued",
-  "video": "raccoon/reels/P021_happytohelp.mp4"
+  "id": "P033_family",
+  "text": "\"We're like a family here.\"\n\nGreat. So I'll see you twice a year and avoid you the rest of the time.",
+  "bg": "#8fe8a4",
+  "image": "",
+  "video": "raccoon/reels/P033_family.mp4",
+  "caption": "Family rules apply. 🦝\n\nTag the coworker who's basically your cousin 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
+  "status": "queued"
  },
  {
   "id": "P022_witness",
@@ -75,22 +129,49 @@
   "video": "raccoon/reels/P022_witness.mp4"
  },
  {
-  "id": "P023_doilove",
-  "text": "Do I love my job? Some days.\nDo I love my coworkers? Most of them.\nDo I love my boss?\n\nNext question.",
-  "bg": "#a8a46a",
-  "image": "raccoon/out/P023_doilove.jpg",
-  "caption": "We're keeping it professional. 🦝\n\nAnswer the third question honestly. We'll wait 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
-  "status": "queued",
-  "video": "raccoon/reels/P023_doilove.mp4"
+  "id": "P034_email",
+  "text": "This meeting could have been an email.\n\nThat email could have been nothing.",
+  "bg": "#ff5aa8",
+  "image": "",
+  "video": "raccoon/reels/P034_email.mp4",
+  "caption": "Efficiency, finally. 🦝\n\nWhat was YOUR most pointless meeting this week? 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
+  "status": "queued"
  },
  {
-  "id": "P024_outsidebox",
-  "text": "My boss told me to think outside the box.\n\nSo I thought about leaving.",
-  "bg": "#f7d774",
-  "image": "raccoon/out/P024_outsidebox.jpg",
-  "caption": "Technically, that's outside the box. 🦝\n\nWhat's the most useless advice YOUR boss gave you? 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
+  "id": "P035_455",
+  "text": "Me: I'm leaving on time today.\n\nMy boss at 4:55 PM: \"Before you go...\"",
+  "bg": "#7cc8f5",
+  "image": "",
+  "video": "raccoon/reels/P035_455.mp4",
+  "caption": "It's never \"before you go.\" It's \"you're not going.\" 🦝\n\nTag the coworker this happened to 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
+  "status": "queued"
+ },
+ {
+  "id": "P019_65",
+  "text": "Work until I'm 65?\n\nI'm not even sure I'll make it to lunch.",
+  "bg": "#7cc8f5",
+  "image": "raccoon/out/P019_65.jpg",
+  "caption": "One day at a time. One hour, actually. 🦝\n\nTag the coworker counting down to lunch 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
   "status": "queued",
-  "video": "raccoon/reels/P024_outsidebox.mp4"
+  "video": "raccoon/reels/P019_65.mp4"
+ },
+ {
+  "id": "P036_wellness",
+  "text": "I don't need another wellness webinar.\n\nI need to get paid enough to afford therapy.",
+  "bg": "#c9a7f5",
+  "image": "",
+  "video": "raccoon/reels/P036_wellness.mp4",
+  "caption": "Wellness starts with the paycheck. 🦝\n\nWhat's the most useless perk YOUR job offers? 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
+  "status": "queued"
+ },
+ {
+  "id": "P037_pto",
+  "text": "Unlimited PTO is like unlimited breadsticks.\n\nSure, you CAN. But everyone stares if you take too many.",
+  "bg": "#ffa35c",
+  "image": "",
+  "video": "raccoon/reels/P037_pto.mp4",
+  "caption": "Unlimited*\n*not really 🦝\n\nHow much PTO did YOU actually take this year? 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
+  "status": "queued"
  },
  {
   "id": "P025_pto",
@@ -102,13 +183,22 @@
   "video": "raccoon/reels/P025_pto.mp4"
  },
  {
-  "id": "P026_resume",
-  "text": "My résumé says \"thrives under pressure.\"\n\nMy search history says \"how to fake a sick voice.\"",
-  "bg": "#ff5aa8",
-  "image": "raccoon/out/P026_resume.jpg",
-  "caption": "Both are technically true. 🦝\n\nWhat's the biggest lie on YOUR résumé? 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
-  "status": "queued",
-  "video": "raccoon/reels/P026_resume.mp4"
+  "id": "P038_teamplayer",
+  "text": "My boss: \"We need you to be a team player.\"\n\nTranslation: Do your job AND Kevin's.",
+  "bg": "#a8a46a",
+  "image": "",
+  "video": "raccoon/reels/P038_teamplayer.mp4",
+  "caption": "There's always a Kevin. 🦝\n\nTag the coworker who carries the team 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
+  "status": "queued"
+ },
+ {
+  "id": "P039_goodat",
+  "text": "Skills I've mastered at work:\n\nLooking busy.\nSaying \"sounds good.\"\nLeaving at exactly 5:00.",
+  "bg": "#f25c3c",
+  "image": "",
+  "video": "raccoon/reels/P039_goodat.mp4",
+  "caption": "Put it on the résumé. 🦝\n\nWhat's YOUR most useful work skill? 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
+  "status": "queued"
  },
  {
   "id": "P027_sickcall",
@@ -120,6 +210,15 @@
   "video": "raccoon/reels/P027_sickcall.mp4"
  },
  {
+  "id": "P040_doors",
+  "text": "My boss says his door is always open.\n\nThat's how he hears everything.",
+  "bg": "#8fe8a4",
+  "image": "",
+  "video": "raccoon/reels/P040_doors.mp4",
+  "caption": "Open door. Open ears. 🦝\n\nTag the coworker who whispers at work now 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
+  "status": "queued"
+ },
+ {
   "id": "P028_teambuilding",
   "text": "Team building:\n\nWhen your company makes you play games with the exact people you avoid all week.",
   "bg": "#c9a7f5",
@@ -129,21 +228,12 @@
   "video": "raccoon/reels/P028_teambuilding.mp4"
  },
  {
-  "id": "P029_fastpaced",
-  "text": "\"We're a fast-paced environment\"\n\nmeans nobody knows what's going on, but everyone is yelling about it.",
+  "id": "P021_happytohelp",
+  "text": "My job is 90% saying \"happy to help\" to things that make me deeply unhappy.",
   "bg": "#ffa35c",
-  "image": "raccoon/out/P029_fastpaced.jpg",
-  "caption": "Job ad translation, free of charge. 🦝\n\nWhat job ad phrase was a red flag for YOU? 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
+  "image": "raccoon/out/P021_happytohelp.jpg",
+  "caption": "The other 10% is \"sounds good!\" 🦝\n\nWhat's the phrase YOU say most at work? 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
   "status": "queued",
-  "video": "raccoon/reels/P029_fastpaced.mp4"
- },
- {
-  "id": "P030_ooo",
-  "text": "Out of office: physically.\n\nEmotionally, I left in 2022.",
-  "bg": "#f25c3c",
-  "image": "raccoon/out/P030_ooo.jpg",
-  "caption": "Still here. Spiritually checked out. 🦝\n\nWhat year did YOU emotionally leave your job? 👇\n\nFollow @unspokenatwork1 for daily sarcasm about surviving your boss.\n\n#workhumor #officehumor #corporatehumor #worklife #UnspokenAtWork",
-  "status": "queued",
-  "video": "raccoon/reels/P030_ooo.mp4"
+  "video": "raccoon/reels/P021_happytohelp.mp4"
  }
 ]

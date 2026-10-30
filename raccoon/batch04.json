@@ -1,0 +1,52 @@
+[
+ {
+  "id": "P031_pizza",
+  "text": "I asked for a raise.\n\nThey gave me a pizza party.",
+  "bg": "#f25c3c"
+ },
+ {
+  "id": "P032_week",
+  "text": "Monday: I hate my job.\nWednesday: I hate my job.\nFriday: I love my job.\nSunday night: I hate my job.",
+  "bg": "#f7d774"
+ },
+ {
+  "id": "P033_family",
+  "text": "\"We're like a family here.\"\n\nGreat. So I'll see you twice a year and avoid you the rest of the time.",
+  "bg": "#8fe8a4"
+ },
+ {
+  "id": "P034_email",
+  "text": "This meeting could have been an email.\n\nThat email could have been nothing.",
+  "bg": "#ff5aa8"
+ },
+ {
+  "id": "P035_455",
+  "text": "Me: I'm leaving on time today.\n\nMy boss at 4:55 PM: \"Before you go...\"",
+  "bg": "#7cc8f5"
+ },
+ {
+  "id": "P036_wellness",
+  "text": "I don't need another wellness webinar.\n\nI need to get paid enough to afford therapy.",
+  "bg": "#c9a7f5"
+ },
+ {
+  "id": "P037_pto",
+  "text": "Unlimited PTO is like unlimited breadsticks.\n\nSure, you CAN. But everyone stares if you take too many.",
+  "bg": "#ffa35c"
+ },
+ {
+  "id": "P038_teamplayer",
+  "text": "My boss: \"We need you to be a team player.\"\n\nTranslation: Do your job AND Kevin's.",
+  "bg": "#a8a46a"
+ },
+ {
+  "id": "P039_goodat",
+  "text": "Skills I've mastered at work:\n\nLooking busy.\nSaying \"sounds good.\"\nLeaving at exactly 5:00.",
+  "bg": "#f25c3c"
+ },
+ {
+  "id": "P040_doors",
+  "text": "My boss says his door is always open.\n\nThat's how he hears everything.",
+  "bg": "#8fe8a4"
+ }
+]
