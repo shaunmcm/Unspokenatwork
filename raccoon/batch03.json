@@ -1,0 +1,77 @@
+[
+ {
+  "id": "P016_perceived",
+  "text": "Apparently \"I'm not in the mood to be perceived\" is not a valid reason to skip the team meeting.",
+  "bg": "#f7d774"
+ },
+ {
+  "id": "P017_rent",
+  "text": "Interviewer: Why do you want to work here?\n\nMe: I've developed a strong interest in paying rent.",
+  "bg": "#8fe8a4"
+ },
+ {
+  "id": "P018_lockedin",
+  "text": "Locked in at work today.\n\nDo not contact me for the next 12 minutes.",
+  "bg": "#ff5aa8"
+ },
+ {
+  "id": "P019_65",
+  "text": "Work until I'm 65?\n\nI'm not even sure I'll make it to lunch.",
+  "bg": "#7cc8f5"
+ },
+ {
+  "id": "P020_offline",
+  "text": "I can't tell my coworker their idea is terrible.\n\nSo I say \"interesting... let's take that offline.\"",
+  "bg": "#c9a7f5"
+ },
+ {
+  "id": "P021_happytohelp",
+  "text": "My job is 90% saying \"happy to help\" to things that make me deeply unhappy.",
+  "bg": "#ffa35c"
+ },
+ {
+  "id": "P022_witness",
+  "text": "My work bestie isn't just a friend.\n\nShe's a witness.",
+  "bg": "#f25c3c"
+ },
+ {
+  "id": "P023_doilove",
+  "text": "Do I love my job? Some days.\nDo I love my coworkers? Most of them.\nDo I love my boss?\n\nNext question.",
+  "bg": "#a8a46a"
+ },
+ {
+  "id": "P024_outsidebox",
+  "text": "My boss told me to think outside the box.\n\nSo I thought about leaving.",
+  "bg": "#f7d774"
+ },
+ {
+  "id": "P025_pto",
+  "text": "Some people find peace in yoga.\n\nI find it when my boss is on PTO.",
+  "bg": "#8fe8a4"
+ },
+ {
+  "id": "P026_resume",
+  "text": "My résumé says \"thrives under pressure.\"\n\nMy search history says \"how to fake a sick voice.\"",
+  "bg": "#ff5aa8"
+ },
+ {
+  "id": "P027_sickcall",
+  "text": "Calling in sick takes more acting skill than anything I've ever done at this job.",
+  "bg": "#7cc8f5"
+ },
+ {
+  "id": "P028_teambuilding",
+  "text": "Team building:\n\nWhen your company makes you play games with the exact people you avoid all week.",
+  "bg": "#c9a7f5"
+ },
+ {
+  "id": "P029_fastpaced",
+  "text": "\"We're a fast-paced environment\"\n\nmeans nobody knows what's going on, but everyone is yelling about it.",
+  "bg": "#ffa35c"
+ },
+ {
+  "id": "P030_ooo",
+  "text": "Out of office: physically.\n\nEmotionally, I left in 2022.",
+  "bg": "#f25c3c"
+ }
+]

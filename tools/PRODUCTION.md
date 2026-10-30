@@ -1,3 +1,16 @@
+# >>> RESEARCHED JOKE SHAPES (user, Oct 29 9:32 PM: earlier quotes were "unfunny and don't make sense"; researched
+#   viral workplace humor: Corporate Humor, When's Happy Hour (714K), Corporate Natalie (859K), Bored Panda/BuzzFeed
+#   work-tweet roundups). Use ONLY these proven shapes, rewritten in fresh words (never copy a real post):
+#   1. "Apparently [honest feeling] is not a valid reason to [skip work thing]."
+#   2. Interview/boss question -> brutally honest answer ("strong interest in paying rent").
+#   3. Tiny exaggeration ("Locked in. Do not contact me for the next 12 minutes." / "make it to lunch").
+#   4. Polite corporate translation ("I can't say X, so I say 'let's take that offline.'").
+#   5. Percentage truth ("My job is 90% saying 'happy to help' to things that make me unhappy").
+#   6. Yes/yes/... "Next question." list (beak style).
+#   7. Short setup -> 2-to-5-word twist ("She's a witness." / "So I thought about leaving.").
+#   8. Job-ad / corporate-phrase translation ("fast-paced environment means...").
+#   Must make sense to anyone with a job on first read; the twist must be a real punchline. Approved set: raccoon/batch03.json.
+#   Avoid: "Nobody:/Absolutely nobody:", "Dear boss", "Me at 9 AM", weak puns, anything that needs explaining.
 # >>> CATCHIER HOOKS (user, Oct 29 9:24 PM): every quote opens with a tense, instantly familiar first line
 #   (a boss phrase in quotes, "Nobody: / My boss at 4:58 PM:", "Dear boss,", "Me at 9:00 AM:", "Rule #N")
 #   and ends on a short twist punchline after a line break. Under 25 words when possible. Test: would someone
