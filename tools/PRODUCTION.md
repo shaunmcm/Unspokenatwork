@@ -1,3 +1,7 @@
+# >>> 1,000-VIEW PUSH (user, Oct 30 7:56 AM: last Reels stuck around 131 views; "do whatever you need"): Reels are 5 to 8 s
+#   (0.28 s per word + 1.8 s) so they get finished and replayed; captions open with a searchable phrase ("work humor",
+#   "office humor"), keep one comment question, and always ask to "Send this to your work bestie" (sends drive reach);
+#   hashtags #workhumor #officehumor #corporatehumor #worklife #relatablememes. Strongest, shortest jokes go first.
 # >>> ALL TEXT AT ONCE (user, Oct 30 2:29 AM): never reveal lines one by one. Every word is on screen from the very
 #   first frame (viewers decide in about one second). One still per Reel, held ~0.35 s per word + 3 s (min 7 s),
 #   so it can be read twice. render_reels2.py already does this.
