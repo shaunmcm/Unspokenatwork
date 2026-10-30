@@ -1,3 +1,4 @@
+# >>> REELS ONLY (user, Oct 30 12:52 AM): post every raccoon quote ONLY as a Reel (the image turned into a short video). Never publish a photo or carousel post.
 # >>> REELS, NOT PHOTOS (Oct 30, after the user asked why the raccoon photo got 3 views): the reference page
 #   (beak.manifesto) posts every quote as a REEL (still image + music, its Reels tab shows 788K to 3.7M views).
 #   Photo posts only reach followers (we have 2). Every raccoon post is now a 7 s 9:16 Reel made with
