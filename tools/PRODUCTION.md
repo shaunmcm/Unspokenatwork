@@ -1,3 +1,7 @@
+# >>> CATCHIER HOOKS (user, Oct 29 9:24 PM): every quote opens with a tense, instantly familiar first line
+#   (a boss phrase in quotes, "Nobody: / My boss at 4:58 PM:", "Dear boss,", "Me at 9:00 AM:", "Rule #N")
+#   and ends on a short twist punchline after a line break. Under 25 words when possible. Test: would someone
+#   tag a coworker? If not, rewrite. Reference set: raccoon/batch02.json.
 # >>> RACCOON QUOTE RULES (user, Oct 29): sarcastic, hook-based, viral-curiosity, emotionally driven, urgent but
 #   funny quotes about workplace drama and difficult bosses/coworkers. Original wording only (never copy another
 #   page's lines). Formats that work: "Rule #N" + a rule; "Boss says X. / Sarcastic reply"; "Do I...? Yes." list;

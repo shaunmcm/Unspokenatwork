@@ -17,7 +17,7 @@ def page(text, bg, handle="@unspokenatwork1"):
     font64 = base64.b64encode(open(FONT, "rb").read()).decode()
     t = html.escape(text).replace("\n", "<br>")
     n = len(text)
-    size = 64 if n < 60 else 56 if n < 110 else 48 if n < 170 else 42
+    size = 78 if n < 50 else 68 if n < 90 else 60 if n < 130 else 52 if n < 170 else 44
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face {{ font-family: Anton; src: url(data:font/ttf;base64,{font64}); }}
 html,body {{ margin:0; width:1080px; height:1350px; background:{bg}; overflow:hidden; }}
