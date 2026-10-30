@@ -1,10 +1,18 @@
+# >>> RACCOON QUOTE RULES (user, Oct 29): sarcastic, hook-based, viral-curiosity, emotionally driven, urgent but
+#   funny quotes about workplace drama and difficult bosses/coworkers. Original wording only (never copy another
+#   page's lines). Formats that work: "Rule #N" + a rule; "Boss says X. / Sarcastic reply"; "Do I...? Yes." list;
+#   "TODAY IS NATIONAL ... DAY"; "Me: ... / My boss: ..."; corporate-phrase translations. 8 to 35 words per quote,
+#   rotate the 8 background colors, never two of the same color in a row. Caption = one short sarcastic line + emoji,
+#   a comment question with one CAPS word + down arrow, the follow line, 5 hashtags. Nothing cruel about
+#   groups of people, no real names or companies, no claims presented as facts.
 # >>> NEW FORMAT (user, Oct 29 9:17 PM): the page is being rebranded to single-image quote posts modeled on
 #   the format of @beak.manifesto (format only, never its wording): solid bright background, a short sarcastic,
 #   hook-driven, funny quote in heavy condensed black type (Anton) at the top, and a cartoon RACCOON in black
 #   sunglasses in the bottom half. Topic stays workplace drama and difficult bosses/coworkers.
 #   Renderer: raccoon/render_posts.py (1080x1350, Chromium), character: raccoon/raccoon.svg,
-#   first batch: raccoon/batch01.json -> raccoon/out_batch01/. Posting is still STOPPED until the user says go.
-# >>> STOP ALL POSTING (user, Oct 27 10:45 PM PT). Read STOP_ALL_POSTING.md. Post nothing, schedule nothing.
+#   first batch: raccoon/batch01.json -> raccoon/out_batch01/. User approved 3 posts/day on Oct 29.
+# >>> POSTING (user, Oct 29 9:25 PM PT): ONLY raccoon quote image posts, 3/day (12:00 PM, 5:30 PM, 8:30 PM PT) from raccoon/queue.json.
+#   No old-format Reels/carousels, no Stories, no first comments, no comment checks. See STOP_ALL_POSTING.md.
 # >>> COMMENT CHECKS STOPPED (user, Oct 27 11:13 AM: "Stop checking comment"). Do NOT run, restart or
 #   reschedule the "Unspoken at Work: comment replies" chain, and ignore the nightly step that restarts it.
 #   If a comment-check task fires anyway, do nothing and do not schedule another. First comments on new
