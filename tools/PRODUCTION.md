@@ -1,3 +1,10 @@
+# >>> DEADPAN CLEVER (user, Oct 30 8:07 AM, example: "I already reviewed my budget... I can only afford to breathe and look
+#   at the sun"): the target joke shape is a FORMAL, serious setup (reviewed / calculated / according to my calendar /
+#   I'm pleased to report) that lands on a bleak, oddly specific, understated punchline ("I can afford to care until
+#   about 10:45 AM"). RESEARCH EVERY RUN: before posting, run one web search for this week's workplace news/trends
+#   (layoffs, return-to-office, AI at work, raises, holidays, review season) and write fresh topical jokes from it.
+#   Use real trends as topics only; never present a joke as a fact or statistic. Never copy or lightly reword
+#   another page's posts or the user's examples; write original jokes. Approved set: raccoon/batch06.json.
 # >>> 1,000-VIEW PUSH (user, Oct 30 7:56 AM: last Reels stuck around 131 views; "do whatever you need"): Reels are 5 to 8 s
 #   (0.28 s per word + 1.8 s) so they get finished and replayed; captions open with a searchable phrase ("work humor",
 #   "office humor"), keep one comment question, and always ask to "Send this to your work bestie" (sends drive reach);
