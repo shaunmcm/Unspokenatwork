@@ -36,7 +36,7 @@ def timings(lines):
     """ALL text on screen from frame 1 (user, Oct 30: viewers decide in one second). One still, long enough
     to read twice: ~0.35 s per word + 3 s, never under 7 s."""
     w = sum(len(l.split()) for l in lines)
-    return [max(7.0, 0.35 * w + 3.0)]
+    return [max(5.0, 0.28 * w + 1.8)]  # short enough to finish and loop (user, Oct 30 7:56 AM)
 
 
 def main():
