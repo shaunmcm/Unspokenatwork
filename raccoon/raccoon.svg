@@ -58,10 +58,10 @@
   <ellipse cx="385" cy="388" rx="92" ry="42" fill="#ece8e0" transform="rotate(-8 385 388)"/>
   <ellipse cx="615" cy="388" rx="92" ry="42" fill="#ece8e0" transform="rotate(8 615 388)"/>
 
-  <!-- black mask (wide bandit mask, visible around the glasses) -->
-  <path d="M185,455 C240,395 370,405 470,430 L530,430 C630,405 760,395 815,455
-           C805,520 775,585 720,612 C670,636 610,612 575,585 C548,566 525,560 500,560
-           C475,560 452,566 425,585 C390,612 330,636 280,612 C225,585 195,520 185,455 Z" fill="#1d1f24"/>
+  <!-- raccoon mask: soft charcoal fur, narrower and tapered so it never reads as a second pair of glasses -->
+  <path d="M250,470 C285,440 360,445 440,470 C470,478 490,488 500,500 C510,488 530,478 560,470
+           C640,445 715,440 750,470 C740,520 715,560 675,575 C630,590 590,575 560,560 C540,550 520,548 500,548
+           C480,548 460,550 440,560 C410,575 370,590 325,575 C285,560 260,520 250,470 Z" fill="#555a63"/>
   <!-- muzzle -->
   <path d="M500,560 C590,560 660,595 660,645 C660,705 585,745 500,745 C415,745 340,705 340,640 C340,595 410,560 500,560 Z" fill="#ece8e0"/>
   <!-- cheek fluff white -->
@@ -80,10 +80,7 @@
   <g fill="#9a958c"><circle cx="420" cy="640" r="5"/><circle cx="440" cy="625" r="5"/><circle cx="415" cy="612" r="5"/>
     <circle cx="580" cy="640" r="5"/><circle cx="560" cy="625" r="5"/><circle cx="585" cy="612" r="5"/></g>
 
-  <!-- sunglasses arms -->
-  <path d="M290,455 L225,440" stroke="#0b0b0d" stroke-width="18" stroke-linecap="round"/>
-  <path d="M710,455 L775,440" stroke="#0b0b0d" stroke-width="18" stroke-linecap="round"/>
-  <!-- lenses -->
+    <!-- lenses -->
   <rect x="280" y="420" width="205" height="135" rx="26" fill="url(#lens)" stroke="#000" stroke-width="10"/>
   <rect x="515" y="420" width="205" height="135" rx="26" fill="url(#lens)" stroke="#000" stroke-width="10"/>
   <rect x="478" y="440" width="44" height="22" rx="8" fill="#000"/>
