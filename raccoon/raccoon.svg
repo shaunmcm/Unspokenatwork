@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1100">
+  <defs>
+    <linearGradient id="lens" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c1d21"/>
+      <stop offset="1" stop-color="#050506"/>
+    </linearGradient>
+    <linearGradient id="fur" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7c828b"/>
+      <stop offset="0.5" stop-color="#9aa0a8"/>
+      <stop offset="1" stop-color="#858b94"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6e747d"/>
+      <stop offset="0.5" stop-color="#8a9099"/>
+      <stop offset="1" stop-color="#737982"/>
+    </linearGradient>
+  </defs>
+
+  <!-- body / shoulders -->
+  <path d="M120,1100 C130,930 190,820 330,760 L670,760 C810,820 870,930 880,1100 Z" fill="url(#body)"/>
+  <!-- chest bib -->
+  <path d="M360,760 C330,880 340,1000 380,1100 L620,1100 C660,1000 670,880 640,760 Z" fill="#ece8e0"/>
+  <g stroke="#c9c4ba" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.9">
+    <path d="M430,850 l-12,40"/><path d="M470,880 l-8,44"/><path d="M520,870 l6,42"/>
+    <path d="M560,840 l12,40"/><path d="M450,960 l-10,46"/><path d="M545,960 l10,46"/>
+    <path d="M500,930 l0,44"/><path d="M410,1030 l-8,40"/><path d="M590,1030 l8,40"/>
+  </g>
+  <g stroke="#5f656e" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.7">
+    <path d="M220,900 l-14,46"/><path d="M260,860 l-10,40"/><path d="M780,900 l14,46"/><path d="M740,860 l10,40"/>
+    <path d="M200,1000 l-10,44"/><path d="M800,1000 l10,44"/>
+  </g>
+
+  <!-- ears -->
+  <path d="M255,390 C230,250 290,170 385,215 C405,265 390,320 345,365 Z" fill="#4c5159"/>
+  <path d="M282,365 C268,270 305,225 362,245 C372,280 360,315 330,345 Z" fill="#ece8e0"/>
+  <path d="M745,390 C770,250 710,170 615,215 C595,265 610,320 655,365 Z" fill="#4c5159"/>
+  <path d="M718,365 C732,270 695,225 638,245 C628,280 640,315 670,345 Z" fill="#ece8e0"/>
+
+  <!-- head with cheek tufts -->
+  <path d="M500,240
+           C620,238 715,275 752,370
+           C775,430 790,495 830,560
+           C790,565 768,575 748,590
+           C770,610 785,640 800,672
+           C740,668 700,700 650,735
+           C600,768 545,780 500,780
+           C455,780 400,768 350,735
+           C300,700 260,668 200,672
+           C215,640 230,610 252,590
+           C232,575 210,565 170,560
+           C210,495 225,430 248,370
+           C285,275 380,238 500,240 Z" fill="url(#fur)"/>
+
+  <!-- dark forehead stripe -->
+  <path d="M500,250 C530,252 540,300 528,360 C520,400 510,430 500,440 C490,430 480,400 472,360 C460,300 470,252 500,250 Z" fill="#4c5159"/>
+
+  <!-- white brow patches -->
+  <ellipse cx="385" cy="388" rx="92" ry="42" fill="#ece8e0" transform="rotate(-8 385 388)"/>
+  <ellipse cx="615" cy="388" rx="92" ry="42" fill="#ece8e0" transform="rotate(8 615 388)"/>
+
+  <!-- black mask (wide bandit mask, visible around the glasses) -->
+  <path d="M185,455 C240,395 370,405 470,430 L530,430 C630,405 760,395 815,455
+           C805,520 775,585 720,612 C670,636 610,612 575,585 C548,566 525,560 500,560
+           C475,560 452,566 425,585 C390,612 330,636 280,612 C225,585 195,520 185,455 Z" fill="#1d1f24"/>
+  <!-- muzzle -->
+  <path d="M500,560 C590,560 660,595 660,645 C660,705 585,745 500,745 C415,745 340,705 340,640 C340,595 410,560 500,560 Z" fill="#ece8e0"/>
+  <!-- cheek fluff white -->
+  <path d="M255,592 C300,600 330,620 350,650 C320,662 285,668 255,670 C270,645 268,620 255,592 Z" fill="#ece8e0"/>
+  <path d="M745,592 C700,600 670,620 650,650 C680,662 715,668 745,670 C730,645 732,620 745,592 Z" fill="#ece8e0"/>
+
+  <!-- nose -->
+  <path d="M455,592 C455,570 545,570 545,592 C545,618 515,636 500,636 C485,636 455,618 455,592 Z" fill="#141518"/>
+  <ellipse cx="483" cy="586" rx="14" ry="7" fill="#ffffff" opacity="0.55"/>
+  <!-- smug smirk (one side up) -->
+  <path d="M500,636 L500,660" stroke="#3a3d43" stroke-width="7" stroke-linecap="round"/>
+  <path d="M500,660 C485,666 468,667 452,664" stroke="#3a3d43" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M500,660 C528,664 556,656 578,636" stroke="#3a3d43" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M578,636 C584,630 588,626 592,622" stroke="#3a3d43" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <!-- whisker dots -->
+  <g fill="#9a958c"><circle cx="420" cy="640" r="5"/><circle cx="440" cy="625" r="5"/><circle cx="415" cy="612" r="5"/>
+    <circle cx="580" cy="640" r="5"/><circle cx="560" cy="625" r="5"/><circle cx="585" cy="612" r="5"/></g>
+
+  <!-- sunglasses arms -->
+  <path d="M290,455 L225,440" stroke="#0b0b0d" stroke-width="18" stroke-linecap="round"/>
+  <path d="M710,455 L775,440" stroke="#0b0b0d" stroke-width="18" stroke-linecap="round"/>
+  <!-- lenses -->
+  <rect x="280" y="420" width="205" height="135" rx="26" fill="url(#lens)" stroke="#000" stroke-width="10"/>
+  <rect x="515" y="420" width="205" height="135" rx="26" fill="url(#lens)" stroke="#000" stroke-width="10"/>
+  <rect x="478" y="440" width="44" height="22" rx="8" fill="#000"/>
+  <!-- unimpressed eyes behind lenses -->
+  <g stroke="#55585f" stroke-width="6" fill="none" stroke-linecap="round">
+    <path d="M340,500 C360,490 400,488 425,498"/>
+    <path d="M575,498 C600,488 640,490 660,500"/>
+  </g>
+  <g fill="#3c3f46"><ellipse cx="385" cy="508" rx="16" ry="9"/><ellipse cx="618" cy="508" rx="16" ry="9"/></g>
+  <!-- glare lines -->
+  <g stroke="#3a3c42" stroke-width="5" stroke-linecap="round" opacity="0.9">
+    <path d="M300,445 L460,445"/><path d="M300,462 L440,462"/>
+    <path d="M535,445 L700,445"/><path d="M555,462 L700,462"/>
+  </g>
+  <path d="M420,432 L470,432" stroke="#5a5d64" stroke-width="5" stroke-linecap="round"/>
+  <path d="M655,432 L705,432" stroke="#5a5d64" stroke-width="5" stroke-linecap="round"/>
+</svg>

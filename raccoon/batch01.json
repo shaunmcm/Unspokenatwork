@@ -1,0 +1,14 @@
+[
+{"id":"P001_quickcall","text":"Rule #1\n\nIf my boss says \"quick call,\" I'm already updating my résumé.","bg":"#f25c3c"},
+{"id":"P002_family","text":"My boss said \"we're a family here.\"\n\nGreat. So I can ignore your calls on holidays too.","bg":"#f7d774"},
+{"id":"P003_email","text":"Nothing builds team spirit like a two-hour meeting that could've been one email.","bg":"#8fe8a4"},
+{"id":"P004_friday","text":"Rule #2\n\nIf you book a meeting at 4:59 on a Friday, you lose the right to comment on my face.","bg":"#ff5aa8"},
+{"id":"P005_credit","text":"Me: does the work.\nMy boss: presents the work.\nAlso me: nodding like a proud parent who wasn't invited to the graduation.","bg":"#7cc8f5"},
+{"id":"P006_perlast","text":"\"Per my last email\" is just \"please read\" wearing business casual.","bg":"#c9a7f5"},
+{"id":"P007_opendoor","text":"My boss has an open door policy.\n\nThe door is open. The mind is not.","bg":"#ffa35c"},
+{"id":"P008_circle","text":"Do I like my job? Yes.\nDo I like my coworkers? Most of them.\nDo I like hearing \"let's circle back\"?\nI would rather go through the trash. Professionally.","bg":"#a8a46a"},
+{"id":"P009_onread","text":"TODAY IS NATIONAL LEAVE YOUR BOSS ON READ AFTER 6 PM DAY","bg":"#ff5aa8"},
+{"id":"P010_overtime","text":"Unpaid overtime is just volunteering for a company that would replace you by Friday.","bg":"#f25c3c"},
+{"id":"P011_quickq","text":"\"Got a quick question?\"\n\nSir, it's never quick. And it's never one question.","bg":"#f7d774"},
+{"id":"P012_wearehats","text":"\"You'll wear many hats here.\"\n\nCool. Which one comes with the second paycheck?","bg":"#8fe8a4"}
+]
