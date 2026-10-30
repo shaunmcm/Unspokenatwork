@@ -33,12 +33,10 @@ html,body {{ margin:0; width:1080px; height:1920px; background:{bg}; overflow:hi
 
 
 def timings(lines):
-    """Seconds each step stays on screen: ~0.33 s per word to read, min 1.1 s, final hold 3.2 s."""
-    out = []
-    for i, l in enumerate(lines):
-        w = len(l.split())
-        out.append(3.2 if i == len(lines) - 1 else max(1.1, 0.33 * w + 0.3))
-    return out
+    """ALL text on screen from frame 1 (user, Oct 30: viewers decide in one second). One still, long enough
+    to read twice: ~0.35 s per word + 3 s, never under 7 s."""
+    w = sum(len(l.split()) for l in lines)
+    return [max(7.0, 0.35 * w + 3.0)]
 
 
 def main():
@@ -56,7 +54,7 @@ def main():
             with open(lst, "w") as f:
                 for i, d in enumerate(durs):
                     png = os.path.join(out, f"{it['id']}_{i}.png")
-                    pg.set_content(page(lines, i + 1, bg))
+                    pg.set_content(page(lines, len(lines), bg))
                     pg.evaluate("""async () => { await document.fonts.ready;
                       const q = document.querySelector('.q'); let s = parseFloat(getComputedStyle(q).fontSize);
                       while (q.getBoundingClientRect().bottom > 1000 && s > 60) { s -= 4; q.style.fontSize = s + 'px'; } }""")

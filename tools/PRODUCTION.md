@@ -1,6 +1,8 @@
+# >>> ALL TEXT AT ONCE (user, Oct 30 2:29 AM): never reveal lines one by one. Every word is on screen from the very
+#   first frame (viewers decide in about one second). One still per Reel, held ~0.35 s per word + 3 s (min 7 s),
+#   so it can be read twice. render_reels2.py already does this.
 # >>> STYLE V2 (user, Oct 30 2:20 AM, shared two example posts): make posts catchy and memorable with MORE text so
-#   people stay longer. Format now: pastel background, ALL-CAPS Bebas Neue text, 3 to 5 short lines revealed one
-#   by one (punchline last, held ~3 s), raccoon at the bottom, music. Renderer: raccoon/render_reels2.py, batch items
+#   people stay longer. Format now: pastel background, ALL-CAPS Bebas Neue text, 3 to 5 short lines, ALL visible from frame 1 (punchline is the last line), raccoon at the bottom, music. Renderer: raccoon/render_reels2.py, batch items
 #   {"id","lines":[...]}. Joke mechanics to use: escalation that builds to an unexpected last line ("about a raise?
 #   about a promotion? about my attitude? it was the attitude."), treating work/job like a relationship or person,
 #   wordplay twists ("not circling. he's in orbit."), "WHEN MY BOSS SAYS X, I ...". Original wording only; never
