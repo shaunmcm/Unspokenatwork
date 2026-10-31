@@ -1,3 +1,12 @@
+# >>> TRENDING AUDIO HAND-OFF (user, Oct 30 9:40 PM PT: "easy way to add trending audio"). The API can't add trending
+#   sounds, so the user can post ONE Reel a day by hand with a trending sound. raccoon/trending/today.mp4 in the repo is
+#   always a SILENT copy of the item named in raccoon/trending/today.txt (marked "reserved-manual" in queue.json).
+#   Link: https://raw.githubusercontent.com/shaunmcm/Unspokenatwork/main/raccoon/trending/today.mp4
+#   EVERY RUN, before publishing: GET the media list. If a Reel exists that is NOT in posted.log (the user posted
+#   by hand), mark the reserved item "posted-manual" with its permalink, log it, and post a DIFFERENT item.
+#   Never auto-post the reserved item before the 8:30 PM run of its day; at the 8:30 PM run, if the user didn't post it,
+#   set it back to "queued" (status only). Then at the 8:30 PM run, make the next queue head the new today.mp4
+#   (ffmpeg -an -c:v copy), update today.txt, mark it reserved-manual, push.
 # >>> DEADPAN CLEVER (user, Oct 30 8:07 AM, example: "I already reviewed my budget... I can only afford to breathe and look
 #   at the sun"): the target joke shape is a FORMAL, serious setup (reviewed / calculated / according to my calendar /
 #   I'm pleased to report) that lands on a bleak, oddly specific, understated punchline ("I can afford to care until
