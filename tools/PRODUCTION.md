@@ -1,3 +1,4 @@
+# >>> STOP ALL POSTING PERMANENTLY (user, Nov 1 2026 10:59 PM PT). Read STOP_ALL_POSTING.md. Post nothing, schedule nothing.
 # >>> TRENDING AUDIO HAND-OFF (user, Oct 30 9:40 PM PT: "easy way to add trending audio"). The API can't add trending
 #   sounds, so the user can post ONE Reel a day by hand with a trending sound. raccoon/trending/today.mp4 in the repo is
 #   always a SILENT copy of the item named in raccoon/trending/today.txt (marked "reserved-manual" in queue.json).
