@@ -346,7 +346,7 @@
   ],
   "video": "raccoon/reels/P070_goals.mp4",
   "caption": "Year-end work humor that hits way too close 😂\n\nHow many of YOUR goals are still on track? 👇\n\nSend this to your work bestie 📩 and follow @unspokenatwork1 for daily work humor.\n\n#workhumor #officehumor #corporatehumor #worklife #relatablememes",
-  "status": "reserved-manual"
+  "status": "queued"
  },
  {
   "id": "P071_ai",
@@ -463,6 +463,31 @@
   "video": "raccoon/reels/P078_aifix.mp4",
   "caption": "AI at work humor that hits way too close 😂\n\nHas AI saved YOU any time yet? 👇\n\nSend this to your work bestie 📩 and follow @unspokenatwork1 for daily work humor.\n\n#workhumor #officehumor #corporatehumor #worklife #relatablememes",
   "status": "queued"
+ },
+ {
+  "id": "P080_vacation",
+  "lines": [
+   "I HAVE 9 VACATION DAYS LEFT",
+   "TO USE BEFORE THE YEAR ENDS.",
+   "MY MANAGER SUPPORTS THIS COMPLETELY,",
+   "AS LONG AS NONE OF THEM ARE",
+   "IN NOVEMBER OR DECEMBER."
+  ],
+  "video": "raccoon/reels/P080_vacation.mp4",
+  "caption": "Use-it-or-lose-it PTO humor that hits way too close 😂\n\nHow many vacation days do YOU have left? 👇\n\nSend this to your work bestie 📩 and follow @unspokenatwork1 for daily work humor.\n\n#workhumor #officehumor #corporatehumor #worklife #relatablememes",
+  "status": "queued"
+ },
+ {
+  "id": "P081_thanks",
+  "lines": [
+   "MY COMPANY ANNOUNCED A THANKSGIVING LUNCH",
+   "TO THANK US FOR OUR HARD WORK.",
+   "IT'S A 30-MINUTE MEETING",
+   "WHERE WE BRING OUR OWN FOOD."
+  ],
+  "video": "raccoon/reels/P081_thanks.mp4",
+  "caption": "Thanksgiving work humor that hits way too close 🦃😂\n\nWhat does YOUR office do for Thanksgiving? 👇\n\nSend this to your work bestie 📩 and follow @unspokenatwork1 for daily work humor.\n\n#workhumor #officehumor #corporatehumor #worklife #relatablememes",
+  "status": "reserved-manual"
  },
  {
   "id": "P051_care",
