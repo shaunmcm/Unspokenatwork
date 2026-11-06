@@ -1,5 +1,5 @@
 """Burn the on-screen hook text onto the user's photo or video, Instagram "Classic" style:
-bold white Inter text on a soft black highlight box, centered in the safe zone.
+bold white Inter text, no highlight box (user, Nov 6), with a dark outline and shadow so it reads on any photo, centered in the safe zone.
 
 Usage: python3 overlay_text.py <input photo|video> "<text>" <output path>
 - Video -> 1080x1920 (9:16) mp4, original audio kept, text from frame 1.
@@ -14,13 +14,13 @@ VIDEO_EXT = {".mov", ".mp4", ".m4v", ".webm"}
 
 def overlay_png(text, w, h, path):
     paras = "".join(f"<p><span>{html.escape(p.strip())}</span></p>" for p in text.split("\\n") if p.strip())
-    top = 0.36 if h > 1500 else 0.42  # center of text block (keeps clear of Reel buttons/caption)
+    top = float(os.environ.get('TEXT_Y', 0.40 if h > 1500 else 0.46))  # center of text block (keeps clear of Reel buttons/caption)
     doc = f"""<!doctype html><html><head><meta charset="utf-8"><style>
 html,body{{margin:0;width:{w}px;height:{h}px;background:transparent;overflow:hidden}}
 .t{{position:absolute;left:70px;right:70px;top:{top*100}%;transform:translateY(-50%);text-align:center;font-family:Inter}}
-p{{margin:0 0 22px;line-height:1.42}}
-span{{font-weight:700;font-size:52px;color:#fff;background:rgba(0,0,0,.72);padding:6px 18px;border-radius:14px;
-  -webkit-box-decoration-break:clone;box-decoration-break:clone;letter-spacing:-.3px}}
+p{{margin:0 0 30px;line-height:1.22}}
+span{{font-weight:800;font-size:58px;color:#fff;letter-spacing:-.4px;
+  text-shadow:0 0 2px rgba(0,0,0,.95),0 0 6px rgba(0,0,0,.8),0 3px 10px rgba(0,0,0,.8),0 6px 30px rgba(0,0,0,.65)}}
 </style></head><body><div class="t">{paras}</div></body></html>"""
     with sync_playwright() as p:
         b = p.chromium.launch()

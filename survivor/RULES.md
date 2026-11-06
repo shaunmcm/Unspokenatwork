@@ -54,3 +54,8 @@ Log every topic to topics_used.txt and never repeat one.
   python3 overlay_text.py <input> "<text with \n between sentences>" ready/<name>.<mp4|jpg>  (Inter Bold white on black
   highlight boxes, IG Classic style; video 1080x1920 with original audio, photo 1080x1350), check a frame, SendUserFile it,
   and give only the paste-ready post caption.
+- (user, Nov 6) PACKAGING: be very SPECIFIC with the problem, but package it BROADLY so more people click.
+  e.g. specific "feeling guilty resting because your boss might text" -> broad "Why most hardworking dads can't relax,
+  even on vacation." Lead the on-screen text with the broad package, then the specific symptom.
+- (user, Nov 6) On-screen text: NO highlight boxes. Plain bold white letters over the image (strong shadow only).
+  Place text over the darkest/busiest-free part of the image (TEXT_Y=0.3-0.6 env var) and check it reads.
