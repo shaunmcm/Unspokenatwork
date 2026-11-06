@@ -17,7 +17,7 @@ Slide plan (6):
 6. One action for tonight + save/send line + "Comment HELP below."
 
 Post caption: hook line, 3-6 short lines, one question with one CAPS word + 👇,
-"Comment "HELP" if ..., and I'll reply personally." / "Full videos on my YouTube channel. The link is in my bio."
+"Comment "HELP" if ..., and I'll reply." / "Full videos on my YouTube channel. The link is in my bio."
 then exactly 5 hashtags. No invented stats or quotes. Never name real people or companies.
 
 Hook formats to rotate (user's lists; never reuse the same one two posts in a row):
@@ -72,3 +72,4 @@ Log every topic to topics_used.txt and never repeat one.
   Use universal "I" lines that are true for most stuck, burnt-out dads (e.g. "I thought I needed a new job. Turns out, I needed
   to stop taking this one home."), or ask the user for his real story when a hook needs a specific personal event.
   Still combine with: self-diagnosis hook, broad packaging + specific problem, why-it-matters, simple words, proof, feel seen.
+- (user, Nov 6) CTA wording: "Comment "HELP" if ..., and I'll reply." (never "I'll reply personally").
