@@ -1,0 +1,30 @@
+{"id": "R001_reputation", "photos": ["photos/4a62c667-image.jpg", "photos/76930da5-image.jpg"],
+ "scenes": [
+  {"hold": 3.2, "teaser": "Watch to the end: the 1-hour rule", "items": [
+    {"text": "In 5 years, nobody at work will remember the nights you stayed late.", "size": "big", "hl": ["nobody"]},
+    {"text": "Your kids will remember every single one.", "size": "small"}]},
+  {"items": [
+    {"text": "You did it so they'd see you as reliable.", "size": "mid"},
+    {"text": "The late nights.", "size": "small"},
+    {"text": "The 9 PM texts.", "size": "small"},
+    {"text": "The \"I'll handle it.\"", "size": "small"}]},
+  {"items": [
+    {"text": "Brick by brick, you built a reputation.", "size": "big", "hl": ["reputation."]}]},
+  {"items": [
+    {"text": "Here's what nobody tells you:", "size": "mid"},
+    {"text": "When you leave, it stays in the building.", "size": "mid", "hl": ["stays"], "pause": 0.2},
+    {"text": "Your desk has a new name within weeks.", "size": "small", "pause": 0.2}]},
+  {"items": [
+    {"text": "So what comes home with you?", "size": "big", "hl": ["home"]},
+    {"text": "Whatever's left.", "size": "mid", "pause": 0.2},
+    {"text": "The short temper. The silence.", "size": "small"},
+    {"text": "The guy who's \"just tired.\"", "size": "small"}]},
+  {"photo": 1, "items": [
+    {"text": "You can't always quit.", "size": "mid"},
+    {"text": "But you can stop giving the job what it never paid for.", "size": "big", "hl": ["never", "paid"]}]},
+  {"photo": 1, "hold": 1.6, "items": [
+    {"text": "The 1-hour rule:", "size": "big", "hl": ["1-hour"]},
+    {"text": "Phone in another room for your first hour home.", "size": "mid"},
+    {"text": "That hour belongs to them.", "size": "mid", "hl": ["them."], "pause": 0.2},
+    {"text": "Comment HELP if work is stealing it.", "size": "small"}]}
+ ]}

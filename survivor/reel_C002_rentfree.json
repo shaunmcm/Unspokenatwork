@@ -1,0 +1,31 @@
+{"id": "R002_rentfree", "photos": ["photos/0115c18a-image.jpg", "photos/0d086ca3-image.jpg"],
+ "scenes": [
+  {"hold": 3.0, "teaser": "Stay for #3. Almost nobody does it.", "items": [
+    {"text": "Your boss isn't thinking about you at 10 PM.", "size": "big", "hl": ["10", "PM."]},
+    {"text": "So why are you still thinking about him?", "size": "small"}]},
+  {"items": [
+    {"text": "You replay everything.", "size": "big", "hl": ["everything."]},
+    {"text": "The meeting.", "size": "small"},
+    {"text": "The tone.", "size": "small"},
+    {"text": "The \"we need to talk.\"", "size": "small"}]},
+  {"items": [
+    {"text": "In the shower.", "size": "mid"},
+    {"text": "In bed.", "size": "mid"},
+    {"text": "At your kid's game.", "size": "mid", "hl": ["kid's", "game."]}]},
+  {"items": [
+    {"text": "That's not overthinking.", "size": "big"},
+    {"text": "That's a micromanager who followed you home.", "size": "mid", "hl": ["followed", "home."], "pause": 0.3}]},
+  {"items": [
+    {"text": "Every hour he lives in your head...", "size": "mid"},
+    {"text": "...your family gets a version of you that isn't really there.", "size": "mid", "hl": ["family"], "pause": 0.2}]},
+  {"photo": 1, "items": [
+    {"text": "3 ways to kick him out:", "size": "big", "hl": ["3"]},
+    {"text": "1. Write tomorrow's worries on paper before you leave.", "size": "small"},
+    {"text": "2. When the replay starts, say: \"That's for tomorrow.\"", "size": "small"},
+    {"text": "3. Change clothes the minute you get home.", "size": "mid", "hl": ["3.", "change", "clothes"], "pause": 0.4}]},
+  {"photo": 1, "hold": 1.6, "items": [
+    {"text": "Work clothes = work brain.", "size": "mid"},
+    {"text": "Your job gets 8 hours.", "size": "big"},
+    {"text": "Not 24.", "size": "big", "hl": ["24."], "pause": 0.2},
+    {"text": "Comment HELP if you can't switch off.", "size": "small"}]}
+ ]}
