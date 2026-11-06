@@ -62,3 +62,13 @@ Log every topic to topics_used.txt and never repeat one.
 - (user, Nov 6) Photos must FIT REEL SIZE. Default: turn every photo into a 9:16 Reel with
   TEXT_Y=0.25-0.35 python3 photo_reel.py <photo> "<text>" ready/<name>_reel.mp4  (text from frame 1, slow push-in,
   soft music, 7-13 s so it loops). Videos -> overlay_text.py (already 9:16). Check frame 1 before sending.
+- (user, Nov 6) ADD these hook formats to the rotation:
+  Storytelling: I almost didn't [action] because I was afraid [outcome] / Nobody warned me this would happen after I finally [result] /
+   The advice that changed how I [activity] was the advice I ignored for years / I thought I needed [obvious fix]. Turns out, I needed [different fix] /
+   The first time I [action], I made a mistake I still remember / I wish someone had told me this before I spent [time] trying to [goal]
+  Contrarian: Can we stop pretending [popular method] is the best way to [result]? / The more you [seemingly helpful action], the harder it is to [goal] /
+   [Popular advice] sounds great, but it can make [problem] worse / I'd choose [underrated option] over [popular option] every time
+  First-person "I" stories must stay honest: the page is voiced by the user, so never invent a personal event for him.
+  Use universal "I" lines that are true for most stuck, burnt-out dads (e.g. "I thought I needed a new job. Turns out, I needed
+  to stop taking this one home."), or ask the user for his real story when a hook needs a specific personal event.
+  Still combine with: self-diagnosis hook, broad packaging + specific problem, why-it-matters, simple words, proof, feel seen.
