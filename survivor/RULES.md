@@ -50,3 +50,7 @@ Log every topic to topics_used.txt and never repeat one.
 - HOOK SYSTEM = Self-Diagnosis Hook: name a symptom he's feeling right now ("wait... I have that"),
   then connect it to a cause he never thought of ("so THAT'S my problem"). Naming the problem makes us the
   authority; then give the fix. Use it on the on-screen text / slide 1, combined with the hook formats below.
+- (user, Nov 6) For every photo/video the user sends: BURN the on-screen text onto it with
+  python3 overlay_text.py <input> "<text with \n between sentences>" ready/<name>.<mp4|jpg>  (Inter Bold white on black
+  highlight boxes, IG Classic style; video 1080x1920 with original audio, photo 1080x1350), check a frame, SendUserFile it,
+  and give only the paste-ready post caption.
