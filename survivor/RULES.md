@@ -59,3 +59,6 @@ Log every topic to topics_used.txt and never repeat one.
   even on vacation." Lead the on-screen text with the broad package, then the specific symptom.
 - (user, Nov 6) On-screen text: NO highlight boxes. Plain bold white letters over the image (strong shadow only).
   Place text over the darkest/busiest-free part of the image (TEXT_Y=0.3-0.6 env var) and check it reads.
+- (user, Nov 6) Photos must FIT REEL SIZE. Default: turn every photo into a 9:16 Reel with
+  TEXT_Y=0.25-0.35 python3 photo_reel.py <photo> "<text>" ready/<name>_reel.mp4  (text from frame 1, slow push-in,
+  soft music, 7-13 s so it loops). Videos -> overlay_text.py (already 9:16). Check frame 1 before sending.
