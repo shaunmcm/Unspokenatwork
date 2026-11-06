@@ -40,3 +40,13 @@ Backgrounds: the user's own photos in photos/ (rotate; never the one with the Ta
 sends in chat can be added to photos/.
 Render: python3 render_carousel.py day_<date>.json out/<date> ; LOOK at a contact sheet of all 12 before sending.
 Log every topic to topics_used.txt and never repeat one.
+
+## STANDING POST FORMAT (user, Nov 6 2026) — applies to EVERY post, carousel and Reel
+- Explain WHY the concept matters, not what it is.
+- Simple, relatable words. No big words.
+- Prove it to the audience (a real, checkable source or an undeniable everyday example; never invented stats).
+- Make him feel seen and heard.
+- Be innovative (fresh angle, tie the visual to the message).
+- HOOK SYSTEM = Self-Diagnosis Hook: name a symptom he's feeling right now ("wait... I have that"),
+  then connect it to a cause he never thought of ("so THAT'S my problem"). Naming the problem makes us the
+  authority; then give the fix. Use it on the on-screen text / slide 1, combined with the hook formats below.
