@@ -98,3 +98,8 @@ Log every topic to topics_used.txt and never repeat one.
    Most people never notice this about [topic]. You won't unsee it / There's a question that fixes [problem] every time. Ask it /
    The reason [thing] works has nothing to do with [assumed reason]
   Use a different format for the on-screen hook and the caption's opening line so they don't repeat each other.
+- (user, Nov 7) VISIBILITY: text must pop on any photo: 6px black outline + soft dark radial glow behind the text block
+  (not a box). Always check frame 1; if any word fades into the background, darken/move it.
+- (user, Nov 7) CORE STORY for every caption: a man stuck at a job he can't leave, extremely burnt out, because he HAS to
+  provide for his family. Lead with emotion (the weight he carries silently, what it costs him and his family), make him
+  feel seen, then the one clear fix.

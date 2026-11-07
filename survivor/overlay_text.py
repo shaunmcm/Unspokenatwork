@@ -19,10 +19,12 @@ def overlay_png(text, w, h, path):
 html,body{{margin:0;width:{w}px;height:{h}px;background:transparent;overflow:hidden}}
 .t{{position:absolute;left:70px;right:70px;top:{top*100}%;transform:translateY(-50%);text-align:center;font-family:Inter}}
 p{{margin:0 0 26px;line-height:1.18}}
-span{{font-weight:700;font-size:64px;color:#fff;letter-spacing:-.3px;
-  -webkit-text-stroke:3px #000;paint-order:stroke fill;
-  text-shadow:0 2px 8px rgba(0,0,0,.45)}}
-</style></head><body><div class="t">{paras}</div></body></html>"""
+span{{font-weight:800;font-size:66px;color:#fff;letter-spacing:-.3px;
+  -webkit-text-stroke:6px #000;paint-order:stroke fill;
+  text-shadow:0 3px 10px rgba(0,0,0,.6)}}
+.glow{{position:absolute;left:-10%;right:-10%;top:{top*100}%;height:62%;transform:translateY(-50%);
+  background:radial-gradient(ellipse at center,rgba(0,0,0,.55) 0%,rgba(0,0,0,.35) 45%,rgba(0,0,0,0) 72%)}}
+</style></head><body><div class="glow"></div><div class="t">{paras}</div></body></html>"""
     with sync_playwright() as p:
         b = p.chromium.launch()
         pg = b.new_page(viewport={"width": w, "height": h})
