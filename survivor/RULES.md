@@ -73,3 +73,12 @@ Log every topic to topics_used.txt and never repeat one.
   to stop taking this one home."), or ask the user for his real story when a hook needs a specific personal event.
   Still combine with: self-diagnosis hook, broad packaging + specific problem, why-it-matters, simple words, proof, feel seen.
 - (user, Nov 6) CTA wording: "Comment "HELP" if ...." with NO "I'll reply" of any kind.
+- (user, Nov 7) EVERY hook must pass 4 checks before it ships:
+  1. HYPER-SPECIFIC: calls out a real person with a real problem (a dad stuck in a job he can't leave, in one exact moment:
+     the driveway, the 9 PM text, the meeting where a coworker took credit). Not "workers" in general.
+  2. EMOTION-TRIGGERING: frustration, curiosity, or fear of missing out (missing his kids, his weekends, his life).
+  3. CLEAR PROMISE: the post solves ONE problem, and the hook says so (one fix, one rule, one script). Never a grab bag.
+  4. POSITIONED FOR THE IDEAL VIEWER: written so the burnt-out, stuck, family-providing man feels "this is for me", and
+     everyone else scrolls past. That's who comments HELP and watches the YouTube channel.
+  Pattern to model (structure only): "How I found [hidden thing] that [most people] still don't know about." ->
+  e.g. "The 2-minute habit in the driveway most burnt-out dads still don't know about."
