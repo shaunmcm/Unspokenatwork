@@ -85,4 +85,16 @@ Log every topic to topics_used.txt and never repeat one.
 - (user, Nov 7) On-screen text: speak to the person ("you", "someone who...", "if you...") instead of labeling him a "dad".
 - (user, Nov 7) NO generated background music on anything (Reels get a silent track; the user adds a sound in Instagram).
 - (user, Nov 7) Font = Instagram viral look: bold white text with a thin black outline, large (64px), in the UPPER third of
-  the screen (default TEXT_Y 0.26 for Reels) where people see it immediately.
+  the screen (default TEXT_Y 0.48 for Reels: mid-screen, user Nov 7 "lower where people see it right away") where people see it immediately.
+- (user, Nov 7) Text position: MID-SCREEN (TEXT_Y ~0.45-0.52), not the top, never in the bottom 25% (Reel UI).
+- (user, Nov 7) ADD these hook formats (for on-screen text AND post captions), still passing the 4-point check:
+  Labeling: If you [behavior] more than [number] times a [period], you're [label] / If you're [stage] and still [habit], this is for you /
+   If your [thing] has [symptom], you have a [root cause] problem / If you've said "[excuse]" this week, watch this twice /
+   If you're the [role] who [behavior], this is going to sting / If [tool] is your whole plan for [goal], you don't have a plan /
+   If [result] matters to you, [uncomfortable action] has to come first / If you've been about to start [thing] for [time], here's your push
+  Curiosity gap: There's a [noun] hiding in your [thing] that's costing you [result] / [Top performers] have a word for [thing]. Nobody else uses it /
+   [Weird fact] explains why your [thing] isn't working / The second thing [top performers] do matters more than the first /
+   Watch what happens when you [small change] in [area] / [Ordinary thing] and [impressive thing] run on the same principle /
+   Most people never notice this about [topic]. You won't unsee it / There's a question that fixes [problem] every time. Ask it /
+   The reason [thing] works has nothing to do with [assumed reason]
+  Use a different format for the on-screen hook and the caption's opening line so they don't repeat each other.

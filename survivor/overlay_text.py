@@ -14,7 +14,7 @@ VIDEO_EXT = {".mov", ".mp4", ".m4v", ".webm"}
 
 def overlay_png(text, w, h, path):
     paras = "".join(f"<p><span>{html.escape(p.strip())}</span></p>" for p in text.split("\\n") if p.strip())
-    top = float(os.environ.get('TEXT_Y', 0.26 if h > 1500 else 0.30))  # center of text block (keeps clear of Reel buttons/caption)
+    top = float(os.environ.get('TEXT_Y', 0.48 if h > 1500 else 0.50))  # center of text block (keeps clear of Reel buttons/caption)
     doc = f"""<!doctype html><html><head><meta charset="utf-8"><style>
 html,body{{margin:0;width:{w}px;height:{h}px;background:transparent;overflow:hidden}}
 .t{{position:absolute;left:70px;right:70px;top:{top*100}%;transform:translateY(-50%);text-align:center;font-family:Inter}}
