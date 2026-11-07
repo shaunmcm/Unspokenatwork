@@ -14,13 +14,14 @@ VIDEO_EXT = {".mov", ".mp4", ".m4v", ".webm"}
 
 def overlay_png(text, w, h, path):
     paras = "".join(f"<p><span>{html.escape(p.strip())}</span></p>" for p in text.split("\\n") if p.strip())
-    top = float(os.environ.get('TEXT_Y', 0.40 if h > 1500 else 0.46))  # center of text block (keeps clear of Reel buttons/caption)
+    top = float(os.environ.get('TEXT_Y', 0.26 if h > 1500 else 0.30))  # center of text block (keeps clear of Reel buttons/caption)
     doc = f"""<!doctype html><html><head><meta charset="utf-8"><style>
 html,body{{margin:0;width:{w}px;height:{h}px;background:transparent;overflow:hidden}}
 .t{{position:absolute;left:70px;right:70px;top:{top*100}%;transform:translateY(-50%);text-align:center;font-family:Inter}}
-p{{margin:0 0 30px;line-height:1.22}}
-span{{font-weight:800;font-size:58px;color:#fff;letter-spacing:-.4px;
-  text-shadow:0 0 2px rgba(0,0,0,.95),0 0 6px rgba(0,0,0,.8),0 3px 10px rgba(0,0,0,.8),0 6px 30px rgba(0,0,0,.65)}}
+p{{margin:0 0 26px;line-height:1.18}}
+span{{font-weight:700;font-size:64px;color:#fff;letter-spacing:-.3px;
+  -webkit-text-stroke:3px #000;paint-order:stroke fill;
+  text-shadow:0 2px 8px rgba(0,0,0,.45)}}
 </style></head><body><div class="t">{paras}</div></body></html>"""
     with sync_playwright() as p:
         b = p.chromium.launch()

@@ -82,3 +82,7 @@ Log every topic to topics_used.txt and never repeat one.
      everyone else scrolls past. That's who comments HELP and watches the YouTube channel.
   Pattern to model (structure only): "How I found [hidden thing] that [most people] still don't know about." ->
   e.g. "The 2-minute habit in the driveway most burnt-out dads still don't know about."
+- (user, Nov 7) On-screen text: speak to the person ("you", "someone who...", "if you...") instead of labeling him a "dad".
+- (user, Nov 7) NO generated background music on anything (Reels get a silent track; the user adds a sound in Instagram).
+- (user, Nov 7) Font = Instagram viral look: bold white text with a thin black outline, large (64px), in the UPPER third of
+  the screen (default TEXT_Y 0.26 for Reels) where people see it immediately.
