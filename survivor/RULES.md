@@ -1,3 +1,34 @@
+# >>> MASTER CHECKLIST — run EVERY item on EVERY post (user, Nov 7: "do checks on every single instruction I have given you")
+# The detailed rules are below; this list is the gate. Silently fix anything that fails before sending.
+# CONTENT
+#  [ ] Core story: a man stuck at a job he can't leave, extremely burnt out, because he has to provide. Emotional first.
+#  [ ] Explains WHY it matters (not what it is); simple, relatable words; makes him feel seen and heard; innovative angle
+#  [ ] Self-diagnosis hook: names a symptom he feels now ("wait... I have that") -> hidden cause ("so THAT'S my problem")
+#  [ ] Broad packaging + hyper-specific problem
+#  [ ] 4-point hook check: hyper-specific person/moment, emotion-triggering, ONE clear promise, positioned for the ideal viewer
+#  [ ] Uses a hook format from the user's lists (stakes, authority, blunt, mistake, storytelling, contrarian, labeling,
+#      curiosity gap, "Nobody is more stressed than...", "For the sake of your mental health..."), different from the last post,
+#      and the on-screen hook and the caption's first line use DIFFERENT formats
+#  [ ] Real proof: a named, checkable source quoted exactly, or an undeniable everyday example. No invented stats/quotes
+#  [ ] ONE problem, ONE fix; visual tie-in to the actual photo/video
+#  [ ] "I" lines are honest (true for most viewers) - never invent a personal event for the user
+#  [ ] On-screen text talks to "you"/"if you..."/"someone who...", not "dads"
+#  [ ] New topic (check topics_used.txt); no copying other creators' wording
+# CAPTION
+#  [ ] Hook + 👇, scene, hidden cause, feel-seen line, proof, "Why it matters", the fix, visual tie-in,
+#      question with one CAPS word + 👇, 'Comment "HELP" if ...' (NO "I'll reply" of any kind),
+#      "Full videos on my YouTube channel. The link is in my bio.", exactly 5 hashtags; delivered in a code block
+# VISUAL
+#  [ ] Photos AND videos come back as 9:16 Reels (photo_reel.py / overlay_text.py); carousels 6 slides 4:5 when asked
+#  [ ] Full hook text on screen from frame 1, 2-4 sentences
+#  [ ] Viral font: bold white, thick black outline, soft dark glow behind (no boxes); MID-SCREEN (TEXT_Y ~0.45-0.52),
+#      never in the bottom 25%
+#  [ ] Every word readable on frame 1 (LOOK at it); flag any brand logos for cropping
+#  [ ] NO generated music (silent track); 7-15 s so it loops
+# DELIVERY
+#  [ ] SendUserFile the finished file + caption; nothing auto-posted to @work_placesurvivor; sources listed for the user
+#  [ ] Log topic in topics_used.txt; push files to the repo
+
 # Workplace Survivor (@work_placesurvivor) — daily carousels (user, Nov 5 2026)
 
 NOT auto-posted. Each morning: make 2 carousels x 6 slides and SEND them to the user (SendUserFile, all 12 jpgs)
@@ -103,3 +134,8 @@ Log every topic to topics_used.txt and never repeat one.
 - (user, Nov 7) CORE STORY for every caption: a man stuck at a job he can't leave, extremely burnt out, because he HAS to
   provide for his family. Lead with emotion (the weight he carries silently, what it costs him and his family), make him
   feel seen, then the one clear fix.
+- (user, Nov 7) ADD these hook formats:
+  Call-out: "Nobody is more stressed than a [specific person in the audience] who doesn't know how to [specific struggle / desired result]."
+   e.g. "Nobody is more stressed than a man who can't quit because his family needs the paycheck, and doesn't know how to stop bringing work home."
+  Distinction: "For the sake of your mental health, please know there is a difference between [thing people confuse] and [the thing they mix it up with]."
+   e.g. "For the sake of your mental health, please know there is a difference between providing for your family and disappearing from it."

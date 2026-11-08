@@ -154,6 +154,10 @@ CURIOSITY GAP
 - There's a question that fixes [problem] every time. Ask it.
 - The reason [thing] works has nothing to do with [assumed reason].
 
+CALL-OUT + DISTINCTION
+- Nobody is more stressed than a [specific person in your audience] who doesn't know how to [specific struggle or desired result].
+- For the sake of your mental health, please know there is a difference between [thing people confuse] and [the thing they mix it up with].
+
 HONESTY RULE FOR "I" HOOKS: if the page is in my voice, never invent a personal story, number, client or event for me. Use "I" lines that are true for most people in my audience (e.g. "I thought I needed a new job. Turns out, I needed to stop taking this one home."), or ask me for my real story when a hook needs a specific personal moment. Authority hooks naming experts, companies or "people I've worked with" are only used with real, checkable facts.
 
 ====================================================================
