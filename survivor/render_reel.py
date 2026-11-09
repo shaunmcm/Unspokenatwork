@@ -75,14 +75,14 @@ html,body{{margin:0;width:{W}px;height:{H}px;overflow:hidden;background:#000;fon
   linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.15) 40%,rgba(0,0,0,.6))}}
 .scene{{position:absolute;inset:0;display:none}}
 .stack{{position:absolute;left:84px;right:84px;top:50%;transform:translateY(-50%);color:#fff;text-align:center}}
-.row{{margin:0 0 30px;text-shadow:0 3px 24px rgba(0,0,0,.65)}}
+.row{{margin:0 0 30px;-webkit-text-stroke:6px #000;paint-order:stroke fill;text-shadow:0 3px 12px rgba(0,0,0,.6)}}
 .big{{font-weight:800;font-size:96px;line-height:1.1;letter-spacing:-1.5px}}
 .mid{{font-weight:800;font-size:74px;line-height:1.14;letter-spacing:-1px}}
 .small{{font-weight:500;font-size:50px;line-height:1.3;color:rgba(255,255,255,.92)}}
 .w{{display:inline-block;opacity:0}}
 .hl{{color:#ff8a3d}}
-.teaser{{position:absolute;top:250px;left:0;right:0;text-align:center}}
-.teaser .w{{font:700 40px Inter;color:#111;background:#ff8a3d;padding:12px 28px;border-radius:40px}}
+.teaser{{position:absolute;top:470px;left:0;right:0;text-align:center}}
+.teaser .w{{font:800 44px Inter;color:#ff8a3d;-webkit-text-stroke:5px #000;paint-order:stroke fill}}
 .bar{{position:absolute;top:0;left:0;height:10px;background:#ff8a3d;width:0}}
 .track{{position:absolute;top:0;left:0;right:0;height:10px;background:rgba(255,255,255,.18)}}
 .handle{{position:absolute;bottom:330px;left:0;right:0;text-align:center;font:600 34px Inter;color:rgba(255,255,255,.7)}}
@@ -180,7 +180,11 @@ def main():
             pg.screenshot(path=os.path.join(frames, f"{i:05d}.jpg"), type="jpeg", quality=88)
         b.close()
     wav = os.path.join(out, reel["id"] + ".wav")
-    music(wav, total, [s["start"] for s in scenes])
+    if reel.get("silent", True):  # user, Nov 7: no generated music
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo",
+                        "-t", str(total), wav], check=True)
+    else:
+        music(wav, total, [s["start"] for s in scenes])
     mp4 = os.path.join(out, reel["id"] + ".mp4")
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-framerate", str(FPS), "-i", os.path.join(frames, "%05d.jpg"),
                     "-i", wav, "-c:v", "libx264", "-preset", "medium", "-crf", "19", "-pix_fmt", "yuv420p",
