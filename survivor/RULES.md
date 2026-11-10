@@ -141,3 +141,16 @@ Log every topic to topics_used.txt and never repeat one.
    e.g. "For the sake of your mental health, please know there is a difference between providing for your family and disappearing from it."
 - (user, Nov 9) Don't center posts on kids anymore. Center the man himself: stuck at a job he can't afford to quit because he has
   to provide. Family can be the reason he stays, but the story and the fix are about HIM.
+
+## GROWTH FIXES (Nov 10 audit of @work_placesurvivor: 17 posts in 9 days, 111 followers, 0-6 likes per post, 1 comment total)
+- Posting: max 2 Reels/day, at least 4 hours apart, best windows 6-8 AM or 6-9 PM PT. Never 2 posts within the same hour
+  (the page posted 3 in 81 minutes on Nov 1 and 2 in 13 minutes at 2 AM on Nov 6; they compete with each other).
+- On-screen text: hook line max ~12 words, then ONE specific line, then a short pointer ("Full fix in the caption ↓").
+  Readable in under 3 seconds. Hyper-specific, about HIM (the provider stuck at a job he can't afford to quit).
+- Visuals: prefer images that LOOK like his life (truck dashboard at dawn, parking lot, time clock, boots, lunch in the car,
+  hard hat, empty break room, steering wheel at night). Scenery only when the metaphor is obvious. Ask the user for these clips.
+- Caption: 80-150 words max. First line = searchable keywords + hook (e.g. "Stuck in a job you hate but can't afford to quit?").
+  Keep: why it matters, one proof, one fix, CAPS question, Comment "HELP" if ..., YouTube line. ADD a share line:
+  "Send this to a man who needs to hear it." (shares/sends are what push Reels to new people). Hashtags: exactly 5, each with #.
+- Every Reel needs sound: the user adds a trending sound in Instagram at low volume (we export silent).
+- Repurpose the user's own YouTube videos (his voice/face) into 20-40 s captioned Reels whenever he sends clips.
