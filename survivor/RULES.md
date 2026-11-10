@@ -139,3 +139,5 @@ Log every topic to topics_used.txt and never repeat one.
    e.g. "Nobody is more stressed than a man who can't quit because his family needs the paycheck, and doesn't know how to stop bringing work home."
   Distinction: "For the sake of your mental health, please know there is a difference between [thing people confuse] and [the thing they mix it up with]."
    e.g. "For the sake of your mental health, please know there is a difference between providing for your family and disappearing from it."
+- (user, Nov 9) Don't center posts on kids anymore. Center the man himself: stuck at a job he can't afford to quit because he has
+  to provide. Family can be the reason he stays, but the story and the fix are about HIM.
