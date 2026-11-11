@@ -19,6 +19,9 @@
 #      question with one CAPS word + 👇, 'Comment "HELP" if ...' (NO "I'll reply" of any kind),
 #      "Full videos on my YouTube channel. The link is in my bio.", exactly 5 hashtags; delivered in a code block
 # VISUAL
+#  [ ] PHOTO REELS (user, Nov 11): SERIF font (Lora Bold, white, thin black outline + dark shadow) for an authentic look,
+#      and visible MOTION in the photo (push-in 1.0->1.16 + slow sideways drift + light grain; photo_reel.py does it).
+#      Only the photo moves; the text stays still. Carousels keep their own style.
 #  [ ] Photos AND videos come back as 9:16 Reels (photo_reel.py / overlay_text.py); carousels 6 slides 4:5 when asked
 #  [ ] Full hook text on screen from frame 1, 2-4 sentences
 #  [ ] Viral font: bold white, thick black outline, soft dark glow behind (no boxes); MID-SCREEN (TEXT_Y ~0.45-0.52),

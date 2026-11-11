@@ -1,5 +1,5 @@
 """Turn a still photo into a short, loopable 9:16 Reel (1080x1920, 30 fps):
-full hook text on screen from frame 1 (plain bold white, no boxes), slow push-in on the photo,
+full hook text on screen from frame 1 (plain bold white, no boxes), push-in + drift + light grain on the photo (Nov 11), serif text,
 NO music (user, Nov 7): a silent audio track so the user adds a sound in Instagram. Length = time to read the text twice (min 7 s), so it loops.
 
 Usage: TEXT_Y=0.3 python3 photo_reel.py <photo> "<text with \\n>" out.mp4
@@ -15,8 +15,13 @@ secs = max(7.0, round(0.32 * words + 2.0, 1))
 tmp = tempfile.mkdtemp()
 ov = os.path.join(tmp, "ov.png"); overlay_png(text, 1080, 1920, ov)
 n = int(secs * 30)
-vf = (f"[0:v]scale=2160:3840:force_original_aspect_ratio=increase,crop=2160:3840,"
-      f"zoompan=z='1+0.06*on/{n}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={n}:s=1080x1920:fps=30[b];"
+# Motion (user, Nov 11: "some sort of motion in the photo"): visible push-in (1.0 -> 1.16) with a slow sideways drift,
+# a gentle light "breathing" and fine film grain. Only the photo moves; the text stays still and readable.
+pan = os.environ.get("PAN", "right")  # right | left
+dx = "(iw-iw/zoom)*(0.35+0.3*on/%d)" % n if pan == "right" else "(iw-iw/zoom)*(0.65-0.3*on/%d)" % n
+vf = (f"[0:v]scale=4320:7680:force_original_aspect_ratio=increase,crop=4320:7680,"
+      f"zoompan=z='1+0.16*on/{n}':x='{dx}':y='ih/2-(ih/zoom/2)':d={n}:s=1080x1920:fps=30,"
+      f"eq=brightness='0.02*sin(2*PI*t/{secs})':eval=frame,noise=alls=7:allf=t,vignette=PI/5[b];"
       f"[b][1:v]overlay=0:0,format=yuv420p[v]")
 subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-loop", "1", "-i", src, "-i", ov, "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo",
                 "-filter_complex", vf, "-map", "[v]", "-map", "2:a", "-t", str(secs), "-c:v", "libx264",
