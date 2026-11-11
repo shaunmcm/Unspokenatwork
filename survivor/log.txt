@@ -1,0 +1,13 @@
+out/2026-11-10/C009_passedover_1.jpg
+out/2026-11-10/C009_passedover_2.jpg
+out/2026-11-10/C009_passedover_3.jpg
+out/2026-11-10/C009_passedover_4.jpg
+out/2026-11-10/C009_passedover_5.jpg
+out/2026-11-10/C009_passedover_6.jpg
+out/2026-11-10/C010_nolunch_1.jpg
+out/2026-11-10/C010_nolunch_2.jpg
+out/2026-11-10/C010_nolunch_3.jpg
+out/2026-11-10/C010_nolunch_4.jpg
+out/2026-11-10/C010_nolunch_5.jpg
+out/2026-11-10/C010_nolunch_6.jpg
+2026-11-10 alarm_again_reel: same structure as worn_down (2k views): 'You'd quit/walk out if you could afford...' + 'But [bills], so you [go back]' + 'Read the caption.'
