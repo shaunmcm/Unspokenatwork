@@ -172,6 +172,13 @@ Rotate the format, but keep the want/must tension in every hook. Before sending,
 plus "would he screenshot or share this?"
 Honest note: no wording can guarantee 1M views. Reach depends on hold rate, rewatches and shares, which only Insights can show.
 
-## PRODUCT LAYER (proposed Nov 12, NOT active until the user approves AND the product is live)
+## PRODUCT LAYER — ACTIVE from Nov 13 (The Exit Blueprint is live at https://exitblueprint90.netlify.app, $19.99; the free quiz is in the bio link)
+When a post fits, end the caption with ONE natural product line instead of (or before) the HELP line, rotating these so they don't repeat:
+- "Not sure what you'd even do instead? Take the free Exit Quiz in my bio. It shows your top 3 side businesses."
+- "If you can't quit yet, start building the way out. Free quiz in my bio."
+- "I built a free quiz for men in exactly this spot. It matches you to a side business that fits your skills and schedule. Link in bio."
+- "Your skills are worth more than this job pays you. Find out what they could build: free quiz, link in bio."
+Never promise income or results. The quiz is free; the plan is paid. Say that honestly if asked.
+(older note:)
 See PRODUCT_PLAN_NOV12.md. Until then, captions keep the current CTA. The user's Nov 11 ending is allowed:
 'If you've tried these and they aren't working, comment "HELP" and I'll DM you.'
