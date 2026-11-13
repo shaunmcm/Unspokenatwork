@@ -281,3 +281,6 @@ that matters...", "Hold that thought.", "Here's the part nobody tells you."), pa
 for right before the CTA. The CTA (comment "EXIT") points to the free quiz, which leads to the paid 90-day Exit Blueprint.
 Say plainly that the quiz is free and the full Blueprint unlocks after it. Never promise income. Still 5 hashtags + share line.
 Length may run to about 180 words when the loops need it.
+- CLARITY (user, Nov 13): every on-screen text must make it OBVIOUS it's about burnout, a job/career, or being stuck at work.
+  Use plain words like job, shift, boss, burnout, burnt out, raise, stuck. No metaphor-only lines ("laps", "a warning") that
+  could be about anything; if the photo metaphor is used, tie it to the job in the same line.
