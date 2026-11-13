@@ -267,3 +267,17 @@ The keyword goes in capitals and quotes, on its own line near the end. Keep "Sen
 On-screen line 3 may say: 'Comment "EXIT" ↓' (use about 1 Reel in 3).
 Never promise income in the CTA. The auto-DM sends: free quiz link https://exitblueprint90.netlify.app
 (This replaces the older 'Comment "HELP"' and 'link in bio' CTA lines.)
+
+## ON-SCREEN + CAPTION UPGRADE — STANDING RULE from Nov 13, 4:31 AM (user)
+ON SCREEN: NEVER put 'Comment "EXIT"' (or any comment ask) in on-screen text. This overrides the earlier "1 in 3" note.
+On-screen text = emotionally relatable, urgent, controversial or shocking, curiosity-driven, using the taught hook formats
+(self-diagnosis "If you ___, read this", "I hate to break it to you", "For the sake of your ___", "Nobody is more ___ than",
+contrarian "___ won't ___. It's ___", stakes "Every ___ you ___", "The problem isn't ___. It's ___", storytelling/teaser).
+ Line 1: the hook. Line 2: the twist or open loop (a promise of something he doesn't know yet).
+ Line 3: an open-loop pointer to the caption ("What it means is in the caption ↓", "The way out is in the caption ↓", "Read the caption ↓").
+ No orphan words when it wraps; check the frames.
+CAPTIONS: elaborate, with curiosity loops all the way through. Open a question early, tease what's coming ("But that's not the part
+that matters...", "Hold that thought.", "Here's the part nobody tells you."), pay each loop off before the next, and save one payoff
+for right before the CTA. The CTA (comment "EXIT") points to the free quiz, which leads to the paid 90-day Exit Blueprint.
+Say plainly that the quiz is free and the full Blueprint unlocks after it. Never promise income. Still 5 hashtags + share line.
+Length may run to about 180 words when the loops need it.
