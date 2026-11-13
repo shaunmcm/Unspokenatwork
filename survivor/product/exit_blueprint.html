@@ -251,12 +251,12 @@ function intro(){
     <h3>How it works</h3>
     <ol class="steps">
       <li><b>The skills quiz (about 5 minutes).</b> 16 questions about what you're good at, what people already ask you for, what you own, your time, your budget, your body and the money you want to make.</li>
-      <li><b>Your top 3 side businesses.</b> Ranked for you, with the reasons from your own answers.</li>
-      <li><b>Your 90-day daily planner.</b> A task for every single day, built around the days and hours you actually have, with a checkbox for each one.</li><li><b>Your step-by-step guide and money math.</b> What it takes to succeed, what it costs to start and run, what to charge, and exactly how many jobs and hours it takes to reach the monthly amount you want.</li>
-      <li><b>Your exit numbers.</b> How much side income and savings you'd need before leaving is a real option, not a gamble.</li>
+      <li><b>Your top 3 side businesses (free).</b> Ranked for you, with the reasons from your own answers.</li>
+      <li><b>Your full Exit Plan ($20), including:</b> <b>a 90-day daily planner.</b> A task for every single day, built around the days and hours you actually have, with a checkbox for each one.</li><li><b>Your step-by-step guide and money math.</b> What it takes to succeed, what it costs to start and run, what to charge, and exactly how many jobs and hours it takes to reach the monthly amount you want.</li>
+      <li><b>Your exit numbers, plus a PDF of your whole plan.</b> How much side income and savings you'd need before leaving is a real option, not a gamble.</li>
     </ol>
   </div>
-  <div class="row"><button class="btn" onclick="go(0)">Start the quiz</button>
+  <div class="row"><button class="btn" onclick="go(0)">Start the free quiz</button>
   ${A.name ? `<button class="btn ghost" onclick="results()">See my last results</button>` : ""}</div>
   <p class="note"><b>Disclosure:</b> This is a planning tool. It does not guarantee results or income, and all costs, prices and earnings it shows are rough estimates, not exact figures. Results depend on your effort, your area and your market. Not financial, legal or tax advice. Check local licensing rules and your employer's policy on side work before you start.</p>`;
   window.scrollTo(0,0);
@@ -449,10 +449,173 @@ function weekTarget(m, week){
   return Math.max(1, Math.round(m.ramp[monthIdx] / 4.33));
 }
 
+/* ---------------- PAYWALL ---------------- */
+const PAY_LINK = "";   // Stripe Payment Link for $20 goes here (after-payment redirect: this page + ?paid=UNLOCK_CODE)
+const UNLOCK_HASH = "177d1c1f1005aa7e2f414e77b2c0a017538b42be5b9d325cdf530013ef605331";
+let UNLOCKED = false;
+try{ UNLOCKED = localStorage.getItem("ebUnlocked") === "1"; }catch(e){}
+async function checkPaid(){
+  try{
+    const code = new URLSearchParams(location.search).get("paid");
+    if(!code) return false;
+    const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(code));
+    const hex = [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("");
+    if(hex === UNLOCK_HASH){ UNLOCKED = true; try{ localStorage.setItem("ebUnlocked", "1"); }catch(e){} try{ history.replaceState(null, "", location.pathname); }catch(e){} return true; }
+  }catch(e){}
+  return false;
+}
+function paywall(){
+  const btn = PAY_LINK ? `<a class="btn" style="text-decoration:none;display:block;text-align:center" href="${PAY_LINK}">Unlock my full Exit Plan: $20</a>`
+                       : `<button class="btn" disabled style="width:100%">Checkout opens soon</button>`;
+  return `<div class="card match" style="margin-top:22px">
+    <div class="kicker">Your full Exit Plan</div>
+    <h2 style="margin-bottom:6px">Turn one of these into a real way out</h2>
+    <p>Your matches are free. The full plan is built from your answers and includes all 3 businesses:</p>
+    <ul class="clean">
+      <li><b>A 90-day daily planner.</b> A task for every single day, on the days and hours you actually have, with checkboxes.</li>
+      <li><b>A step-by-step guide.</b> What it takes to succeed, where your first customers come from, what to say, and the mistakes that sink beginners.</li>
+      <li><b>Costs and your money goal.</b> What it costs to start and run, what to charge, and how many jobs and hours it takes to reach ${A.goal ? money(Number(A.goal)) + " a month" : "your monthly goal"}.</li>
+      <li><b>Your exit numbers.</b> The milestones and savings cushion that make leaving a real option, not a gamble.</li>
+      <li><b>A downloadable PDF</b> of your whole plan to keep, print or check off.</li>
+    </ul>
+    <div class="num" style="margin:4px 0 12px">$20 <span class="muted" style="font-size:1rem;font-family:Inter">one time</span></div>
+    ${btn}
+    <p class="muted" style="font-size:.88rem;margin:12px 0 0">Pay on this same phone or browser. Your plan is built from the answers saved here and opens as soon as checkout is done.</p>
+  </div>`;
+}
+function freeResults(){
+  const top = score().slice(0, 3); const maxS = Math.max(1, top[0].s);
+  $("#app").innerHTML = `
+  <div class="kicker">Your results</div>
+  <h1>${A.name ? esc(A.name) + ", here" : "Here"} are your top 3 side businesses</h1>
+  <p class="muted">Ranked from your ${QUESTIONS.length} answers.</p>
+  ${top.map((x, i) => `<div class="card ${i === 0 ? "match" : ""}">
+     <div class="row" style="justify-content:space-between"><h3 style="margin:0">${i + 1}. ${esc(x.p.name)}</h3><span class="pill">${Math.max(35, Math.round(x.s / maxS * 96))}% match</span></div>
+     <p class="muted" style="margin:8px 0 6px">${esc(ECON[x.p.id].about.split(". ")[0])}.</p>
+     <ul class="clean">${(x.why.length ? x.why : ["It fits your time, budget and how you like to work."]).map(w => `<li>${esc(w)}</li>`).join("")}</ul></div>`).join("")}
+  ${paywall()}
+  <div class="row" style="margin-top:14px"><button class="btn ghost" onclick="A={};save();intro()">Retake the quiz</button></div>
+  ${disclosure()}`;
+  window.scrollTo(0,0);
+}
+
+/* ---------------- PDF (built in the page, no outside services) ---------------- */
+const HW = (() => { const w = [278,278,355,556,556,889,667,191,333,333,389,584,278,333,278,278,556,556,556,556,556,556,556,556,556,556,278,278,584,584,584,556,1015,667,667,722,722,667,611,778,722,278,500,667,556,833,722,778,667,778,722,667,611,722,667,944,667,667,611,278,278,278,469,556,333,556,556,500,556,556,278,556,556,222,222,500,222,833,556,556,556,556,333,500,278,556,500,722,500,500,500,334,260,334,584];
+  const m = {}; w.forEach((v, i) => m[String.fromCharCode(32 + i)] = v); return m; })();
+const PMAP = {"–":"\\226","—":"\\227","‘":"\\221","’":"\\222","“":"\\223","”":"\\224","•":"\\225","…":"\\205","·":"\\267","é":"\\351","≈":"~","✓":"v","→":"->","−":"-","×":"x","\u00a0":" "};
+function pclean(s){ return String(s).replace(/[–—‘’“”•…·é≈✓→−×\u00a0]/g, c => ({"–":"-","—":"-","‘":"'","’":"'","“":'"',"”":'"',"•":"-","…":"...","·":"-","é":"e","≈":"~","✓":"v","→":"->","−":"-","×":"x","\u00a0":" "}[c])).replace(/[^\x20-\x7e]/g, ""); }
+function pesc(s){ return pclean(s).replace(/\\/g, "\\\\").replace(/\(/g, "\\(").replace(/\)/g, "\\)"); }
+function pwidth(s, size, bold){ let t = 0; for(const c of pclean(s)) t += HW[c] || 556; return t / 1000 * size * (bold ? 1.07 : 1); }
+function MiniPDF(){
+  const W = 612, H = 792, M = 54, TW = W - 2 * M; const pages = []; let ops = null; let y = 0; const me = {};
+  const col = c => c.map(v => (v / 255).toFixed(3)).join(" ");
+  me.page = () => { ops = []; pages.push(ops); y = M; };
+  me.need = h => { if(y + h > H - M - 20) me.page(); };
+  me.text = (x, yy, s, size, bold, c) => ops.push(`BT /${bold ? "F2" : "F1"} ${size} Tf ${col(c || [20,20,20])} rg ${x.toFixed(1)} ${(H - yy).toFixed(1)} Td (${pesc(s)}) Tj ET`);
+  me.rect = (x, yy, w, h, fill, stroke) => { if(fill) ops.push(`${col(fill)} rg ${x} ${H - yy - h} ${w} ${h} re f`); if(stroke) ops.push(`${col(stroke)} RG 0.8 w ${x} ${H - yy - h} ${w} ${h} re S`); };
+  me.wrap = (s, size, bold, width) => { const words = pclean(s).split(/\s+/); const lines = []; let line = "";
+    for(const w of words){ const tryL = line ? line + " " + w : w; if(pwidth(tryL, size, bold) > width && line){ lines.push(line); line = w; } else line = tryL; }
+    if(line) lines.push(line); return lines; };
+  me.para = (s, o = {}) => { const size = o.size || 10.5, bold = !!o.bold, ind = o.indent || 0, lh = size * 1.38;
+    const lines = me.wrap(s, size, bold, TW - ind - (o.bullet || o.box ? 14 : 0));
+    lines.forEach((l, i) => { me.need(lh); if(i === 0 && o.bullet) me.text(M + ind, y + size, "-", size, false, o.color); if(i === 0 && o.box) me.rect(M + ind, y + 1.5, 8.5, 8.5, null, [120,120,120]);
+      me.text(M + ind + (o.bullet || o.box ? 14 : 0), y + size, l, size, bold, o.color); y += lh; });
+    y += o.after ?? 4; };
+  me.h1 = s => { me.need(40); me.para(s, {size: 22, bold: true, after: 6}); };
+  me.h2 = s => { me.need(60); y += 8; me.para(s, {size: 15, bold: true, color: [190,90,30], after: 4}); me.rect(M, y, TW, 0.8, [220,200,185]); y += 8; };
+  me.h3 = s => { me.need(36); y += 2; me.para(s, {size: 11.5, bold: true, after: 2}); };
+  me.box = (s) => { const lines = me.wrap(s, 9.5, false, TW - 20); const h = lines.length * 13 + 16; me.need(h); me.rect(M, y, TW, h, [252,244,236], [230,190,160]); let yy = y + 8;
+    lines.forEach(l => { me.text(M + 10, yy + 9.5, l, 9.5, false, [80,50,30]); yy += 13; }); y += h + 10; };
+  me.row = (a, b, bold) => { me.need(16); me.text(M, y + 10.5, a, 10.5, bold); const bw = pwidth(b, 10.5, bold); me.text(M + TW - bw, y + 10.5, b, 10.5, bold); y += 15; me.rect(M, y - 2, TW, 0.5, [225,225,225]); y += 3; };
+  me.gap = h => { y += h; };
+  me.out = (footer) => {
+    const objs = []; const add = s => { objs.push(s); return objs.length; };
+    add("<< /Type /Catalog /Pages 2 0 R >>"); add("PAGES");
+    add("<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>");
+    add("<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>");
+    const kids = [];
+    pages.forEach((p, i) => { const f = [`BT /F1 8 Tf 0.45 0.45 0.45 rg ${M} 30 Td (${pesc(footer)}) Tj ET`, `BT /F1 8 Tf 0.45 0.45 0.45 rg ${W - M - 40} 30 Td (Page ${i + 1} of ${pages.length}) Tj ET`];
+      const stream = p.concat(f).join("\n"); const c = add(`<< /Length ${stream.length} >>\nstream\n${stream}\nendstream`);
+      kids.push(add(`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${W} ${H}] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents ${c} 0 R >>`)); });
+    objs[1] = `<< /Type /Pages /Kids [${kids.map(k => k + " 0 R").join(" ")}] /Count ${kids.length} >>`;
+    let pdf = "%PDF-1.4\n"; const offs = [];
+    objs.forEach((o, i) => { offs.push(pdf.length); pdf += `${i + 1} 0 obj\n${o}\nendobj\n`; });
+    const xref = pdf.length;
+    pdf += `xref\n0 ${objs.length + 1}\n0000000000 65535 f \n` + offs.map(o => String(o).padStart(10, "0") + " 00000 n \n").join("");
+    pdf += `trailer\n<< /Size ${objs.length + 1} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF`;
+    return new Blob([pdf], {type: "application/pdf"});
+  };
+  me.page(); return me;
+}
+function makePDF(){
+  const top = score().slice(0, 3); const t = top[activeTab]; const p = t.p; const m = money_model(p); const e = m.e; const tools = A.tools || [];
+  const must = Number(A.must || 0); const d = MiniPDF(); const who = (A.name || "").trim();
+  const DISC = "No guaranteed results: The Exit Blueprint is a planning tool, not a promise. It does not guarantee results or income. All prices, costs, hours and earnings are rough estimates, not exact figures; real numbers depend on your area, your market and your effort. Check local prices, licensing, insurance and tax rules and your employer's policy on side work. Not financial, legal or tax advice.";
+  d.gap(40); d.para("WORKPLACE SURVIVOR", {size: 9, bold: true, color: [190,90,30]});
+  d.h1(`${who ? who + "'s" : "Your"} Exit Blueprint`);
+  d.para(`Plan: ${p.name}`, {size: 13, bold: true, color: [60,60,60]});
+  d.para(`Built ${new Date().toLocaleDateString("en-US", {month: "long", day: "numeric", year: "numeric"})} from your quiz answers.`, {size: 10, color: [110,110,110], after: 14});
+  d.box(DISC);
+  d.h2("Your top 3 side businesses");
+  top.forEach((x, i) => { d.h3(`${i + 1}. ${x.p.name}${i === activeTab ? "  (this plan)" : ""}`); (x.why.length ? x.why : ["It fits your time, budget and how you like to work."]).forEach(w => d.para(w, {bullet: true, after: 1})); d.gap(4); });
+  d.h2(`How to succeed at ${p.name.toLowerCase()}`);
+  d.h3("What this business is"); d.para(e.about);
+  d.h3("Your first offers"); p.offers.forEach(o => d.para(o, {bullet: true, after: 1}));
+  d.h3("Where your first customers come from"); d.para(p.where + ".");
+  d.h3("What it takes to succeed"); e.success.forEach(s => d.para(s, {bullet: true, after: 1}));
+  d.h3("Mistakes that sink most beginners"); e.mistakes.forEach(s => d.para(s, {bullet: true, after: 1}));
+  d.h3("Your schedule"); d.para(`About ${m.hrsHave} hours a month on ${(A.days || ["6"]).map(x => DOW[x]).join(", ")}. One ${e.unit} takes about ${e.hrs} hours including travel and setup, so at full speed you have room for about ${m.capUnits} ${pl(e)} a month.`);
+  d.h3("Message to send people you know"); d.para(`"Hey, I've started doing ${p.offers[0].split(":")[0].split("(")[0].trim().toLowerCase()} on the side. If you or anyone you know needs it, I'd really appreciate it. Here's what I charge: [your price]."`);
+  d.h3("Rules to check first"); d.para(p.rules + " Also read your employer's policy on side work.");
+  d.h2("Costs (estimates)");
+  p.kit.forEach(([item, cost, have]) => { const owned = have && tools.includes(have); d.row(item.replace(/ \(skip.*\)/, ""), owned ? "You have it" : cost ? "~ " + money(cost) : "Varies"); });
+  d.row("Your startup total", "~ " + money(t.kitCost), true);
+  d.gap(6);
+  d.row("Monthly costs (insurance, ads, apps, phone)", "~ " + money(e.over) + "/month");
+  d.row(`Supplies and gas per ${e.unit}`, "~ " + money(m.unitCost));
+  d.row("Taxes to set aside on profit", `about ${Math.round(TAX * 100)}% (ask a tax pro)`);
+  d.h3("What you could charge (estimate)");
+  d.para(`A common range is about ${money(e.lo)}-${money(e.hi)} ${e.profitOnly ? "profit per flip" : "per " + e.unit}. This plan uses about ${money(m.mid)}, which leaves about ${money(m.net)} after supplies, or about ${money(Math.round(m.net * (1 - TAX)))} after setting aside taxes. Check 5 local competitors in week 1 and adjust.`);
+  d.h2(`How to reach ${money(m.goal)} a month (estimates)`);
+  if(m.goal > 0){
+    d.para(`To put ${money(m.goal)} in your pocket each month, you'd need about ${money(Math.round(m.needProfit))} in monthly profit before taxes and monthly costs. That's about ${m.units} ${e.recurring ? "monthly clients" : pl(e) + " a month"} and about ${m.hrsNeed} hours a month (${m.hoursForGoal} a week).`);
+    d.para(m.fits ? `That fits inside the ${m.hrsHave} hours a month you have. At full speed (usually around month 3) the goal is within reach.`
+      : `That's more than the ${m.hrsHave} hours a month you have. At your hours, full speed is about ${m.capUnits} ${pl(e)} a month, or about ${money(m.capTake)} take-home. To close the gap: raise your average price to about ${money(m.priceNeeded)} per ${e.unit}, give it about ${m.hoursForGoal} hours a week, or hit ${money(m.capTake)} first and raise prices as reviews come in.`);
+    d.row("Month 1 (mostly setup)", `${m.ramp[0]} ${pl(e)}  ~ ${money(m.takeAt(m.ramp[0]))}`);
+    d.row("Month 2 (first customers)", `${m.ramp[1]} ${pl(e)}  ~ ${money(m.takeAt(m.ramp[1]))}`);
+    d.row("Month 3 (getting steady)", `${m.ramp[2]} ${pl(e)}  ~ ${money(m.takeAt(m.ramp[2]))}`);
+    d.row("Full speed", `${m.plannedUnits} ${pl(e)}  ~ ${money(m.takeAt(m.plannedUnits))}`, true);
+    d.para("Month 1 take-home can be $0 or negative while you buy your kit. That's normal.", {size: 9.5, color: [110,110,110]});
+  }
+  d.h2("Your exit numbers");
+  d.para(`Your must-pays: ${money(must)} a month.`);
+  d.row("Milestone 1: side income covers 25%", money(must * .25) + "/mo");
+  d.row("Milestone 2: 50%, 3 months in a row", money(must * .5) + "/mo");
+  d.row("Milestone 3: 100%, 3 months in a row", money(must) + "/mo");
+  d.row("Safety net: 6 months of must-pays saved", money(must * 6));
+  d.para("Safe to leave means all three: side income has covered your must-pays for 3 straight months, the safety net is saved, and you've sorted out health insurance and other benefits your job gives your family. Until then, the job is the funding for the plan.");
+  d.page();
+  d.h1("Your 90-day daily planner"); d.para(`${p.name}. Check off each task as you go.`, {color: [110,110,110], after: 8});
+  const plan = buildPlanner(p); let wk = 0;
+  plan.forEach(day => {
+    if(day.week !== wk){ wk = day.week; d.h2(`Week ${wk} - ${wk <= 3 ? "Set up" : wk <= 7 ? "First customers" : "Make it steady"}${weekTarget(m, wk) ? ` - target ${weekTarget(m, wk)} ${weekTarget(m, wk) > 1 ? pl(e) : e.unit}` : ""}`); }
+    d.need(30);
+    d.para(`Day ${day.n} - ${day.date.toLocaleDateString("en-US", {weekday: "long", month: "short", day: "numeric"})}${day.work ? `  (work block ~ ${day.hrs} hrs)` : ""}`, {size: 10, bold: true, color: day.work ? [190,90,30] : [60,60,60], after: 1});
+    day.tasks.forEach(tk => d.para(tk, {box: true, size: 10, after: 2}));
+    d.gap(3);
+  });
+  d.gap(10); d.box(DISC);
+  const blob = d.out("The Exit Blueprint - estimates only, no guaranteed results.");
+  const url = URL.createObjectURL(blob); const a = document.createElement("a");
+  a.href = url; a.download = `Exit-Blueprint-${(who || "plan").replace(/[^a-z0-9]/gi, "")}-${p.id}.pdf`;
+  document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 4000);
+}
+
 /* ---------------- RESULTS ---------------- */
 function disclosure(){ return `<div class="card" style="border-color:#5a3b22;background:#1c1610"><b>Please read:</b> The Exit Blueprint is a planning tool, not a promise. It does <b>not guarantee results</b> or income. All prices, costs, hours and earnings shown are <b>rough estimates, not exact figures</b>; real numbers depend on your area, your market, your effort and things no one can predict. Check local prices, licensing, insurance and tax rules where you live, and your employer's policy on side work. This is not financial, legal or tax advice.</div>`; }
 let view = "plan", openWeek = 1;
 function results(){
+  if(!UNLOCKED) return freeResults();
   const ranked = score(); const top = ranked.slice(0, 3);
   const maxS = Math.max(1, top[0].s);
   const t = top[activeTab]; const p = t.p; const tools = A.tools || [];
@@ -479,13 +642,14 @@ function results(){
   <div class="kicker">Your Exit Blueprint</div>
   <h1>${A.name ? esc(A.name) + "'s" : "Your"} Exit Blueprint</h1>
   <p class="muted">Built from your ${QUESTIONS.length} answers. Your answers and checkmarks are saved on this device.</p>
+  <div class="row" style="margin-bottom:16px"><button class="btn" onclick="makePDF()">Download my plan (PDF)</button></div>
   ${disclosure()}
 
   <h2 style="margin-top:26px">Your top 3 side businesses</h2>
   ${top.map((x, i) => `<div class="card ${i === activeTab ? "match" : ""}">
      <div class="row" style="justify-content:space-between"><h3 style="margin:0">${i + 1}. ${esc(x.p.name)}</h3><span class="pill">${Math.max(35, Math.round(x.s / maxS * 96))}% match</span></div>
      <ul class="clean" style="margin-top:10px">${(x.why.length ? x.why : ["It fits your time, budget and how you like to work."]).map(w => `<li>${esc(w)}</li>`).join("")}</ul>
-     ${i === activeTab ? `<p class="check" style="margin:0">Your plan below is built for this one.</p>` : `<button class="btn ghost" onclick="activeTab=${i};openWeek=1;results()">Build my plan for this one</button>`}</div>`).join("")}
+     ${i === activeTab ? `<p class="check" style="margin:0">Your plan below is built for this one.</p>` : `<button class="btn ghost" onclick="activeTab=${i};openWeek=1;results()">Switch my plan to this one</button>`}</div>`).join("")}
 
   <div class="tabs" style="margin-top:26px">
     <button class="tab ${view === "plan" ? "on" : ""}" onclick="view='plan';results()">90-day daily planner</button>
@@ -501,7 +665,7 @@ function results(){
       <span class="muted">Progress: ${doneCount} of ${totalTasks} tasks done</span></div>
     <div class="progress"><i style="width:${Math.round(doneCount / totalTasks * 100)}%"></i></div>
     ${weekHtml}
-    <div class="row"><button class="btn" onclick="copyPlan()">Copy all 90 days</button></div>
+    <div class="row"><button class="btn" onclick="makePDF()">Download my plan (PDF)</button><button class="btn ghost" onclick="copyPlan()">Copy all 90 days</button></div>
   </div>
 
   <div class="${view === "guide" ? "" : "hide"}">
@@ -575,7 +739,12 @@ function alertFallback(lines){
   const ta = document.createElement("textarea"); ta.value = lines.join("\n"); ta.style.cssText = "width:100%;height:260px;margin-top:12px;background:#12151b;color:#eceae4;border:1px solid #2a2f3a;border-radius:10px;padding:10px";
   document.getElementById("app").appendChild(ta); ta.select();
 }
-intro();
+(async () => {
+  const justPaid = await checkPaid();
+  if(justPaid && A.name && A.goal){ activeTab = 0; results(); return; }
+  if(justPaid){ $("#app").innerHTML = `<div class="kicker">Payment received</div><h1>Thank you. Your Exit Plan is unlocked.</h1><p>We couldn't find your quiz answers on this browser, so take the quiz here once and your full plan opens right after.</p><button class="btn" onclick="go(0)">Take the quiz</button>`; return; }
+  intro();
+})();
 </script>
 
 </body>
