@@ -1,6 +1,14 @@
 # @work_placesurvivor — sales audit + product proposal (Nov 12, 2026)
 
-## UPDATE Nov 12 (user's direction): "The Exit Blueprint", $24.99
+## UPDATE Nov 12, later: paywall + PDF + own hosting
+- Flow: free quiz -> free top 3 -> $20 paywall -> full plan (90-day daily planner, guide, costs/goal math, exit numbers, all 3 businesses) + PDF download.
+- PDF is generated inside the page (no outside services). Sample: 11 pages.
+- Payment: Stripe Payment Link ($20). The after-payment redirect goes to <site>/?paid=<unlock code>. The page checks the code's SHA-256 and unlocks on that browser. The unlock code is kept private, not in the repo.
+- Hosting: Netlify (free), e.g. exitblueprint.netlify.app. GitHub Pages can't be switched on from this workspace.
+- Waiting on the user: Netlify site address + Stripe Payment Link URL -> put into PAY_LINK in index.html.
+- Limit: a static paywall can be bypassed by someone tech-savvy or by sharing the unlock link. A Netlify function that checks Stripe would close that.
+
+## UPDATE Nov 12 (user's direction): "The Exit Blueprint", $24.99 (changed to $20 the same night)
 - User's concept: page explaining the exit plan -> skills quiz -> top side businesses -> tailored plan to build that side business.
 - Prototype built (private): https://claude.ai/artifact/EiQik4fTMx3ovM9XK5hWrj (source: survivor/product/exit_blueprint.html)
   - 15 questions: name, day job, skills, what people already ask for help with, tools owned, hours, schedule, budget, hands vs screen,
