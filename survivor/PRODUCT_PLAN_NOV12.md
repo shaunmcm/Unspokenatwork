@@ -1,0 +1,47 @@
+# @work_placesurvivor — sales audit + product proposal (Nov 12, 2026) — AWAITING APPROVAL
+
+## What the page data shows (Instagram API, Nov 12)
+- 122 followers (111 on Nov 10), 18 posts. Views/reach/saves/shares are not available through this connection.
+- Best post by far: the river-rock Reel (Nov 10) — 9 likes, 5 comments. Hook: "You'd walk out tomorrow if you could afford to. But somebody has to pay the bills, so you walk back in." Caption gave a money way-out step (a "freedom fund").
+  - Honest caveat: the 5 comments were one person objecting to "a man" plus replies. Debate drove the comments, not buyer intent.
+- Everything else: 0-6 likes, 0-1 comments. Topics about sleep, vacation, gratitude, nature got the least.
+- Bio links only to YouTube. There is no free offer, no product, and no link hub.
+- "Comment HELP" has produced almost no comments.
+
+## Competitors (what I could check)
+- Instagram competitor pages could not be opened from here. Paste 3-5 page names or screenshots to compare.
+- Gumroad has many "escape plan" products at $7-$147, most at $12-$39 (e.g. Exit Plan Blueprint $39, 72-Hour Toxic Job Escape Kit £29, Burnout Survival Toolkit $19+, Escape Plan Builder $18.99).
+- Nearly all of them are about quitting to start an online business, or about generic burnout. Almost none are for a man with a family who cannot miss one paycheck. That is the gap.
+
+## Three biggest sales opportunities
+1. A safe way out. The page's best post is about leaving safely, and it's the problem the whole niche is built on.
+2. A comment-to-DM funnel. Turn "Comment HELP" into "Comment PLAN" with a free tool sent by DM (ManyChat or by hand). The free tool proves demand before anything is built.
+3. The bio. Add a link hub (Stan Store, Beacons or Linktree) with a free tool on top, then the product, then YouTube.
+
+## Recommended product: "The Provider's Exit Plan"
+Promise: a 90-day plan to move to a better job without missing a paycheck.
+- Format: a PDF of about 30 pages plus a fillable Google Sheet. Sold through Stan Store or Gumroad. Nothing to maintain.
+- Price: $27, in the middle of the $12-$39 range. No fake countdowns.
+- Inside:
+  1. Your "safe to leave" number: monthly must-pays, months of runway, and the lowest pay a new job can offer. The calculator is in the Sheet.
+  2. Survive while you plan: 10-minute after-work resets and word-for-word scripts for a toxic boss (confirm-by-email, saying no, staying calm).
+  3. The 90-day switch while employed: 15 minutes a day, a resume template for hands-on and shift workers, interviewing around your shifts, and leaving without burning bridges.
+  4. The talk at home: how to raise the plan with your partner without scaring them.
+  5. A 90-day tracker.
+- Free lead magnet: the "Safe to Leave" calculator by itself (one page), sent by DM to anyone who comments PLAN.
+
+## Validation before building (actual demand, not assumptions)
+- Week 1: make the free calculator and post 2 Reels about it with the CTA "Comment PLAN."
+- If 10+ people ask for it, or the YouTube audience responds to a community post, build the full product.
+- If not, test the second idea: a toxic-boss script pack.
+
+## On-screen hook upgrade (approved by the user Nov 12)
+See RULES.md, "ON-SCREEN HOOK UPGRADE".
+
+## Captions after launch
+Follow the existing structure, then one product line, with a rotating CTA. Never mention the product before it exists.
+
+## What's needed from the user
+- Approval, edits or rejection of the product.
+- Weekly Insights screenshots (reach, shares, saves, profile visits, link clicks).
+- Real experiences of his own for captions. Personal stories won't be invented.

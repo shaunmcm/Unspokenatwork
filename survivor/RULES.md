@@ -157,3 +157,21 @@ Log every topic to topics_used.txt and never repeat one.
   "Send this to a man who needs to hear it." (shares/sends are what push Reels to new people). Hashtags: exactly 5, each with #.
 - Every Reel needs sound: the user adds a trending sound in Instagram at low volume (we export silent).
 - Repurpose the user's own YouTube videos (his voice/face) into 20-40 s captioned Reels whenever he sends clips.
+
+## ON-SCREEN HOOK UPGRADE (user, Nov 12: "enhance the screen captions to hook people in enough to trigger the algorithm")
+Model on the best post (river rock, Nov 10, 9 likes / 5 comments, the most on the page):
+"You'd walk out tomorrow if you could afford to. / But somebody has to pay the bills, so you walk back in. / Read the caption."
+Every on-screen hook must:
+1. Start with "You" and one concrete moment he lives (alarm, parking lot, bank app, clock-in, boss's name on the phone).
+2. Put WANT against MUST in two beats: line 1 = what he'd do if he could; line 2 = why he can't, and what he does anyway.
+3. Line 1 is 12 words or fewer and readable in 1.5 seconds. The whole block is 3 short lines, the last a pointer ("Read the caption." / "Full fix in the caption ↓").
+4. Leave one thing unsaid that the caption answers (the open loop), so people stop, read and rewatch.
+5. Be something he'd send to a friend ("this is literally me"). Shares are what push a Reel past followers.
+6. No soft openers ("Did you know", "Reminder", "Let's talk about"). No quote-poster lines. No "dads". No medical topics.
+Rotate the format, but keep the want/must tension in every hook. Before sending, test each hook against the 4-point check
+plus "would he screenshot or share this?"
+Honest note: no wording can guarantee 1M views. Reach depends on hold rate, rewatches and shares, which only Insights can show.
+
+## PRODUCT LAYER (proposed Nov 12, NOT active until the user approves AND the product is live)
+See PRODUCT_PLAN_NOV12.md. Until then, captions keep the current CTA. The user's Nov 11 ending is allowed:
+'If you've tried these and they aren't working, comment "HELP" and I'll DM you.'
