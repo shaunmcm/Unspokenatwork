@@ -17,13 +17,13 @@ def overlay_png(text, w, h, path):
     top = float(os.environ.get('TEXT_Y', 0.48 if h > 1500 else 0.50))
     serif = os.environ.get('FONT', 'serif') == 'serif'  # user, Nov 11: serif font on photo Reels ("more authentic")
     fam = "Lora" if serif else "Inter"
-    span_css = ("font-weight:700;font-size:70px;color:#fff;letter-spacing:0;-webkit-text-stroke:3px #000;paint-order:stroke fill;"
+    span_css = ("font-weight:700;font-size:56px;color:#fff;letter-spacing:0;-webkit-text-stroke:3px #000;paint-order:stroke fill;"
                 "text-shadow:0 2px 4px rgba(0,0,0,.9),0 4px 18px rgba(0,0,0,.75)") if serif else (
                 "font-weight:800;font-size:66px;color:#fff;letter-spacing:-.3px;-webkit-text-stroke:6px #000;paint-order:stroke fill;"
                 "text-shadow:0 3px 10px rgba(0,0,0,.6)")  # center of text block (keeps clear of Reel buttons/caption)
     doc = f"""<!doctype html><html><head><meta charset="utf-8"><style>
 html,body{{margin:0;width:{w}px;height:{h}px;background:transparent;overflow:hidden}}
-.t{{position:absolute;left:70px;right:70px;top:{top*100}%;transform:translateY(-50%);text-align:center;font-family:{fam}}}
+.t{{position:absolute;left:130px;right:130px;top:{top*100}%;transform:translateY(-50%);text-align:center;font-family:{fam}}}
 p{{margin:0 0 26px;line-height:1.22}}
 span{{{span_css}}}
 .glow{{position:absolute;left:-10%;right:-10%;top:{top*100}%;height:62%;transform:translateY(-50%);
