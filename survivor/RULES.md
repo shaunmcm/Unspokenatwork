@@ -255,3 +255,15 @@ NO MORE CAROUSELS. The daily delivery is now 2 REELS (1 REACH + 1 CONVERT), each
   or "Free exit quiz in bio ↓". 3 lines, readable in about 3 seconds. Pick TEXT_Y for the calmest part of the photo.
 - Caption: the EXIT STRATEGY CAPTIONS rule + 6-part POST FRAMEWORK above.
 - Posting guidance for the user: Reel 1 in the 6-8 AM PT window, Reel 2 in the 6-9 PM PT window (at least 4 hours apart).
+
+## COMMENT-TO-DM CTA — STANDING RULE from Nov 13 (user: auto-DM people who comment the keyword; "make sure you tell people what to comment")
+KEYWORD: EXIT. The user runs the auto-DM tool (ManyChat or similar), because our Instagram connection has no messaging permission.
+Every caption's CTA line now tells people to comment EXIT, rotating the wording, for example:
+ - 'Comment "EXIT" and I'll send you the free Exit Quiz. It shows your top 3 side businesses in about 5 minutes.'
+ - 'Want the way out? Comment "EXIT" and the free quiz lands in your DMs.'
+ - 'Comment "EXIT" for the free quiz that matches your skills to a side business.'
+ - 'Not sure what you'd even do instead? Comment "EXIT" and I'll DM you the free quiz.'
+The keyword goes in capitals and quotes, on its own line near the end. Keep "Send this to a man who needs to hear it." after it.
+On-screen line 3 may say: 'Comment "EXIT" ↓' (use about 1 Reel in 3).
+Never promise income in the CTA. The auto-DM sends: free quiz link https://exitblueprint90.netlify.app
+(This replaces the older 'Comment "HELP"' and 'link in bio' CTA lines.)
