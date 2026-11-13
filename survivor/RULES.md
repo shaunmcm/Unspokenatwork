@@ -246,3 +246,12 @@ about 1 in 3 CONVERT):
    - Case studies / results breakdown: break down a figure from the bank step by step (job -> side build -> leap), or walk through a sample
      Exit Blueprint result ("a warehouse guy with a truck and 6 hours a week gets..."), clearly labeled as an example with estimates only.
  Every CONVERT post ends with the free Exit Quiz CTA. REACH posts use it too, but softer.
+
+## FORMAT SWITCH — Nov 13 (user: "If the carousels will not get pushed by the algorithm like reels, then don't do carousels, do reels")
+NO MORE CAROUSELS. The daily delivery is now 2 REELS (1 REACH + 1 CONVERT), each a still-photo Reel made with photo_reel.py
+(9:16, slow push-in + drift + light grain, Lora serif text, no music; the user adds a trending sound in the app).
+- Photos: the user's own sunset/nature photos from photos/. Prefer ones not used in a Reel in the last 14 days (log Reel photo use in topics_used.txt).
+- On-screen: framework parts 1-2 (broad hook + curiosity/emotion), want-vs-must, line 2 turns toward the exit, line 3 = "Read the caption."
+  or "Free exit quiz in bio ↓". 3 lines, readable in about 3 seconds. Pick TEXT_Y for the calmest part of the photo.
+- Caption: the EXIT STRATEGY CAPTIONS rule + 6-part POST FRAMEWORK above.
+- Posting guidance for the user: Reel 1 in the 6-8 AM PT window, Reel 2 in the 6-9 PM PT window (at least 4 hours apart).
