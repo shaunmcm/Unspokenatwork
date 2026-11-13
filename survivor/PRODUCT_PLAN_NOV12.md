@@ -1,5 +1,9 @@
 # @work_placesurvivor — sales audit + product proposal (Nov 12, 2026)
 
+## LIVE Nov 13: https://exitblueprint90.netlify.app
+- Stripe Payment Link: https://buy.stripe.com/eVq5kCfUQcTJ5qp3GO2VG00 ($19.99)
+- The Stripe after-payment redirect must be https://exitblueprint90.netlify.app/?paid=<unlock code> (the user sets this in Stripe).
+
 ## UPDATE Nov 12, later: paywall + PDF + own hosting
 - Flow: free quiz -> free top 3 -> $20 paywall -> full plan (90-day daily planner, guide, costs/goal math, exit numbers, all 3 businesses) + PDF download.
 - PDF is generated inside the page (no outside services). Sample: 11 pages.
