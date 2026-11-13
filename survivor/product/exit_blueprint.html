@@ -252,7 +252,7 @@ function intro(){
     <ol class="steps">
       <li><b>The skills quiz (about 5 minutes).</b> 16 questions about what you're good at, what people already ask you for, what you own, your time, your budget, your body and the money you want to make.</li>
       <li><b>Your top 3 side businesses (free).</b> Ranked for you, with the reasons from your own answers.</li>
-      <li><b>Your full Exit Plan ($20), including:</b> <b>a 90-day daily planner.</b> A task for every single day, built around the days and hours you actually have, with a checkbox for each one.</li><li><b>Your step-by-step guide and money math.</b> What it takes to succeed, what it costs to start and run, what to charge, and exactly how many jobs and hours it takes to reach the monthly amount you want.</li>
+      <li><b>Your full Exit Plan ($19.99), including:</b> <b>a 90-day daily planner.</b> A task for every single day, built around the days and hours you actually have, with a checkbox for each one.</li><li><b>Your step-by-step guide and money math.</b> What it takes to succeed, what it costs to start and run, what to charge, and exactly how many jobs and hours it takes to reach the monthly amount you want.</li>
       <li><b>Your exit numbers, plus a PDF of your whole plan.</b> How much side income and savings you'd need before leaving is a real option, not a gamble.</li>
     </ol>
   </div>
@@ -450,7 +450,7 @@ function weekTarget(m, week){
 }
 
 /* ---------------- PAYWALL ---------------- */
-const PAY_LINK = "";
+const PAY_LINK = "https://buy.stripe.com/eVq5kCfUQcTJ5qp3GO2VG00";
 const TEST_MODE = false; // private Claude preview only: shows a fake checkout so the flow can be tested   // Stripe Payment Link for $20 goes here (after-payment redirect: this page + ?paid=UNLOCK_CODE)
 const UNLOCK_HASH = "177d1c1f1005aa7e2f414e77b2c0a017538b42be5b9d325cdf530013ef605331";
 let UNLOCKED = false;
@@ -466,8 +466,8 @@ async function checkPaid(){
   return false;
 }
 function paywall(){
-  const btn = PAY_LINK ? `<a class="btn" style="text-decoration:none;display:block;text-align:center" href="${PAY_LINK}">Unlock my full Exit Plan: $20</a>`
-                       : TEST_MODE ? `<button class="btn" style="width:100%" onclick="testCheckout()">Unlock my full Exit Plan: $20</button>`
+  const btn = PAY_LINK ? `<a class="btn" style="text-decoration:none;display:block;text-align:center" href="${PAY_LINK}">Unlock my full Exit Plan: $19.99</a>`
+                       : TEST_MODE ? `<button class="btn" style="width:100%" onclick="testCheckout()">Unlock my full Exit Plan: $19.99</button>`
                        : `<button class="btn" disabled style="width:100%">Checkout opens soon</button>`;
   return `<div class="card match" style="margin-top:22px">
     <div class="kicker">Your full Exit Plan</div>
@@ -480,14 +480,14 @@ function paywall(){
       <li><b>Your exit numbers.</b> The milestones and savings cushion that make leaving a real option, not a gamble.</li>
       <li><b>A downloadable PDF</b> of your whole plan to keep, print or check off.</li>
     </ul>
-    <div class="num" style="margin:4px 0 12px">$20 <span class="muted" style="font-size:1rem;font-family:Inter">one time</span></div>
+    <div class="num" style="margin:4px 0 12px">$19.99 <span class="muted" style="font-size:1rem;font-family:Inter">one time</span></div>
     ${btn}
     <p class="muted" style="font-size:.88rem;margin:12px 0 0">Pay on this same phone or browser. Your plan is built from the answers saved here and opens as soon as checkout is done.</p>
   </div>`;
 }
 function testCheckout(){
   $("#app").innerHTML = `<div class="kicker">Test checkout (preview only)</div><h1>This is where Stripe's payment page opens</h1>
-  <div class="card"><p>On the live site, this button opens your Stripe checkout: card number, Apple Pay or Google Pay, for $20. The money goes to your Stripe account and then to your bank.</p>
+  <div class="card"><p>On the live site, this button opens your Stripe checkout: card number, Apple Pay or Google Pay, for $19.99. The money goes to your Stripe account and then to your bank.</p>
   <p>When the payment goes through, Stripe sends the buyer straight back and the full plan unlocks.</p>
   <p class="muted">No real payment happens in this preview.</p></div>
   <div class="row"><button class="btn" onclick="UNLOCKED=true;activeTab=0;results()">Simulate a successful payment</button><button class="btn ghost" onclick="freeResults()">Cancel</button></div>`;
