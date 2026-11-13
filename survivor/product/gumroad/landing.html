@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Exit Blueprint</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf7f3;--card:#fff;--text:#1d1a17;--muted:#5d5750;--line:#e7dfd6;--accent:#c95a1f;--accent2:#e8743b;--hero1:#2a120a;--hero2:#7a2e10}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1115;--card:#171a21;--text:#eceae4;--muted:#a7a49c;--line:#2a2f3a;--accent:#e8743b;--accent2:#f0a35e}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.6 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:Lora,Georgia,serif;line-height:1.15;margin:0 0 .5em}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--accent2);color:#fff;border:0;border-radius:12px;padding:16px 26px;font:700 1.05rem Inter,sans-serif;cursor:pointer;text-decoration:none;box-shadow:0 8px 24px rgba(232,116,59,.3);transition:transform .15s,filter .15s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}.btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.btn.ghost{background:transparent;border:2px solid rgba(255,255,255,.5);box-shadow:none}
+.hero{background:radial-gradient(1200px 500px at 80% -10%,#c2410c55,transparent),linear-gradient(160deg,var(--hero1),var(--hero2) 70%,#b4501a);color:#fff;padding:90px 0 80px;overflow:hidden;position:relative}
+.hero .k{font:700 .8rem Inter;letter-spacing:.24em;color:#f6c39b;margin-bottom:16px}
+.hero h1{font-size:clamp(2.6rem,6vw,4.4rem)}
+.hero p.lead{font-size:clamp(1.1rem,2.2vw,1.35rem);max-width:640px;color:#f3e6dc;margin:0 0 30px}
+.row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.price{font:700 1rem Inter;color:#f6c39b}
+section{padding:72px 0}
+h2{font-size:clamp(1.8rem,3.6vw,2.5rem)}
+.sub{color:var(--muted);max-width:680px;margin:0 0 34px}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+.card h3{font-size:1.2rem}.card p{margin:0;color:var(--muted)}
+.num{width:38px;height:38px;border-radius:50%;background:var(--accent2);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;margin-bottom:12px}
+.pain{border-left:4px solid var(--accent2);padding:6px 0 6px 18px;margin:0 0 14px;font-family:Lora,serif;font-size:1.25rem}
+.list{list-style:none;padding:0;margin:0}.list li{padding:12px 0 12px 34px;border-bottom:1px solid var(--line);position:relative}
+.list li:before{content:"✓";position:absolute;left:4px;color:var(--accent2);font-weight:700}
+.quote{font-family:Lora,serif;font-size:clamp(1.4rem,3vw,2rem);text-align:center;max-width:760px;margin:0 auto}
+.cta{background:linear-gradient(160deg,var(--hero1),var(--hero2));color:#fff;border-radius:22px;padding:48px 28px;text-align:center}
+.cta p{color:#f3e6dc}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:12px}
+summary{cursor:pointer;font-weight:600}details p{color:var(--muted);margin:10px 0 0}
+.disc{font-size:.88rem;color:var(--muted);border-top:1px solid var(--line);padding:26px 0 40px}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}.reveal.in{opacity:1;transform:none}
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:12px 16px;background:rgba(15,17,21,.92);backdrop-filter:blur(8px);display:flex;justify-content:space-between;align-items:center;gap:12px;transform:translateY(110%);transition:transform .3s;z-index:9}
+.sticky.show{transform:none}.sticky span{color:#fff;font-weight:600;font-size:.95rem}
+.sticky .btn{padding:12px 18px;font-size:.95rem}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="k">WORKPLACE SURVIVOR</div>
+    <h1 data-gumroad-field="name">The Exit Blueprint</h1>
+    <p class="lead">For the man who can't afford to quit, and can't afford to stay stuck forever. Build a side business with the skills you already have, while you keep your paycheck.</p>
+    <div class="row">
+      <a class="btn" data-gumroad-action="buy" href="#buy">Get my Exit Plan · <span data-gumroad-field="price">$19.99</span></a>
+      <a class="btn ghost" href="https://exitblueprint90.netlify.app" target="_blank" rel="noopener">Take the free quiz first</a>
+    </div>
+    <p class="price" style="margin-top:18px">One-time purchase · Instant access · Works on your phone</p>
+  </div>
+</header>
+
+<main>
+<section class="wrap reveal">
+  <h2>Sound familiar?</h2>
+  <p class="pain">You'd walk out tomorrow if the bills would let you.</p>
+  <p class="pain">You've written the quit speech in your head a hundred times.</p>
+  <p class="pain">But people are counting on you, so you walk back in.</p>
+  <p class="sub" style="margin-top:22px">That's not weakness. That's a man carrying more than anyone sees. Staying for your family is strength. Staying with no plan is how a man slowly disappears. <b>The Exit Blueprint is the plan.</b></p>
+</section>
+
+<section class="wrap reveal" aria-labelledby="how">
+  <h2 id="how">How it works</h2>
+  <p class="sub">No "quit your job" fantasy. A real plan built around your life.</p>
+  <div class="grid">
+    <div class="card"><div class="num">1</div><h3>Take the 5-minute quiz</h3><p>What you're good at, what people already ask you for, the tools you own, your free time, your budget and your energy after a shift.</p></div>
+    <div class="card"><div class="num">2</div><h3>Get your top 3 matches</h3><p>Side businesses ranked for you, from handyman and pressure washing to bookkeeping and reselling, with the reasons pulled from your answers.</p></div>
+    <div class="card"><div class="num">3</div><h3>Unlock your full plan</h3><p>A task for every day for 90 days, scheduled on the days and hours you actually have, plus a PDF to keep.</p></div>
+  </div>
+</section>
+
+<section class="wrap reveal" aria-labelledby="get">
+  <h2 id="get">What you get</h2>
+  <ul class="list">
+    <li><b>90-day daily planner</b>: a task for every day, built around your schedule, with checkboxes</li>
+    <li><b>Step-by-step guide</b> for each business: what it takes, where your first customers come from, what to say, and the mistakes that sink beginners</li>
+    <li><b>Your costs</b>: what it takes to start (minus tools you already own) and to keep running</li>
+    <li><b>Your money goal</b>: how many jobs and hours it would take to reach the monthly amount you want, month by month</li>
+    <li><b>Your exit numbers</b>: the milestones and savings cushion that make leaving a real option, not a gamble</li>
+    <li><b>Downloadable PDF</b> of your whole plan to print or check off</li>
+  </ul>
+</section>
+
+<section class="wrap reveal">
+  <p class="quote">Daymond John waited tables at Red Lobster and sewed hats between shifts. Phil Knight sold shoes out of his car while working as an accountant. They didn't quit first.<br><span style="color:var(--accent2)">They built first.</span></p>
+</section>
+
+<section class="wrap reveal" aria-labelledby="faq">
+  <h2 id="faq">Questions</h2>
+  <details><summary>I don't have time.</summary><p>The plan is built around the hours you give it, even 2 to 4 a week. The real work lands on the days you pick, and the other days get 5-minute tasks or rest.</p></details>
+  <details><summary>I don't have money to start.</summary><p>Your startup kit is sized to your budget and skips the tools you already own. Several of the 12 businesses can start for under $100.</p></details>
+  <details><summary>I don't think I have any skills.</summary><p>The quiz starts with what people already ask you to help with. If people ask for free, some will pay.</p></details>
+  <details><summary>What if it doesn't work?</summary><p>You keep your paycheck the whole time. The plan builds on the side, and leaving only comes into it once your exit numbers say it's safe.</p></details>
+  <details><summary>How do I get it after I buy?</summary><p>You get an instant link. Open it on the same phone you took the quiz on and your full plan unlocks, with a button to download the PDF.</p></details>
+</section>
+
+<section class="wrap reveal" id="buy">
+  <div class="cta">
+    <h2>Don't quit first. Build first.</h2>
+    <p>Your top 3 matches are free in the quiz. Your full 90-day Exit Plan and PDF are a one-time <span data-gumroad-field="price">$19.99</span>.</p>
+    <div class="row" style="justify-content:center">
+      <a class="btn" data-gumroad-action="buy" href="#buy">Get my Exit Plan</a>
+    </div>
+  </div>
+</section>
+
+<p class="wrap disc"><b>Please note:</b> The Exit Blueprint is a planning tool, not a promise. It does not guarantee results or income. All prices, costs, hours and earnings shown are rough estimates, not exact figures; real results depend on your area, your market and your effort. Check local licensing, insurance and tax rules and your employer's policy on side work. This is not financial, legal or tax advice.</p>
+</main>
+
+<div class="sticky" id="sticky" aria-hidden="true"><span>The Exit Blueprint · <span data-gumroad-field="price">$19.99</span></span><a class="btn" data-gumroad-action="buy" href="#buy" tabindex="-1">Get my plan</a></div>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});els.forEach(function(el){io.observe(el);});}
+  else els.forEach(function(el){el.classList.add('in');});
+  var s=document.getElementById('sticky');
+  window.addEventListener('scroll',function(){var show=window.scrollY>window.innerHeight*.8;s.classList.toggle('show',show);s.setAttribute('aria-hidden',show?'false':'true');s.querySelector('a').tabIndex=show?0:-1;},{passive:true});
+})();
+</script>
+</body>
+</html>
