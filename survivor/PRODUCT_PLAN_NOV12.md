@@ -1,4 +1,17 @@
-# @work_placesurvivor — sales audit + product proposal (Nov 12, 2026) — AWAITING APPROVAL
+# @work_placesurvivor — sales audit + product proposal (Nov 12, 2026)
+
+## UPDATE Nov 12 (user's direction): "The Exit Blueprint", $24.99
+- User's concept: page explaining the exit plan -> skills quiz -> top side businesses -> tailored plan to build that side business.
+- Prototype built (private): https://claude.ai/artifact/EiQik4fTMx3ovM9XK5hWrj (source: survivor/product/exit_blueprint.html)
+  - 15 questions: name, day job, skills, what people already ask for help with, tools owned, hours, schedule, budget, hands vs screen,
+    physical energy, comfort selling, local vs online, network, monthly must-pays, savings months.
+  - Scores 12 side-business paths. Shows the top 3 with reasons taken from the person's own answers.
+  - Startup kit priced to their budget, minus tools they already own.
+  - 90-day plan sized to their hours and schedule, scripts matched to their network and how comfortable they are selling, plus a local-rules check.
+  - Exit numbers: milestones at 25%, 50% and 100% of must-pays, and a 6-month safety net.
+  - No income promises.
+- Delivery: sell on Gumroad or Stan Store at $24.99 and deliver the HTML file itself (it opens in any browser). Alternatively, host it on the user's own site behind the purchase.
+
 
 ## What the page data shows (Instagram API, Nov 12)
 - 122 followers (111 on Nov 10), 18 posts. Views/reach/saves/shares are not available through this connection.

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Exit Blueprint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f1115;--card:#171a21;--line:#2a2f3a;--text:#eceae4;--muted:#a7a49c;--accent:#e8743b;--accent2:#f0a35e;--good:#6fbf8a}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.55}
+.wrap{max-width:720px;margin:0 auto;padding:28px 20px 80px}
+h1,h2,h3{font-family:Lora,Georgia,serif;line-height:1.2;margin:0 0 .5em}
+h1{font-size:2.1rem}h2{font-size:1.5rem}h3{font-size:1.15rem}
+p{margin:0 0 1em}
+.muted{color:var(--muted)}
+.kicker{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);font-weight:600;margin-bottom:10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin:0 0 18px}
+.btn{display:inline-block;background:var(--accent);color:#fff;border:0;border-radius:10px;padding:14px 22px;font:600 1rem Inter,sans-serif;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;position:relative;padding:0 0 14px 44px}
+.steps li:before{content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:#2a1d15;color:var(--accent2);font-weight:700;display:flex;align-items:center;justify-content:center}
+.progress{height:6px;background:#232733;border-radius:6px;overflow:hidden;margin:6px 0 22px}
+.progress i{display:block;height:100%;background:var(--accent);width:0;transition:width .25s}
+.q{font-family:Lora,Georgia,serif;font-size:1.35rem;margin:0 0 6px}
+.opts{display:grid;gap:10px;margin:18px 0}
+.opt{display:flex;gap:12px;align-items:center;text-align:left;background:#12151b;border:1px solid var(--line);border-radius:10px;padding:13px 14px;color:var(--text);font:500 .98rem Inter,sans-serif;cursor:pointer}
+.opt .box{width:20px;height:20px;border-radius:5px;border:2px solid #555c6b;flex:none}
+.opt.radio .box{border-radius:50%}
+.opt.on{border-color:var(--accent);background:#1e1712}
+.opt.on .box{background:var(--accent);border-color:var(--accent)}
+input[type=number],input[type=text]{width:100%;background:#12151b;border:1px solid var(--line);border-radius:10px;padding:13px 14px;color:var(--text);font:500 1.05rem Inter,sans-serif}
+.match{border-left:4px solid var(--accent)}
+.pill{display:inline-block;font-size:.8rem;font-weight:600;padding:3px 10px;border-radius:20px;background:#2a1d15;color:var(--accent2);margin-right:6px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.tab{background:#12151b;border:1px solid var(--line);color:var(--text);border-radius:20px;padding:8px 14px;font:600 .9rem Inter,sans-serif;cursor:pointer}
+.tab.on{background:var(--accent);border-color:var(--accent);color:#fff}
+ul.clean{padding-left:20px;margin:0 0 1em}
+ul.clean li{margin-bottom:6px}
+.check{color:var(--good);font-weight:700}
+.wk{border-top:1px solid var(--line);padding:12px 0}
+.wk b{color:var(--accent2)}
+.num{font-family:Lora,Georgia,serif;font-size:1.6rem;color:var(--accent2)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.grid2{grid-template-columns:1fr}h1{font-size:1.75rem}}
+.note{font-size:.88rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin-top:8px}
+.hide{display:none}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#222833;border:1px solid var(--line);padding:10px 16px;border-radius:10px;font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+
+<script>
+/* ---------------- DATA ---------------- */
+const SKILLS = [
+ ["fix","Fixing things around the house"],["car","Working on cars, engines or bikes"],["build","Building / carpentry"],
+ ["paint","Painting, drywall, patching"],["outdoor","Yard work, landscaping, outdoor jobs"],["clean","Cleaning and detailing (making things look new)"],
+ ["haul","Lifting, moving, hauling"],["tech","Computers, phones, TVs, smart-home setup"],["numbers","Numbers, budgets, spreadsheets"],
+ ["organize","Organizing, scheduling, paperwork"],["people","Talking to people, selling, closing a deal"],["teach","Teaching or explaining things"],
+ ["cook","Cooking, BBQ, meal prep"],["fitness","Fitness, training, coaching"],["media","Photos or video"],
+ ["flip","Finding deals and reselling for more"],["write","Writing (emails, posts, descriptions)"]
+];
+const TOOLS = [["truck","Pickup truck or SUV"],["trailer","Trailer"],["tools","Power tools"],["washer","Pressure washer"],["lawn","Lawn equipment (mower, trimmer, blower)"],
+ ["laptop","Laptop or computer"],["camera","Good phone camera or a camera"],["garage","Garage or workspace"]];
+
+const HAVE = {truck:"a pickup truck or SUV",trailer:"a trailer",tools:"power tools",washer:"a pressure washer",lawn:"lawn equipment",laptop:"a laptop",camera:"a good camera",garage:"a garage or workspace"};
+const QUESTIONS = [
+ {id:"name",type:"text",q:"First, what should we call you?",sub:"Your plan will be written for you by name.",ph:"First name"},
+ {id:"job",type:"radio",q:"What kind of work do you do now?",sub:"The skills you use every day are worth more than you think.",opts:[
+   ["trades","Trades / construction / maintenance"],["warehouse","Warehouse, logistics or driving"],["mechanic","Auto / mechanic / equipment"],
+   ["manufacturing","Manufacturing / production line"],["office","Office, admin or finance"],["sales","Sales or customer service"],
+   ["it","IT / tech support"],["food","Food service / hospitality"],["security","Security, military or public service"],["other","Something else"]]},
+ {id:"skills",type:"multi",q:"Which of these are you good at?",sub:"Pick everything that's true, even if you've never been paid for it.",opts:SKILLS},
+ {id:"asked",type:"multi",q:"Which ones do people already ask you to help with?",sub:"This is the strongest signal there is. If people ask for free, some will pay.",opts:SKILLS,fromSkills:true},
+ {id:"tools",type:"multi",q:"What do you already own?",sub:"Every tool you own is money you don't have to spend.",opts:TOOLS.concat([["none","None of these"]])},
+ {id:"hours",type:"radio",q:"Honestly, how many hours a week could you give this?",sub:"Be real. A plan that fits your life beats a plan you quit in week two.",opts:[["3","2–4 hours"],["7","5–8 hours"],["12","9–15 hours"],["18","15+ hours"]]},
+ {id:"when",type:"multi",q:"When is your free time?",sub:"Pick all that apply.",opts:[["eve","Weekday evenings"],["wkend","Weekends"],["days","Days off that rotate"],["morn","Early mornings"]]},
+ {id:"budget",type:"radio",q:"How much could you spend to get started?",sub:"Without touching rent or bills.",opts:[["100","$0–$100"],["500","$100–$500"],["1500","$500–$1,500"],["3000","$1,500+"]]},
+ {id:"hands",type:"radio",q:"After a shift, what sounds better?",sub:"",opts:[["hands","Working with my hands"],["both","Either one"],["screen","Something on a laptop or phone"]]},
+ {id:"physical",type:"radio",q:"Can your body handle physical work on your days off?",sub:"No shame either way. Burning out twice won't get you out.",opts:[["yes","Yes, no problem"],["some","Sometimes, light stuff"],["no","No, I'm worn out"]]},
+ {id:"talk",type:"radio",q:"How do you feel about asking strangers for business?",sub:"",opts:[["2","Fine, I can sell"],["1","I can do it if I have a script"],["0","I'd rather not"]]},
+ {id:"where",type:"radio",q:"Who would you rather work for?",sub:"",opts:[["local","People in my area, face to face"],["either","Doesn't matter"],["online","Online, from home"]]},
+ {id:"network",type:"radio",q:"How many people around you know you'd do good work?",sub:"Friends, family, coworkers, church, the gym, your kid's team.",opts:[["2","A lot"],["1","Some"],["0","Not many"]]},
+ {id:"must",type:"number",q:"What are your monthly must-pays?",sub:"Rent or mortgage, utilities, car, insurance, food, minimum debt payments. A close guess is fine.",ph:"e.g. 3800"},
+ {id:"saved",type:"radio",q:"If your paycheck stopped today, how long could you cover those?",sub:"",opts:[["0","Less than 1 month"],["1","About 1 month"],["3","2–4 months"],["6","5+ months"]]}
+];
+
+/* Business paths. w = weights for job, skills, tools. phys: 0 desk,1 light,2 physical. talk: how much selling it needs (0-2). */
+const PATHS = [
+ {id:"handyman",name:"Local handyman & small repairs",start:[150,600],phys:2,talk:1,mode:"local",
+  w:{fix:3,build:2,paint:2,tools:3,trades:3,manufacturing:1,mechanic:1,garage:1},
+  offers:["Small-job bundle: you fix 3–5 little things on one visit (doors, leaks, shelves, caulk)","TV and shelf mounting","Drywall patch and touch-up paint"],
+  kit:[["Basic hand tools + drill (skip if you own power tools)",150,"tools"],["Ladder, caulk gun, patch kit, stud finder",120,null],["Business cards or door hangers",40,null],["General liability insurance (get a quote, often monthly)",0,null]],
+  where:"Nextdoor, Facebook neighborhood groups, Google Business Profile, and every person who already asks you for help",
+  rules:"Many places cap how big a job you can do without a contractor's license, and electrical, gas and most plumbing usually need one. Check your state's handyman limit before you quote."},
+ {id:"pressure",name:"Pressure washing (driveways, homes, fences)",start:[350,1200],phys:2,talk:1,mode:"local",
+  w:{clean:3,outdoor:2,washer:5,truck:1,trailer:1,trades:1,warehouse:1},
+  offers:["Driveway + walkway package","House wash (soft wash) for HOA season","Fence and deck cleaning before staining"],
+  kit:[["Gas pressure washer, 3,000+ PSI (skip if you own one)",350,"washer"],["Surface cleaner attachment",90,null],["Hoses, nozzles, cleaning solution",80,null],["Before/after photos on your phone",0,null]],
+  where:"Before-and-after posts in neighborhood Facebook groups and Nextdoor, flyers on streets you just worked on, and HOAs",
+  rules:"Check local rules about wastewater runoff, and get liability insurance before you work on someone's house."},
+ {id:"detail",name:"Mobile car detailing",start:[200,700],phys:2,talk:1,mode:"local",
+  w:{car:2,clean:4,washer:1,mechanic:2,truck:1},
+  offers:["Interior deep clean","Full detail (inside and out)","Monthly maintenance wash for busy families"],
+  kit:[["Shop vac, brushes, microfiber towels",120,null],["Cleaners, polish, tire shine",80,null],["Water tank or a customer's hose (start with their hose)",0,null],["Small polisher (later, once you're booked)",0,null]],
+  where:"Coworkers' cars first (in the parking lot, with permission), then before/after posts and your church or gym",
+  rules:"Some cities have rules about washing cars on the street (runoff). Doing it in driveways with the owner's OK is the usual way to start."},
+ {id:"yard",name:"Yard work + holiday light installs",start:[100,800],phys:2,talk:1,mode:"local",
+  w:{outdoor:4,lawn:4,truck:1,haul:1,trailer:1,trades:1},
+  offers:["Yard cleanup (leaves, hedges, haul-away)","Holiday light install and takedown (fall/winter)","Regular mowing for a small set of houses near yours"],
+  kit:[["Mower, trimmer, blower (skip if you own them)",450,"lawn"],["Ladder + light clips (for light installs)",120,null],["Yard bags, gloves, rake",40,null]],
+  where:"Your own street and the next 3 streets over, older neighbors, and Nextdoor",
+  rules:"Ladder and roof work carries real risk. Get insurance before light installs and don't go on steep roofs."},
+ {id:"haul",name:"Junk removal & moving help",start:[80,600],phys:2,talk:1,mode:"local",
+  w:{haul:4,truck:4,trailer:3,warehouse:3},
+  offers:["Single-item pickups (couch, mattress, appliance)","Garage and yard cleanouts","Two-hour moving help (loading and unloading)"],
+  kit:[["Straps, dolly, moving blankets",120,null],["Gloves, back brace, contractor bags",40,null],["Dump fees (ask your local transfer station for prices)",0,null]],
+  where:"Facebook Marketplace (people who just sold or bought furniture), Nextdoor, and real estate agents",
+  rules:"Know what your local dump won't take (paint, tires, appliances with refrigerant). Your truck/trailer must be legal for the load."},
+ {id:"repair",name:"Small engine, bike & appliance repair",start:[150,600],phys:1,talk:0,mode:"local",
+  w:{car:3,fix:3,mechanic:4,garage:3,tools:2,manufacturing:1},
+  offers:["Mower and small engine tune-ups (spring rush)","Bike tune-ups","Flip broken equipment: buy cheap, fix, resell"],
+  kit:[["Socket set and specialty tools (skip what you own)",150,"tools"],["Common parts: plugs, filters, belts, tubes",80,null],["Space to work (garage or carport)",0,"garage"]],
+  where:"Facebook Marketplace, Craigslist, neighbors, and a sign at your driveway in spring",
+  rules:"Keep a simple log of what you fixed. Don't work on gas appliances unless you're licensed for it."},
+ {id:"techhelp",name:"Home tech help (TVs, Wi-Fi, smart homes, PCs)",start:[50,300],phys:1,talk:1,mode:"local",
+  w:{tech:4,it:4,fix:1,laptop:1,people:1,teach:1,tools:1},
+  offers:["TV mounting + setup","Wi-Fi dead-spot fix and smart-home setup","Phone and computer help for older adults"],
+  kit:[["Stud finder, drill bits, cable kit",80,"tools"],["Basic Wi-Fi tester app (free)",0,null],["Business cards for senior centers and churches",40,null]],
+  where:"Older neighbors and their adult kids, senior centers, churches, and Nextdoor",
+  rules:"Be clear on what you won't touch (in-wall electrical). Never ask for or store people's passwords."},
+ {id:"admin",name:"Bookkeeping & admin help for small businesses",start:[0,250],phys:0,talk:1,mode:"online",
+  w:{numbers:4,organize:4,office:4,laptop:3,write:1,sales:1},
+  offers:["Monthly bookkeeping catch-up for trades businesses","Invoicing and payment follow-ups","Scheduling and inbox cleanup, a few hours a week"],
+  kit:[["Laptop (skip if you own one)",0,"laptop"],["A course or certification in the software small businesses use",100,null],["Simple contract template",0,null]],
+  where:"Contractors and small shops you already know (they hate paperwork), local business Facebook groups, and LinkedIn",
+  rules:"Bookkeeping is fine without a license in most places; tax prep and advice have their own rules. Know the line."},
+ {id:"flip",name:"Reselling & flipping",start:[200,1500],phys:1,talk:0,mode:"either",
+  w:{flip:5,fix:1,truck:2,garage:2,sales:1,people:1,camera:1},
+  offers:["Tools and equipment from estate sales","Furniture you clean up or refinish","One category you already know well (fishing, golf, sneakers, car parts)"],
+  kit:[["Starting inventory money (only what you can lose)",150,null],["Cleaning and touch-up supplies",40,null],["Good photos (your phone in daylight)",0,"camera"]],
+  where:"Buy at estate sales, garage sales and Marketplace; sell on Marketplace, eBay and OfferUp",
+  rules:"Track every buy and sell from day one. Resale income is taxable, and the records make tax time easy."},
+ {id:"teach",name:"Teach what you know (lessons, coaching, tutoring)",start:[0,200],phys:0,talk:1,mode:"either",
+  w:{teach:4,fitness:3,people:1,trades:1,mechanic:1,it:1,cook:1,write:1},
+  offers:["1-on-1 lessons in your skill (trade basics, fitness, a sport, tools, cooking)","Small group sessions on weekends","Tutoring for students in a subject you're strong in"],
+  kit:[["A free scheduling and payment app",0,null],["A simple one-page lesson plan",0,null],["Any certification your area requires (e.g. personal training)",150,null]],
+  where:"Parents at your kids' activities, your gym, church, and coworkers' families",
+  rules:"Some coaching (personal training, for example) expects a certification. Get one before you charge."},
+ {id:"bbq",name:"BBQ & meal prep",start:[300,1500],phys:1,talk:1,mode:"local",
+  w:{cook:5,food:4,people:1,truck:1},
+  offers:["Weekend BBQ trays for family parties","Weekly meal prep for busy neighbors","Cookout catering for small events"],
+  kit:[["Smoker or grill upgrade (skip if yours is good)",300,null],["Food handler card",20,null],["Containers and labels",60,null]],
+  where:"Coworkers first (bring a tray to work), then family parties, church events and sports teams",
+  rules:"Selling food from home is tightly regulated. Look up your state's cottage food law and local health department rules BEFORE selling anything."},
+ {id:"media",name:"Photos & short videos for local businesses",start:[50,600],phys:1,talk:1,mode:"either",
+  w:{media:5,camera:3,laptop:1,people:1,write:1,sales:1},
+  offers:["Before/after photos for contractors and detailers","Short video clips for restaurants and gyms","Real estate listing photos (check local rules)"],
+  kit:[["Your phone + a tripod and small light",60,"camera"],["Free editing app",0,null],["A sample portfolio (shoot 3 businesses for free first)",0,null]],
+  where:"Walk into local shops with a sample, contractors' Facebook pages, and small business groups",
+  rules:"Get written permission before posting someone's business or face. Agree in writing who owns the photos."}
+];
+
+/* ---------------- STATE ---------------- */
+let A = {}; let step = -1; let activeTab = 0;
+try{ const s = localStorage.getItem("exitBlueprintAnswers"); if(s){ A = JSON.parse(s); } }catch(e){}
+const save = () => { try{ localStorage.setItem("exitBlueprintAnswers", JSON.stringify(A)); }catch(e){} };
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const money = n => "$" + Math.round(n).toLocaleString("en-US");
+const labelOf = (list, id) => (list.find(x => x[0] === id) || [id, id])[1];
+
+/* ---------------- SCREENS ---------------- */
+function intro(){
+  $("#app").innerHTML = `
+  <div class="kicker">Workplace Survivor</div>
+  <h1>The Exit Blueprint</h1>
+  <p class="muted" style="font-size:1.1rem">For the man who can't afford to quit, and can't afford to stay stuck forever.</p>
+  <div class="card">
+    <h3>What this is</h3>
+    <p>You're not going to walk out tomorrow. You have people counting on you. So this isn't a "quit your job" fantasy.</p>
+    <p>It's a plan to build a small side business <b>while you keep your paycheck</b>, using skills you already have, in the hours you actually have, with the money you can actually spare. When it's steady, you get options. That's the exit.</p>
+  </div>
+  <div class="card">
+    <h3>How it works</h3>
+    <ol class="steps">
+      <li><b>The skills quiz (about 5 minutes).</b> 15 questions about what you're good at, what people already ask you for, what you own, your time, your budget and your body.</li>
+      <li><b>Your top 3 side businesses.</b> Ranked for you, with the reasons from your own answers.</li>
+      <li><b>Your 90-day plan.</b> Startup kit sized to your budget, your first offers, where your first customers come from, and a week-by-week plan that fits your schedule.</li>
+      <li><b>Your exit numbers.</b> Exactly how much side income and savings you'd need before leaving is a real option, not a gamble.</li>
+    </ol>
+  </div>
+  <div class="row"><button class="btn" onclick="go(0)">Start the quiz</button>
+  ${A.name ? `<button class="btn ghost" onclick="results()">See my last results</button>` : ""}</div>
+  <p class="note">This is a planning tool, not financial, legal or tax advice, and no income is promised. Results depend on your effort, your area and your market. Check local licensing rules and your employer's policy on side work before you start.</p>`;
+  window.scrollTo(0,0);
+}
+
+function go(i){ step = i; render(); }
+function render(){
+  const Q = QUESTIONS[step]; const pct = Math.round(step / QUESTIONS.length * 100);
+  let body = "";
+  if(Q.type === "text" || Q.type === "number"){
+    body = `<input id="inp" type="${Q.type === "number" ? "number" : "text"}" inputmode="${Q.type === "number" ? "numeric" : "text"}" placeholder="${Q.ph}" value="${esc(A[Q.id] ?? "")}" oninput="setVal(this.value)">`;
+  } else {
+    let opts = Q.opts;
+    if(Q.fromSkills){ const sel = A.skills || []; opts = SKILLS.filter(s => sel.includes(s[0])); if(!opts.length) opts = SKILLS; opts = opts.concat([["none","Nobody asks me yet"]]); }
+    const cur = A[Q.id];
+    body = `<div class="opts">` + opts.map(o => {
+      const on = Q.type === "multi" ? (cur || []).includes(o[0]) : cur === o[0];
+      return `<button class="opt ${Q.type === "radio" ? "radio" : ""} ${on ? "on" : ""}" onclick="pick('${o[0]}')"><span class="box"></span>${esc(o[1])}</button>`;
+    }).join("") + `</div>`;
+  }
+  const ok = answered(Q);
+  $("#app").innerHTML = `
+    <div class="row" style="justify-content:space-between"><span class="muted" style="font-size:.9rem">Question ${step + 1} of ${QUESTIONS.length}</span>
+    <button class="tab" onclick="${step === 0 ? "intro()" : "go(" + (step - 1) + ")"}">← Back</button></div>
+    <div class="progress"><i style="width:${pct}%"></i></div>
+    <div class="q">${esc(Q.q)}</div>${Q.sub ? `<p class="muted">${esc(Q.sub)}</p>` : ""}
+    ${body}
+    <div class="row" style="margin-top:12px"><button class="btn" id="next" ${ok ? "" : "disabled"} onclick="next()">${step === QUESTIONS.length - 1 ? "Build my blueprint" : "Next"}</button>
+    ${Q.type === "multi" ? `<span class="muted" style="font-size:.88rem">Pick all that fit</span>` : ""}</div>`;
+  const inp = $("#inp"); if(inp){ inp.focus(); inp.addEventListener("keydown", e => { if(e.key === "Enter" && answered(Q)) next(); }); }
+  window.scrollTo(0,0);
+}
+function answered(Q){
+  const v = A[Q.id];
+  if(Q.type === "multi") return Array.isArray(v) && v.length > 0;
+  if(Q.type === "number") return v !== undefined && v !== "" && Number(v) > 0;
+  if(Q.type === "text") return v && String(v).trim().length > 0;
+  return !!v;
+}
+function setVal(v){ const Q = QUESTIONS[step]; A[Q.id] = Q.type === "number" ? v : v; save(); $("#next").disabled = !answered(Q); }
+function pick(id){
+  const Q = QUESTIONS[step];
+  if(Q.type === "multi"){
+    let cur = A[Q.id] || [];
+    if(id === "none") cur = cur.includes("none") ? [] : ["none"];
+    else { cur = cur.filter(x => x !== "none"); cur = cur.includes(id) ? cur.filter(x => x !== id) : cur.concat(id); }
+    A[Q.id] = cur;
+  } else { A[Q.id] = id; save(); render(); setTimeout(() => { if(step < QUESTIONS.length - 1) next(); }, 180); return; }
+  save(); render();
+}
+function next(){ if(step < QUESTIONS.length - 1) go(step + 1); else { activeTab = 0; results(); } }
+
+/* ---------------- SCORING ---------------- */
+function score(){
+  const skills = A.skills || [], asked = (A.asked || []).filter(x => x !== "none"), tools = (A.tools || []).filter(x => x !== "none");
+  const budget = Number(A.budget || 100), hours = Number(A.hours || 3), talk = Number(A.talk || 1);
+  return PATHS.map(p => {
+    let s = 0; const why = [];
+    for(const [k, w] of Object.entries(p.w)){
+      if(skills.includes(k)){ s += w; }
+      if(asked.includes(k)){ s += w * 1.5; why.push(`People already ask you for help with ${labelOf(SKILLS, k).toLowerCase()}.`); }
+      else if(skills.includes(k)){ why.push(`You're good at ${labelOf(SKILLS, k).toLowerCase()}.`); }
+      if(tools.includes(k)){ s += w; why.push(`You already have ${HAVE[k]}.`); }
+      if(A.job === k){ s += w; why.push(`Your day job (${labelOf(QUESTIONS[1].opts, k).toLowerCase()}) already trained you for this.`); }
+    }
+    // body + preference
+    if(A.physical === "no" && p.phys === 2){ s -= 8; }
+    if(A.physical === "some" && p.phys === 2){ s -= 3; }
+    if(A.hands === "screen"){ s += p.phys === 0 ? 3 : p.phys === 2 ? -3 : 0; }
+    if(A.hands === "hands"){ s += p.phys >= 1 ? 2 : -2; }
+    if(A.where === "online"){ s += p.mode === "online" ? 3 : p.mode === "either" ? 1 : -2; }
+    if(A.where === "local"){ s += p.mode === "online" ? -1 : 1; }
+    if(talk === 0 && p.talk >= 1){ s -= 1; }
+    // budget: cost after subtracting tools they own
+    const kitCost = p.kit.reduce((t, [, c, have]) => t + (have && tools.includes(have) ? 0 : c), 0);
+    if(kitCost > budget){ s -= Math.min(5, (kitCost - budget) / 150); }
+    if(hours <= 3 && p.id === "bbq") s -= 1;
+    return {p, s, why: [...new Set(why)].slice(0, 4), kitCost};
+  }).sort((a, b) => b.s - a.s);
+}
+
+/* ---------------- RESULTS ---------------- */
+function scheduleLine(){
+  const w = A.when || []; const h = Number(A.hours || 3);
+  const wk = w.includes("wkend"), ev = w.includes("eve"), dy = w.includes("days"), mo = w.includes("morn");
+  const parts = [];
+  const blocks = [wk, ev, dy].filter(Boolean).length || 1;
+  if(wk) parts.push(h <= 3 ? "one 2–3 hour block on Saturday or Sunday" : (blocks === 1 ? (h <= 8 ? "Saturday and Sunday, 3–4 hours each" : "most of Saturday plus a few hours Sunday") : (h <= 8 ? "one 3–4 hour weekend block" : "a 5–6 hour weekend block")));
+  if(ev) parts.push(blocks === 1 ? (h <= 3 ? "two weekday evenings, about an hour each" : h <= 8 ? "3–4 weekday evenings, 1.5–2 hours each" : "most weekday evenings, 2–3 hours each") : (h <= 8 ? "1–2 weekday evenings, about an hour each" : "2–3 weekday evenings, 1.5–2 hours each"));
+  if(dy) parts.push(blocks === 1 ? (h <= 8 ? "your rotating days off, one 3–4 hour block each" : "your rotating days off, a half-day each") : "a half-day on one rotating day off");
+  if(mo) parts.push("20–30 minutes in the morning for messages and booking");
+  return parts.length ? parts.join(", plus ") : "the free time you have";
+}
+function plan90(p, idx){
+  const h = Number(A.hours || 3); const name = esc(A.name || "you");
+  const firstJobs = h <= 3 ? 1 : h <= 7 ? 2 : h <= 12 ? 3 : 4;
+  const net = Number(A.network || 0); const talk = Number(A.talk || 1);
+  const reach = net >= 2 ? "Text 15 people you know" : net === 1 ? "Text 10 people you know" : "Post in 3 neighborhood groups and text the 5 people you know best";
+  return [
+    ["Weeks 1–2: Set up (no customers yet)", [
+      `Buy only the starter kit items below that you don't already own. Stay under ${money(Number(A.budget || 100))}.`,
+      `Look up 5 local listings for "${p.offers[0].split(":")[0].toLowerCase()}" and write down their prices. Start in the middle of that range.`,
+      `Pick a plain business name and make a free Google Business Profile and a Facebook page with 3 photos of your work (even work you did for free).`,
+      `Check the rules: ${p.rules}`,
+      `Read your employer's handbook on side work so this never puts your paycheck at risk.`]],
+    ["Weeks 3–6: Your first customers", [
+      `${reach}: "Hey, I've started doing ${p.offers[0].split("(")[0].trim().toLowerCase()} on the side. If you or anyone you know needs it, I'd appreciate the referral."`,
+      `Where your customers are: ${p.where}.`,
+      `Goal: ${firstJobs} job${firstJobs > 1 ? "s" : ""} a week, booked into ${scheduleLine()}.`,
+      talk === 0 ? `You said you'd rather not sell. So let the work sell: post a before/after photo after every single job and let people message you.` : `After every job, ask: "Would you mind leaving me a quick review, and do you know anyone else who needs this?"`,
+      `Track every dollar in and out in one simple note or sheet, starting with job #1.`]],
+    ["Weeks 7–12: Make it steady", [
+      `Add your second offer: ${p.offers[1]}.`,
+      `Raise your price on new customers once you're turning work down or booked 2 weeks out.`,
+      `Turn one-time customers into repeat ones: offer a monthly or seasonal plan.`,
+      `Ask your 5 happiest customers for a review. Reviews are what make strangers trust you.`,
+      `At day 90, add up 3 months of side income and plug it into your exit numbers below.`]]
+  ];
+}
+function results(){
+  const ranked = score(); const top = ranked.slice(0, 3);
+  const maxS = Math.max(1, top[0].s);
+  const name = esc((A.name || "").trim() || "Your");
+  const must = Number(A.must || 0), saved = Number(A.saved || 0);
+  const t = top[activeTab]; const p = t.p; const tools = A.tools || [];
+  const kitHtml = p.kit.map(([item, cost, have]) => {
+    const owned = have && tools.includes(have);
+    return `<li>${owned ? `<span class="check">✓ you have this</span> ` : ""}${esc(item)}${!owned && cost ? ` <span class="muted">(about ${money(cost)})</span>` : ""}</li>`;
+  }).join("");
+  const plan = plan90(p, activeTab).map(([h, items]) => `<div class="wk"><b>${h}</b><ul class="clean">${items.map(i => `<li>${esc(i)}</li>`).join("")}</ul></div>`).join("");
+  const runway6 = must * 6, quarter = must * .25, half = must * .5;
+  const savedTxt = {"0":"less than a month","1":"about a month","3":"2–4 months","6":"5+ months"}[A.saved] || "";
+  $("#app").innerHTML = `
+  <div class="kicker">Your Exit Blueprint</div>
+  <h1>${A.name ? esc(A.name) + "'s" : "Your"} Exit Blueprint</h1>
+  <p class="muted">Built from your 15 answers. You can retake the quiz anytime; your answers are saved on this device.</p>
+
+  <h2 style="margin-top:26px">Your top 3 side businesses</h2>
+  ${top.map((x, i) => `<div class="card ${i === 0 ? "match" : ""}">
+     <div class="row" style="justify-content:space-between"><h3 style="margin:0">${i + 1}. ${esc(x.p.name)}</h3><span class="pill">${Math.max(35, Math.round(x.s / maxS * 96))}% match</span></div>
+     <ul class="clean" style="margin-top:10px">${(x.why.length ? x.why : ["It fits your time, budget and how you like to work."]).map(w => `<li>${esc(w)}</li>`).join("")}</ul>
+     <p class="muted" style="margin:0">Startup cost for you: about ${money(x.kitCost)}${x.kitCost === 0 ? " (you have what you need)" : ""}</p></div>`).join("")}
+
+  <h2 style="margin-top:30px">Your 90-day plan</h2>
+  <div class="tabs">${top.map((x, i) => `<button class="tab ${i === activeTab ? "on" : ""}" onclick="activeTab=${i};results();document.getElementById('plan').scrollIntoView()">${esc(x.p.name.split(" (")[0])}</button>`).join("")}</div>
+  <div class="card" id="plan">
+    <h3>${esc(p.name)}</h3>
+    <p><b>Your schedule:</b> ${esc(scheduleLine())}. That's about ${A.hours === "18" ? "15+" : {3:"2–4",7:"5–8",12:"9–15"}[A.hours]} hours a week, and the plan below is sized to it.</p>
+    <p><b>Your first offers</b></p><ul class="clean">${p.offers.map(o => `<li>${esc(o)}</li>`).join("")}</ul>
+    <p><b>Your starter kit</b> (budget: ${esc(labelOf(QUESTIONS[7].opts, A.budget))})</p><ul class="clean">${kitHtml}</ul>
+    ${plan}
+  </div>
+
+  <h2 style="margin-top:30px">Your exit numbers</h2>
+  <div class="card">
+    <p>Your must-pays: <b>${money(must)}</b> a month. Right now you could cover them for ${savedTxt}.</p>
+    <div class="grid2">
+      <div class="card" style="margin:0"><div class="muted">Milestone 1</div><div class="num">${money(quarter)}/mo</div><p style="margin:0">Side income covers a quarter of your must-pays. Breathing room.</p></div>
+      <div class="card" style="margin:0"><div class="muted">Milestone 2</div><div class="num">${money(half)}/mo</div><p style="margin:0">Half your must-pays, 3 months in a row. Now you have real options.</p></div>
+      <div class="card" style="margin:0"><div class="muted">Milestone 3</div><div class="num">${money(must)}/mo</div><p style="margin:0">Side income covers all your must-pays, 3 months in a row.</p></div>
+      <div class="card" style="margin:0"><div class="muted">Safety net</div><div class="num">${money(runway6)}</div><p style="margin:0">Six months of must-pays saved. Many planners suggest 3–6 months; with a family, aim for the top.</p></div>
+    </div>
+    <p style="margin-top:14px"><b>Safe to leave</b> means all three: side income has covered your must-pays for 3 straight months, the safety net is saved, and you've sorted out health insurance and other benefits your job gives your family. Until then, the job is the funding for the plan.</p>
+  </div>
+
+  <div class="row"><button class="btn" onclick="copyPlan()">Copy my plan</button><button class="btn ghost" onclick="A={};save();intro()">Retake the quiz</button></div>
+  <p class="note">This is a planning tool, not financial, legal or tax advice. No income is promised; results depend on your effort, area and market. Check licensing, insurance and tax rules where you live, and your employer's policy on side work.</p>`;
+  window.scrollTo(0,0);
+}
+function copyPlan(){
+  const top = score().slice(0, 3); const p = top[activeTab].p;
+  const lines = [`${A.name || "My"} Exit Blueprint`, "", "Top 3 side businesses:", ...top.map((x, i) => `${i + 1}. ${x.p.name}`), "",
+    `Plan: ${p.name}`, `Schedule: ${scheduleLine()}`, "First offers:", ...p.offers.map(o => "- " + o), "",
+    ...plan90(p).flatMap(([h, items]) => [h, ...items.map(i => "- " + i), ""]),
+    `Must-pays: ${money(Number(A.must || 0))}/mo. Safety net goal: ${money(Number(A.must || 0) * 6)}.`];
+  const done = () => { const t = document.createElement("div"); t.className = "toast"; t.textContent = "Plan copied. Paste it into your notes."; document.body.appendChild(t); setTimeout(() => t.remove(), 2500); };
+  try{ navigator.clipboard.writeText(lines.join("\n")).then(done, () => alertFallback(lines)); }catch(e){ alertFallback(lines); }
+}
+function alertFallback(lines){
+  const ta = document.createElement("textarea"); ta.value = lines.join("\n"); ta.style.cssText = "width:100%;height:260px;margin-top:12px;background:#12151b;color:#eceae4;border:1px solid #2a2f3a;border-radius:10px;padding:10px";
+  document.getElementById("app").appendChild(ta); ta.select();
+}
+intro();
+</script>
+</body>
+</html>
