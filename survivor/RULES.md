@@ -182,3 +182,40 @@ Never promise income or results. The quiz is free; the plan is paid. Say that ho
 (older note:)
 See PRODUCT_PLAN_NOV12.md. Until then, captions keep the current CTA. The user's Nov 11 ending is allowed:
 'If you've tried these and they aren't working, comment "HELP" and I'll DM you.'
+
+## EXIT STRATEGY CAPTIONS — STANDING RULE from Nov 13 (user: "all future posts ... point towards the digital product in the bio ... mention a popular figure who left their 9 to 5 ... use that for my reels. Still use sunset/nature photos.")
+Applies to EVERY Reel and carousel caption from now on. Same hooks as before; the caption steers to an EXIT STRATEGY.
+Caption order (80-150 words):
+ 1. Searchable first line (a different hook format from the on-screen text).
+ 2. 2-3 short lines: his pain (stuck, providing, burnt out).
+ 3. THE FIGURE: 1-2 sentences of VERIFIED facts from the bank below. Never invent quotes, numbers or feelings, and never say "burned out"
+    unless the bank says it's documented.
+ 4. The turn: "He didn't quit first. He built first." Tie it to HIS skills and time.
+ 5. One small step he can take this week.
+ 6. Product CTA (rotate, never promise income): e.g.
+    - "Not sure what your skills could build? Take the free Exit Quiz in my bio. It shows your top 3 side businesses in about 5 minutes."
+    - "Your exit starts with knowing what you're already good at. Free quiz in my bio."
+    - "Can't quit yet? Start building the way out. Free Exit Quiz, link in bio."
+ 7. "Send this to a man who needs to hear it."
+ 8. Exactly 5 hashtags, mixing the niche and the exit (e.g. #burnout #stuckinajob #exitstrategy #sidehustle #provider).
+ (The YouTube line is dropped from captions so the only call to action is the quiz. The YouTube link stays in the bio.)
+Rotate figures; never use the same one twice in a row. Log which figure was used in topics_used.txt.
+
+### VERIFIED FIGURE BANK (only these facts; add new ones only after checking sources)
+- Daymond John (FUBU): waited tables full-time at Red Lobster and sewed hats between shifts; started with about $40 of material.
+  Fortune: "for four years of his life, he worked full-time at Red Lobster" (6 a.m. FUBU calls, a 12-hour shift, sewing until 3 a.m.).
+  GMA quote about his Red Lobster years: "I just didn't have any passion." He quit only once FUBU could carry him.
+- Sara Blakely (Spanx): sold fax machines door to door for years; the rejection wore on her (FEE.org: "as much as she hated selling fax machines,
+  she didn't quit her day job until long after Spanx had made its first big sale"). Started with $5,000 savings and called hosiery mills on her lunch hour (GMA).
+- Phil Knight (Nike): worked as an accountant and taught at Portland State, selling shoes out of his car at track meets in his off-hours (Britannica).
+  He left his other jobs in 1969, after Blue Ribbon Sports had sold $1 million of shoes.
+- Arianna Huffington (Thrive Global): documented BURNOUT. She collapsed from exhaustion in 2007 while building HuffPost, then founded Thrive Global
+  in 2016 to fight burnout. NOT a 9-to-5 story, so frame it as "burnout became the business."
+Sources: fortune.com/2016/12/27/how-shark-tanks-daymond-john-built-fubu-while-working-at-red-lobster ; goodmorningamerica.com (Daymond John Real Biz) ;
+ fee.org (Sara Blakely, 2018) ; video.goodmorningamerica.com (Blakely) ; britannica.com/biography/Phil-Knight ; entrepreneur.com/article/322204 (Huffington)
+
+### ON-SCREEN TEXT WITH SUNSET / NATURE PHOTOS (Reels: still photo + slow motion, Lora serif, no music)
+Keep the want-vs-must hook, and make line 2 turn toward the exit. Use the photo as the metaphor:
+ - sunset = the end of the shift / the day you clock out for good;  road, trail, horizon = the way out;  water wearing down rock = staying with no plan.
+ e.g. "You'd walk out tomorrow if the bills would let you. / So build the way out after your shift. / Read the caption."
+Line 3 rotates between "Read the caption." and "Free exit quiz in bio ↓" (use the quiz line about 1 post in 3).
