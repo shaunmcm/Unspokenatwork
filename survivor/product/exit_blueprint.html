@@ -50,6 +50,10 @@ ul.clean li{margin-bottom:6px}
 @media(max-width:560px){.grid2{grid-template-columns:1fr}h1{font-size:1.75rem}}
 .note{font-size:.88rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin-top:8px}
 .hide{display:none}
+.tbl{width:100%;border-collapse:collapse;font-size:.95rem}.tbl td,.tbl th{border-bottom:1px solid var(--line);padding:8px 4px;text-align:left;vertical-align:top}.tbl th{color:var(--muted);font-weight:600}.tbl td:last-child,.tbl th:last-child{white-space:nowrap;text-align:right}
+.wkhead{display:flex;justify-content:space-between;width:100%;background:none;border:0;color:var(--text);font:500 1rem Inter,sans-serif;cursor:pointer;padding:4px 0;text-align:left}
+.day{border-top:1px solid var(--line);padding:12px 0 6px}.day.work .dhead{color:var(--accent2)}.dhead{font-weight:600;font-size:.92rem;margin-bottom:6px}
+.task{display:flex;gap:10px;align-items:flex-start;margin:0 0 8px;font-size:.95rem;cursor:pointer}.task input{margin-top:4px;accent-color:var(--accent);width:18px;height:18px;flex:none}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#222833;border:1px solid var(--line);padding:10px 16px;border-radius:10px;font-size:.9rem}
 </style>
 </head>
@@ -80,7 +84,7 @@ const QUESTIONS = [
  {id:"asked",type:"multi",q:"Which ones do people already ask you to help with?",sub:"This is the strongest signal there is. If people ask for free, some will pay.",opts:SKILLS,fromSkills:true},
  {id:"tools",type:"multi",q:"What do you already own?",sub:"Every tool you own is money you don't have to spend.",opts:TOOLS.concat([["none","None of these"]])},
  {id:"hours",type:"radio",q:"Honestly, how many hours a week could you give this?",sub:"Be real. A plan that fits your life beats a plan you quit in week two.",opts:[["3","2–4 hours"],["7","5–8 hours"],["12","9–15 hours"],["18","15+ hours"]]},
- {id:"when",type:"multi",q:"When is your free time?",sub:"Pick all that apply.",opts:[["eve","Weekday evenings"],["wkend","Weekends"],["days","Days off that rotate"],["morn","Early mornings"]]},
+ {id:"days",type:"multi",q:"Which days could you work on it?",sub:"Your daily planner puts the real work on these days and only 5-minute tasks on the others.",opts:[["1","Monday"],["2","Tuesday"],["3","Wednesday"],["4","Thursday"],["5","Friday"],["6","Saturday"],["0","Sunday"]]},
  {id:"budget",type:"radio",q:"How much could you spend to get started?",sub:"Without touching rent or bills.",opts:[["100","$0–$100"],["500","$100–$500"],["1500","$500–$1,500"],["3000","$1,500+"]]},
  {id:"hands",type:"radio",q:"After a shift, what sounds better?",sub:"",opts:[["hands","Working with my hands"],["both","Either one"],["screen","Something on a laptop or phone"]]},
  {id:"physical",type:"radio",q:"Can your body handle physical work on your days off?",sub:"No shame either way. Burning out twice won't get you out.",opts:[["yes","Yes, no problem"],["some","Sometimes, light stuff"],["no","No, I'm worn out"]]},
@@ -88,8 +92,10 @@ const QUESTIONS = [
  {id:"where",type:"radio",q:"Who would you rather work for?",sub:"",opts:[["local","People in my area, face to face"],["either","Doesn't matter"],["online","Online, from home"]]},
  {id:"network",type:"radio",q:"How many people around you know you'd do good work?",sub:"Friends, family, coworkers, church, the gym, your kid's team.",opts:[["2","A lot"],["1","Some"],["0","Not many"]]},
  {id:"must",type:"number",q:"What are your monthly must-pays?",sub:"Rent or mortgage, utilities, car, insurance, food, minimum debt payments. A close guess is fine.",ph:"e.g. 3800"},
- {id:"saved",type:"radio",q:"If your paycheck stopped today, how long could you cover those?",sub:"",opts:[["0","Less than 1 month"],["1","About 1 month"],["3","2–4 months"],["6","5+ months"]]}
+ {id:"saved",type:"radio",q:"If your paycheck stopped today, how long could you cover those?",sub:"",opts:[["0","Less than 1 month"],["1","About 1 month"],["3","2–4 months"],["6","5+ months"]]},
+ {id:"goal",type:"number",q:"How much extra money a month do you want this side business to put in your pocket?",sub:"After costs and taxes. Your plan will show exactly what it takes to get there, and how long.",ph:"e.g. 1000"}
 ];
+const qOpts = id => QUESTIONS.find(q => q.id === id).opts;
 
 /* Business paths. w = weights for job, skills, tools. phys: 0 desk,1 light,2 physical. talk: how much selling it needs (0-2). */
 const PATHS = [
@@ -167,6 +173,60 @@ const PATHS = [
   rules:"Get written permission before posting someone's business or face. Agree in writing who owns the photos."}
 ];
 
+/* Money model per business (rough U.S. ballpark ranges; every buyer is told to check local prices).
+   lo/hi = what one unit usually charges, hrs = hours per unit incl. travel/setup, cost = supplies/gas per unit,
+   costPct = cost as share of price (food), over = monthly overhead (insurance, ads, apps), unit = what you sell. */
+const ECON = {
+ handyman:{lo:120,hi:300,hrs:3,cost:20,over:70,unit:"job",
+  about:"You fix the small stuff homeowners keep putting off: doors that stick, leaky faucets, loose shelves, holes in drywall, things that need mounting. Most handyman work is a short list of little jobs that a contractor won't bother with.",
+  success:["Show up on time and text when you're on your way. Reliability is the #1 reason people rehire a handyman.","Bundle small fixes into one visit with a minimum charge, so a 20-minute job still pays.","Take a photo before and after every job. That's your marketing.","Know your state's handyman limit and stay under it."],
+  mistakes:["Charging by the hour for tiny jobs and driving 30 minutes for $40.","Taking jobs that need a license (electrical panels, gas lines).","Not writing the price down before you start."]},
+ pressure:{lo:150,hi:400,hrs:3,cost:30,over:70,unit:"job",
+  about:"You clean driveways, sidewalks, house siding, fences and decks. The results are dramatic in photos, which makes this one of the easiest services to market.",
+  success:["Post a before/after photo from every job, in the same neighborhood groups, every week.","After a job, knock on the 5 nearest doors or leave flyers. Neighbors see the result.","Learn soft washing (low pressure + cleaner) for house siding, so you don't damage it.","Sell yearly plans: driveway every spring, house every other year."],
+  mistakes:["Blasting siding, wood or screens with high pressure and causing damage.","Pricing by the hour instead of by the job.","Skipping insurance on someone's house."]},
+ detail:{lo:120,hi:250,hrs:3.5,cost:15,over:50,unit:"detail",
+  about:"You make cars look new again, inside and out, at the customer's home or work. Busy parents and commuters pay for this because they never have time.",
+  success:["Start with interiors. That's where most of the 'wow' (and the money) is.","Book 2 cars at the same address or workplace to cut travel time.","Offer a monthly maintenance plan once someone has had a full detail.","Keep a checklist so every car gets the same quality."],
+  mistakes:["Underpricing a dirty SUV the same as a clean sedan. Price by size and condition.","Using the wrong product on leather or screens.","No photos, no reviews."]},
+ yard:{lo:75,hi:300,hrs:2.5,cost:15,over:50,unit:"job",
+  about:"You do yard cleanups, hedges, leaf removal and regular mowing close to home, then add holiday light installs in the fall and winter, which many homeowners will pay well for.",
+  success:["Keep your customers close together. Five houses on two streets beat ten spread across town.","Turn one-time cleanups into every-other-week visits.","Start booking holiday light installs in October.","Bring yard waste bags so you never leave a mess."],
+  mistakes:["Driving far for a single mow.","Going on steep roofs for light installs.","Forgetting dump or green-waste fees in your price."]},
+ haul:{lo:100,hi:400,hrs:3,cost:60,over:60,unit:"job",
+  about:"You pick up things people want gone (couches, mattresses, old appliances, garage junk) and help people load and unload when they move. A truck and a strong back are most of what you need.",
+  success:["Know your dump's fees and rules before you quote. They're your biggest cost.","Quote from photos people text you, so you don't waste trips.","Donate or resell good items; it lowers dump costs and can add profit.","Lift smart and bring a helper for heavy jobs."],
+  mistakes:["Quoting before you've seen the load and losing money on dump fees.","Hauling things your dump won't take (paint, tires, refrigerant).","Hurting your back. Your body is your paycheck too."]},
+ repair:{lo:60,hi:150,hrs:1.5,cost:20,over:20,unit:"repair",
+  about:"You tune up and fix lawn mowers, small engines, bikes and simple equipment from your garage. Spring is the busy season. You can also buy broken equipment cheap, fix it and resell it.",
+  success:["Pick 1–2 things you're best at (mowers, bikes) and become known for them.","Advertise in late winter, before the spring rush.","Keep common parts in stock so you can finish jobs fast.","Have customers drop off so you don't spend time driving."],
+  mistakes:["Taking on repairs you've never done without telling the customer.","Forgetting parts cost when you quote.","Letting customer equipment pile up in your garage."]},
+ techhelp:{lo:80,hi:200,hrs:2,cost:5,over:30,unit:"visit",
+  about:"You mount TVs, fix Wi-Fi dead spots, set up smart doorbells and cameras, and help people (often older adults) with phones and computers. Patience is worth as much as tech skill here.",
+  success:["Explain things slowly and simply. Patience is what gets you recommended.","Sell a 'setup visit' bundle instead of hourly.","Leave a written card with what you did and how to use it.","Get to know the adult kids of older customers; they refer friends' parents."],
+  mistakes:["Touching in-wall electrical.","Asking for or saving people's passwords.","Leaving without making sure they can use it themselves."]},
+ admin:{lo:250,hi:600,hrs:8,cost:10,over:40,unit:"monthly client",recurring:true,
+  about:"You keep the books, invoices and paperwork organized for small businesses like contractors and shops. It's done from a laptop on your schedule, and clients often stay for years.",
+  success:["Start with businesses you already know. Trust matters more than a website.","Learn the bookkeeping software most small businesses use; there are low-cost courses.","Charge a flat monthly fee, not hourly.","Send a short monthly summary. It's what makes clients feel the value."],
+  mistakes:["Giving tax advice you aren't qualified to give.","Taking a messy client without a clean-up fee.","Mixing your money with theirs."]},
+ flip:{lo:40,hi:150,hrs:3,cost:0,over:15,unit:"flip",profitOnly:true,
+  about:"You buy things below their value (tools, furniture, equipment, items you know well), clean or fix them, and resell them for more. The money is made when you buy, not when you sell.",
+  success:["Stick to one or two categories you know, so you can spot deals fast.","Never pay more than about half of what similar items have actually sold for.","Take clear daylight photos and write honest descriptions.","Keep a list of every buy and sell price."],
+  mistakes:["Buying things you 'think' will sell without checking sold listings.","Letting inventory pile up. Price it to move.","Spending profit before you count it."]},
+ teach:{lo:40,hi:90,hrs:1.5,cost:0,over:15,unit:"session",
+  about:"You teach what you already know: trade basics, fitness, a sport, using tools, cooking or a school subject. Your experience is the product.",
+  success:["Pick one clear outcome per lesson ('change your own oil', 'first pull-up').","Sell packs of 4 sessions, not one at a time.","Ask for a short testimonial after the first pack.","Small group sessions earn more per hour."],
+  mistakes:["Teaching something that legally needs a certification without one.","No schedule. Book the next session before they leave.","Charging too little because it 'feels easy' to you."]},
+ bbq:{lo:150,hi:400,hrs:5,costPct:0.4,over:40,unit:"order",
+  about:"You cook BBQ trays or weekly meal prep for families, parties and small events. Food sells itself, but it's the most regulated business on this list.",
+  success:["Check your state's cottage food law and health department rules BEFORE you sell anything.","Start with a small fixed menu, so food costs are predictable.","Take orders ahead with a deposit. No cooking on spec.","Price so food is no more than about 40% of the price."],
+  mistakes:["Selling without checking the food laws.","Not counting fuel, containers and your time.","Saying yes to custom orders that wreck your costs."]},
+ media:{lo:150,hi:400,hrs:4,cost:5,over:20,unit:"shoot",
+  about:"You take photos and short videos for local businesses (contractors, restaurants, gyms, detailers) that need content but have no time to make it.",
+  success:["Build a sample portfolio by shooting 3 businesses free.","Sell a monthly content package, not one-off shoots.","Deliver fast, within 48 hours.","Show business owners how many people saw what you made."],
+  mistakes:["Posting people's faces or businesses without written permission.","Unclear deals about who owns the photos.","Spending hours editing a $100 job."]}
+};
+
 /* ---------------- STATE ---------------- */
 let A = {}; let step = -1; let activeTab = 0;
 try{ const s = localStorage.getItem("exitBlueprintAnswers"); if(s){ A = JSON.parse(s); } }catch(e){}
@@ -190,15 +250,15 @@ function intro(){
   <div class="card">
     <h3>How it works</h3>
     <ol class="steps">
-      <li><b>The skills quiz (about 5 minutes).</b> 15 questions about what you're good at, what people already ask you for, what you own, your time, your budget and your body.</li>
+      <li><b>The skills quiz (about 5 minutes).</b> 16 questions about what you're good at, what people already ask you for, what you own, your time, your budget, your body and the money you want to make.</li>
       <li><b>Your top 3 side businesses.</b> Ranked for you, with the reasons from your own answers.</li>
-      <li><b>Your 90-day plan.</b> Startup kit sized to your budget, your first offers, where your first customers come from, and a week-by-week plan that fits your schedule.</li>
-      <li><b>Your exit numbers.</b> Exactly how much side income and savings you'd need before leaving is a real option, not a gamble.</li>
+      <li><b>Your 90-day daily planner.</b> A task for every single day, built around the days and hours you actually have, with a checkbox for each one.</li><li><b>Your step-by-step guide and money math.</b> What it takes to succeed, what it costs to start and run, what to charge, and exactly how many jobs and hours it takes to reach the monthly amount you want.</li>
+      <li><b>Your exit numbers.</b> How much side income and savings you'd need before leaving is a real option, not a gamble.</li>
     </ol>
   </div>
   <div class="row"><button class="btn" onclick="go(0)">Start the quiz</button>
   ${A.name ? `<button class="btn ghost" onclick="results()">See my last results</button>` : ""}</div>
-  <p class="note">This is a planning tool, not financial, legal or tax advice, and no income is promised. Results depend on your effort, your area and your market. Check local licensing rules and your employer's policy on side work before you start.</p>`;
+  <p class="note"><b>Disclosure:</b> This is a planning tool. It does not guarantee results or income, and all costs, prices and earnings it shows are rough estimates, not exact figures. Results depend on your effort, your area and your market. Not financial, legal or tax advice. Check local licensing rules and your employer's policy on side work before you start.</p>`;
   window.scrollTo(0,0);
 }
 
@@ -257,8 +317,8 @@ function score(){
     let s = 0; const why = [];
     for(const [k, w] of Object.entries(p.w)){
       if(skills.includes(k)){ s += w; }
-      if(asked.includes(k)){ s += w * 1.5; why.push(`People already ask you for help with ${labelOf(SKILLS, k).toLowerCase()}.`); }
-      else if(skills.includes(k)){ why.push(`You're good at ${labelOf(SKILLS, k).toLowerCase()}.`); }
+      if(asked.includes(k)){ s += w * 1.5; why.push(`People already ask you for help with ${labelOf(SKILLS, k).toLowerCase().replace('bbq','BBQ')}.`); }
+      else if(skills.includes(k)){ why.push(`You're good at ${labelOf(SKILLS, k).toLowerCase().replace('bbq','BBQ')}.`); }
       if(tools.includes(k)){ s += w; why.push(`You already have ${HAVE[k]}.`); }
       if(A.job === k){ s += w; why.push(`Your day job (${labelOf(QUESTIONS[1].opts, k).toLowerCase()}) already trained you for this.`); }
     }
@@ -278,102 +338,238 @@ function score(){
   }).sort((a, b) => b.s - a.s);
 }
 
-/* ---------------- RESULTS ---------------- */
-function scheduleLine(){
-  const w = A.when || []; const h = Number(A.hours || 3);
-  const wk = w.includes("wkend"), ev = w.includes("eve"), dy = w.includes("days"), mo = w.includes("morn");
-  const parts = [];
-  const blocks = [wk, ev, dy].filter(Boolean).length || 1;
-  if(wk) parts.push(h <= 3 ? "one 2–3 hour block on Saturday or Sunday" : (blocks === 1 ? (h <= 8 ? "Saturday and Sunday, 3–4 hours each" : "most of Saturday plus a few hours Sunday") : (h <= 8 ? "one 3–4 hour weekend block" : "a 5–6 hour weekend block")));
-  if(ev) parts.push(blocks === 1 ? (h <= 3 ? "two weekday evenings, about an hour each" : h <= 8 ? "3–4 weekday evenings, 1.5–2 hours each" : "most weekday evenings, 2–3 hours each") : (h <= 8 ? "1–2 weekday evenings, about an hour each" : "2–3 weekday evenings, 1.5–2 hours each"));
-  if(dy) parts.push(blocks === 1 ? (h <= 8 ? "your rotating days off, one 3–4 hour block each" : "your rotating days off, a half-day each") : "a half-day on one rotating day off");
-  if(mo) parts.push("20–30 minutes in the morning for messages and booking");
-  return parts.length ? parts.join(", plus ") : "the free time you have";
+/* ---------------- MONEY MATH ---------------- */
+const pl = e => e.unit + "s";
+const TAX = 0.25; // rough set-aside for self-employment + income tax
+function money_model(p){
+  const e = ECON[p.id]; const mid = Math.round((e.lo + e.hi) / 2 / 5) * 5;
+  const unitCost = e.costPct ? Math.round(mid * e.costPct) : e.cost;
+  const net = mid - unitCost;                      // profit per unit before tax
+  const goal = Math.max(0, Number(A.goal || 0));
+  const needProfit = goal / (1 - TAX) + e.over;     // monthly profit before tax needed
+  const units = Math.max(1, Math.ceil(needProfit / net));
+  const hrsNeed = Math.round(units * e.hrs * 1.15); // +15% for messages, quotes, driving
+  const hrsHave = Math.round(Number(A.hours || 3) * 4.33);
+  const capUnits = Math.max(1, Math.floor(hrsHave / (e.hrs * 1.15)));
+  const fits = units <= capUnits;
+  const capTake = Math.max(0, Math.round((capUnits * net - e.over) * (1 - TAX)));
+  const priceNeeded = Math.ceil(((needProfit) / capUnits + unitCost) / 5) * 5;
+  const hoursForGoal = Math.ceil(hrsNeed / 4.33);
+  const takeAt = u => Math.max(0, Math.round((u * net - e.over) * (1 - TAX)));
+  const plannedUnits = Math.min(units, capUnits);
+  // ramp: month 1 is mostly setup, month 2 builds, month 3 near full speed
+  const ramp = [Math.round(plannedUnits * 0.25), Math.round(plannedUnits * 0.6), Math.round(plannedUnits * 0.9)];
+  return {e, mid, unitCost, net, goal, needProfit, units, hrsNeed, hrsHave, capUnits, fits, capTake, priceNeeded, hoursForGoal, takeAt, plannedUnits, ramp};
 }
-function plan90(p, idx){
-  const h = Number(A.hours || 3); const name = esc(A.name || "you");
-  const firstJobs = h <= 3 ? 1 : h <= 7 ? 2 : h <= 12 ? 3 : 4;
-  const net = Number(A.network || 0); const talk = Number(A.talk || 1);
-  const reach = net >= 2 ? "Text 15 people you know" : net === 1 ? "Text 10 people you know" : "Post in 3 neighborhood groups and text the 5 people you know best";
-  return [
-    ["Weeks 1–2: Set up (no customers yet)", [
-      `Buy only the starter kit items below that you don't already own. Stay under ${money(Number(A.budget || 100))}.`,
-      `Look up 5 local listings for "${p.offers[0].split(":")[0].toLowerCase()}" and write down their prices. Start in the middle of that range.`,
-      `Pick a plain business name and make a free Google Business Profile and a Facebook page with 3 photos of your work (even work you did for free).`,
-      `Check the rules: ${p.rules}`,
-      `Read your employer's handbook on side work so this never puts your paycheck at risk.`]],
-    ["Weeks 3–6: Your first customers", [
-      `${reach}: "Hey, I've started doing ${p.offers[0].split("(")[0].trim().toLowerCase()} on the side. If you or anyone you know needs it, I'd appreciate the referral."`,
-      `Where your customers are: ${p.where}.`,
-      `Goal: ${firstJobs} job${firstJobs > 1 ? "s" : ""} a week, booked into ${scheduleLine()}.`,
-      talk === 0 ? `You said you'd rather not sell. So let the work sell: post a before/after photo after every single job and let people message you.` : `After every job, ask: "Would you mind leaving me a quick review, and do you know anyone else who needs this?"`,
-      `Track every dollar in and out in one simple note or sheet, starting with job #1.`]],
-    ["Weeks 7–12: Make it steady", [
-      `Add your second offer: ${p.offers[1]}.`,
-      `Raise your price on new customers once you're turning work down or booked 2 weeks out.`,
-      `Turn one-time customers into repeat ones: offer a monthly or seasonal plan.`,
-      `Ask your 5 happiest customers for a review. Reviews are what make strangers trust you.`,
-      `At day 90, add up 3 months of side income and plug it into your exit numbers below.`]]
+
+/* ---------------- DAILY PLANNER ---------------- */
+const DOW = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+function planStart(){ let d = A.start ? new Date(A.start + "T00:00:00") : new Date(); d.setHours(0,0,0,0); return d; }
+function buildPlanner(p){
+  const m = money_model(p); const e = m.e; const tools = A.tools || [];
+  const days = (A.days && A.days.length ? A.days : ["6"]).map(Number);
+  const hrsWeek = Number(A.hours || 3); const perDay = Math.max(1, Math.round(hrsWeek / days.length * 2) / 2);
+  const net = Number(A.network || 0), talk = Number(A.talk || 1);
+  const textN = net >= 2 ? 15 : net === 1 ? 10 : 5;
+  const offer1 = p.offers[0].split(":")[0].split("(")[0].trim();
+  const kitList = p.kit.filter(([, c, have]) => !(have && tools.includes(have))).map(([i]) => i.replace(/ \(skip.*\)/, "")).join("; ");
+  const script = `"Hey, I've started doing ${offer1.toLowerCase()} on the side. If you or anyone you know needs it, I'd really appreciate it. Here's what I charge: [your price]."`;
+
+  const setup = [
+    `Read your whole Blueprint guide (30 min). Write your goal where you'll see it every day: ${money(m.goal)} a month.`,
+    `Check the rules for your area: ${p.rules} Write down anything you need (license, permit, insurance).`,
+    `Read your employer's handbook on side work, moonlighting and conflicts of interest. Your paycheck stays safe first.`,
+    `Price research: find 5 local listings or competitors for "${offer1}". Write down low, middle and high prices. Start at the middle (your guide estimates about ${money(m.mid)} per ${e.unit}).`,
+    `Get 2 quotes for general liability insurance for this kind of work in your state. Budget about ${money(Math.round(e.over * 0.6))}/month for it.`,
+    kitList ? `Buy your starter kit, and only what you don't already own: ${kitList}. Stay under ${money(Number(A.budget || 100))}.` : `Gather the tools you already own and make sure they work. You don't need to buy anything yet.`,
+    `Pick a simple business name. Open a separate bank account or card just for this business, so the money is easy to track.`,
+    `Set up a free Google Business Profile and a Facebook page. Add 3 photos of your work (free work counts).`,
+    `Set up your money log (a notes page or sheet): date, customer, charged, costs, hours. Every dollar goes in it from now on.`,
+    e.profitOnly ? `Do one practice flip: buy one item under $30 that you know sells for more, clean it up, photograph it in daylight and list it.` : e.recurring ? `Offer one business you already know a free first week of help, so you have a real example and a reference.` : `Do one practice ${e.unit} for a friend or family member, free or at cost. Take before/after photos and time how long it takes.`,
+    `Write your price sheet: your 3 offers (${p.offers.map(o => o.split(":")[0].split("(")[0].trim()).join(", ")}), what's included, and the price of each.`,
+    `Launch day: post "I'm open for business" with your before/after photos in 2 local groups.`,
+    `Text ${textN} people you know your launch message: ${script}`
   ];
+  const grow = [
+    `Do your booked ${pl(e)}. No bookings yet? Spend this block on outreach: ${p.where}.`,
+    `After every ${e.unit}: take before/after photos, ask "Would you leave me a quick review, and do you know anyone else who needs this?", and log the money.`,
+    talk === 0 ? `Post one before/after photo with a one-line description in a local group. Let the work do the selling.` : `Message 5 new people or businesses who could need this. Use your script; keep it short and friendly.`,
+    `Follow up with everyone who asked about a price but didn't book: "Still need help with that? I have an opening this ${DOW[days[0]]}."`,
+    `Do your booked ${pl(e)}, then post the best photo from this week.`
+  ];
+  const steady = [
+    `Do your booked ${pl(e)}. Keep every customer happy; repeat customers are the cheapest ones to get.`,
+    `Offer your best customers a repeat plan (monthly, seasonal or a package). Write down who said yes.`,
+    `Reach out to 3 local businesses that could send you work (e.g. realtors, property managers, shops). Offer them a simple referral thank-you.`,
+    `Ask your 5 happiest customers for a review if they haven't left one.`,
+    `Do your booked ${pl(e)}, post one photo, and reply to every message within a day.`
+  ];
+  const milestones = {
+    30: `Day 30 check-in (30 min): add up this month's money log. Compare it to your Month 1 target (${m.ramp[0]} ${pl(e)} ≈ ${money(m.takeAt(m.ramp[0]))} take-home). Write down what's working and what isn't.`,
+    45: `Add your second offer: ${p.offers[1]}. Update your price sheet and post about it.`,
+    60: `Day 60 check-in: compare to your Month 2 target (${m.ramp[1]} ${pl(e)} ≈ ${money(m.takeAt(m.ramp[1]))}). If you're booked 2 weeks out, raise prices 10% for NEW customers.`,
+    75: `Add your third offer: ${p.offers[2]}.`,
+    90: `Day 90 review (45 min): total income, costs, hours and reviews. Compare to your goal of ${money(m.goal)}/month. Move your numbers into the Exit Numbers section and set your next 90-day target.`
+  };
+  const preMicro = [
+    "5 minutes: write down 10 people who might need this or know someone who does. You'll text them on launch day.",
+    "5 minutes: look at 3 local competitors' pages. Note their prices and what their best photos show.",
+    "5 minutes: save 3 photos of work you've done before (for anyone, even free) for your page.",
+    "Rest. Recovery is part of the plan; a burnt-out man can't run two jobs."
+  ];
+  const micro = [
+    "5 minutes: reply to every message and book anyone who's ready.",
+    "5 minutes: log yesterday's money and hours.",
+    "5 minutes: post one photo or tip, or comment helpfully in a local group.",
+    "Rest. Recovery is part of the plan; a burnt-out man can't run two jobs."
+  ];
+  const start = planStart(); const out = []; let si = 0, gi = 0, ti = 0, mi = 0;
+  for(let n = 1; n <= 90; n++){
+    const d = new Date(start); d.setDate(start.getDate() + n - 1);
+    const work = days.includes(d.getDay());
+    const week = Math.ceil(n / 7);
+    let tasks = [];
+    if(milestones[n]) tasks.push(milestones[n]);
+    if(work){
+      if(si < setup.length){ tasks.push(setup[si++]); if(perDay >= 2 && si < setup.length) tasks.push(setup[si++]); }
+      else if(n <= 50){ tasks.push(grow[gi++ % grow.length]); }
+      else { tasks.push(steady[ti++ % steady.length]); }
+      const lastWorkThisWeek = ![1,2,3,4,5,6].some(k => { const x = new Date(d); x.setDate(d.getDate() + k); return days.includes(x.getDay()) && Math.ceil((n + k) / 7) === week && n + k <= 90; });
+      if(lastWorkThisWeek && n > 14) tasks.push(`Weekly review (15 min): this week's target was ${weekTarget(m, week)} ${weekTarget(m, week) === 1 ? e.unit : pl(e)}. Count what you did, log the money, and move ${Math.round(TAX * 100)}% of profit into a tax savings account.`);
+    } else if(!milestones[n]) {
+      tasks.push(si < setup.length ? preMicro[(mi++) % preMicro.length] : micro[(mi++) % micro.length]);
+    }
+    out.push({n, date: d, work, week, hrs: work ? perDay : 0, tasks});
+  }
+  return out;
 }
+function weekTarget(m, week){
+  if(week <= 2) return 0;
+  const monthIdx = week <= 4 ? 0 : week <= 8 ? 1 : 2;
+  return Math.max(1, Math.round(m.ramp[monthIdx] / 4.33));
+}
+
+/* ---------------- RESULTS ---------------- */
+function disclosure(){ return `<div class="card" style="border-color:#5a3b22;background:#1c1610"><b>Please read:</b> The Exit Blueprint is a planning tool, not a promise. It does <b>not guarantee results</b> or income. All prices, costs, hours and earnings shown are <b>rough estimates, not exact figures</b>; real numbers depend on your area, your market, your effort and things no one can predict. Check local prices, licensing, insurance and tax rules where you live, and your employer's policy on side work. This is not financial, legal or tax advice.</div>`; }
+let view = "plan", openWeek = 1;
 function results(){
   const ranked = score(); const top = ranked.slice(0, 3);
   const maxS = Math.max(1, top[0].s);
-  const name = esc((A.name || "").trim() || "Your");
-  const must = Number(A.must || 0), saved = Number(A.saved || 0);
   const t = top[activeTab]; const p = t.p; const tools = A.tools || [];
-  const kitHtml = p.kit.map(([item, cost, have]) => {
-    const owned = have && tools.includes(have);
-    return `<li>${owned ? `<span class="check">✓ you have this</span> ` : ""}${esc(item)}${!owned && cost ? ` <span class="muted">(about ${money(cost)})</span>` : ""}</li>`;
-  }).join("");
-  const plan = plan90(p, activeTab).map(([h, items]) => `<div class="wk"><b>${h}</b><ul class="clean">${items.map(i => `<li>${esc(i)}</li>`).join("")}</ul></div>`).join("");
-  const runway6 = must * 6, quarter = must * .25, half = must * .5;
+  const m = money_model(p); const e = m.e;
+  const must = Number(A.must || 0);
   const savedTxt = {"0":"less than a month","1":"about a month","3":"2–4 months","6":"5+ months"}[A.saved] || "";
+  const kitRows = p.kit.map(([item, cost, have]) => { const owned = have && tools.includes(have);
+    return `<tr><td>${esc(item.replace(/ \(skip.*\)/, ""))}</td><td>${owned ? `<span class="check">You have it</span>` : cost ? "≈ " + money(cost) : "Varies"}</td></tr>`; }).join("");
+  const plan = buildPlanner(p);
+  let done = {}; try{ done = JSON.parse(localStorage.getItem("ebDone_" + p.id) || "{}"); }catch(err){}
+  const doneCount = Object.keys(done).filter(k => done[k]).length; const totalTasks = plan.reduce((s, d) => s + d.tasks.length, 0);
+  const weeks = []; for(let w = 1; w <= 13; w++) weeks.push(plan.filter(d => d.week === w));
+  const fmt = d => d.toLocaleDateString("en-US", {weekday:"short", month:"short", day:"numeric"});
+  const weekHtml = weeks.map((wd, i) => { const w = i + 1; const open = openWeek === w;
+    const phase = w <= 3 ? "Set up" : w <= 7 ? "First customers" : "Make it steady";
+    return `<div class="card" style="padding:14px 16px">
+      <button class="wkhead" onclick="openWeek=${open ? 0 : w};results();document.getElementById('w${w}').scrollIntoView()" id="w${w}">
+        <span><b>Week ${w}</b> · ${phase}${weekTarget(m, w) ? ` · target ${weekTarget(m, w)} ${weekTarget(m, w) > 1 ? pl(e) : e.unit}` : ""}</span><span>${open ? "−" : "+"}</span></button>
+      ${open ? wd.map(d => `<div class="day ${d.work ? "work" : ""}"><div class="dhead">Day ${d.n} · ${fmt(d.date)}${d.work ? ` · <span class="pill">Work block ≈ ${d.hrs} hr${d.hrs > 1 ? "s" : ""}</span>` : ""}</div>
+        ${d.tasks.map((tk, j) => { const key = d.n + "_" + j; return `<label class="task"><input type="checkbox" ${done[key] ? "checked" : ""} onchange="tick('${p.id}','${key}',this.checked)"><span>${esc(tk)}</span></label>`; }).join("")}</div>`).join("") : ""}
+    </div>`; }).join("");
+
   $("#app").innerHTML = `
   <div class="kicker">Your Exit Blueprint</div>
   <h1>${A.name ? esc(A.name) + "'s" : "Your"} Exit Blueprint</h1>
-  <p class="muted">Built from your 15 answers. You can retake the quiz anytime; your answers are saved on this device.</p>
+  <p class="muted">Built from your ${QUESTIONS.length} answers. Your answers and checkmarks are saved on this device.</p>
+  ${disclosure()}
 
   <h2 style="margin-top:26px">Your top 3 side businesses</h2>
-  ${top.map((x, i) => `<div class="card ${i === 0 ? "match" : ""}">
+  ${top.map((x, i) => `<div class="card ${i === activeTab ? "match" : ""}">
      <div class="row" style="justify-content:space-between"><h3 style="margin:0">${i + 1}. ${esc(x.p.name)}</h3><span class="pill">${Math.max(35, Math.round(x.s / maxS * 96))}% match</span></div>
      <ul class="clean" style="margin-top:10px">${(x.why.length ? x.why : ["It fits your time, budget and how you like to work."]).map(w => `<li>${esc(w)}</li>`).join("")}</ul>
-     <p class="muted" style="margin:0">Startup cost for you: about ${money(x.kitCost)}${x.kitCost === 0 ? " (you have what you need)" : ""}</p></div>`).join("")}
+     ${i === activeTab ? `<p class="check" style="margin:0">Your plan below is built for this one.</p>` : `<button class="btn ghost" onclick="activeTab=${i};openWeek=1;results()">Build my plan for this one</button>`}</div>`).join("")}
 
-  <h2 style="margin-top:30px">Your 90-day plan</h2>
-  <div class="tabs">${top.map((x, i) => `<button class="tab ${i === activeTab ? "on" : ""}" onclick="activeTab=${i};results();document.getElementById('plan').scrollIntoView()">${esc(x.p.name.split(" (")[0])}</button>`).join("")}</div>
-  <div class="card" id="plan">
-    <h3>${esc(p.name)}</h3>
-    <p><b>Your schedule:</b> ${esc(scheduleLine())}. That's about ${A.hours === "18" ? "15+" : {3:"2–4",7:"5–8",12:"9–15"}[A.hours]} hours a week, and the plan below is sized to it.</p>
-    <p><b>Your first offers</b></p><ul class="clean">${p.offers.map(o => `<li>${esc(o)}</li>`).join("")}</ul>
-    <p><b>Your starter kit</b> (budget: ${esc(labelOf(QUESTIONS[7].opts, A.budget))})</p><ul class="clean">${kitHtml}</ul>
-    ${plan}
+  <div class="tabs" style="margin-top:26px">
+    <button class="tab ${view === "plan" ? "on" : ""}" onclick="view='plan';results()">90-day daily planner</button>
+    <button class="tab ${view === "guide" ? "on" : ""}" onclick="view='guide';results()">How to succeed</button>
+    <button class="tab ${view === "money" ? "on" : ""}" onclick="view='money';results()">Costs & your money goal</button>
+    <button class="tab ${view === "exit" ? "on" : ""}" onclick="view='exit';results()">Exit numbers</button>
   </div>
 
-  <h2 style="margin-top:30px">Your exit numbers</h2>
-  <div class="card">
-    <p>Your must-pays: <b>${money(must)}</b> a month. Right now you could cover them for ${savedTxt}.</p>
-    <div class="grid2">
-      <div class="card" style="margin:0"><div class="muted">Milestone 1</div><div class="num">${money(quarter)}/mo</div><p style="margin:0">Side income covers a quarter of your must-pays. Breathing room.</p></div>
-      <div class="card" style="margin:0"><div class="muted">Milestone 2</div><div class="num">${money(half)}/mo</div><p style="margin:0">Half your must-pays, 3 months in a row. Now you have real options.</p></div>
-      <div class="card" style="margin:0"><div class="muted">Milestone 3</div><div class="num">${money(must)}/mo</div><p style="margin:0">Side income covers all your must-pays, 3 months in a row.</p></div>
-      <div class="card" style="margin:0"><div class="muted">Safety net</div><div class="num">${money(runway6)}</div><p style="margin:0">Six months of must-pays saved. Many planners suggest 3–6 months; with a family, aim for the top.</p></div>
+  <div class="${view === "plan" ? "" : "hide"}">
+    <h2>Your 90-day daily planner: ${esc(p.name)}</h2>
+    <p>Every day for the next 90 days has a task. <b>Work blocks</b> fall on the days you picked (${(A.days || ["6"]).map(x => DOW[x]).join(", ")}), sized to your ${esc(labelOf(qOpts("hours"), A.hours))} a week. Other days get a 5-minute task or rest.</p>
+    <div class="row" style="margin-bottom:14px"><label class="muted">Start date&nbsp;<input type="date" value="${A.start || new Date().toISOString().slice(0,10)}" onchange="A.start=this.value;save();results()" style="background:#12151b;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px"></label>
+      <span class="muted">Progress: ${doneCount} of ${totalTasks} tasks done</span></div>
+    <div class="progress"><i style="width:${Math.round(doneCount / totalTasks * 100)}%"></i></div>
+    ${weekHtml}
+    <div class="row"><button class="btn" onclick="copyPlan()">Copy all 90 days</button></div>
+  </div>
+
+  <div class="${view === "guide" ? "" : "hide"}">
+    <h2>How to succeed at ${esc(p.name.toLowerCase())}</h2>
+    <div class="card"><h3>What this business is</h3><p>${esc(e.about)}</p>
+      <h3>Your first offers</h3><ul class="clean">${p.offers.map(o => `<li>${esc(o)}</li>`).join("")}</ul>
+      <h3>Where your first customers come from</h3><p>${esc(p.where)}. ${Number(A.network || 0) >= 1 ? "You said people around you know your work, so start with them; warm customers book fastest." : "You said not many people know your work yet, so lean on local groups, flyers and before/after photos."}</p></div>
+    <div class="card"><h3>What it takes to succeed</h3><ul class="clean">${e.success.map(s => `<li>${esc(s)}</li>`).join("")}</ul>
+      <h3>Mistakes that sink most beginners</h3><ul class="clean">${e.mistakes.map(s => `<li>${esc(s)}</li>`).join("")}</ul></div>
+    <div class="card"><h3>Your schedule</h3><p>You'll work about ${m.hrsHave} hours a month on your chosen days. One ${e.unit} takes about ${e.hrs} hour${e.hrs === 1 ? "" : "s"} including travel and setup, so at full speed you have room for about <b>${m.capUnits} ${pl(e)} a month</b>.</p>
+      <h3>How to talk to customers</h3><p>${Number(A.talk || 1) === 0 ? "You said you'd rather not sell. You don't have to be a salesman: post your work, answer questions honestly, and ask happy customers to send friends. Use this message as-is:" : "Use this message for friends, family and coworkers:"}</p>
+      <p style="background:#12151b;border:1px solid var(--line);border-radius:10px;padding:12px">"Hey, I've started doing ${esc(p.offers[0].split(":")[0].split("(")[0].trim().toLowerCase())} on the side. If you or anyone you know needs it, I'd really appreciate it. Here's what I charge: [your price]."</p>
+      <h3>Rules to check first</h3><p>${esc(p.rules)} Also read your employer's policy on side work.</p></div>
+  </div>
+
+  <div class="${view === "money" ? "" : "hide"}">
+    <h2>Costs and your money goal</h2>
+    <div class="card"><h3>What it costs to start (estimates)</h3>
+      <table class="tbl"><tr><th>Item</th><th>Cost</th></tr>${kitRows}<tr><td><b>Your startup total</b></td><td><b>≈ ${money(t.kitCost)}</b></td></tr></table>
+      <h3 style="margin-top:18px">What it costs to run (estimates)</h3>
+      <table class="tbl">
+        <tr><td>Monthly costs (insurance, ads, apps, phone)</td><td>≈ ${money(e.over)}/month</td></tr>
+        <tr><td>Supplies and gas per ${e.unit}</td><td>≈ ${money(m.unitCost)}</td></tr>
+        <tr><td>Taxes to set aside on profit</td><td>about ${Math.round(TAX * 100)}% (ask a tax pro for your exact rate)</td></tr>
+      </table></div>
+    <div class="card"><h3>What you could charge (estimate)</h3>
+      <p>A common range is about <b>${money(e.lo)}–${money(e.hi)} ${e.profitOnly ? "profit per flip (sale price minus what you paid)" : "per " + e.unit}</b>. Your plan uses the middle, about <b>${money(m.mid)}</b>. That leaves about <b>${money(m.net)}</b> per ${e.unit} after supplies, or about <b>${money(Math.round(m.net * (1 - TAX)))}</b> after setting aside taxes. Prices vary a lot by area, so check 5 local competitors in week 1 and adjust.</p></div>
+    <div class="card match"><h3>How to reach ${money(m.goal)} a month</h3>
+      ${m.goal > 0 ? `
+      <p>To put <b>${money(m.goal)}</b> in your pocket each month, you'd need about <b>${money(Math.round(m.needProfit))}</b> in monthly profit before taxes and monthly costs. At about ${money(m.net)} profit per ${e.unit}, that's about:</p>
+      <div class="grid2"><div class="card" style="margin:0"><div class="muted">${e.recurring ? "Monthly clients" : pl(e) + " per month"}</div><div class="num">${m.units}</div><p style="margin:0">${e.recurring ? "each paying every month" : "about " + Math.max(1, Math.round(m.units / 4.33)) + " a week"}</p></div>
+      <div class="card" style="margin:0"><div class="muted">Hours per month</div><div class="num">${m.hrsNeed}</div><p style="margin:0">about ${m.hoursForGoal} hours a week</p></div></div>
+      <p style="margin-top:14px">${m.fits ? `<b>That fits inside the ${m.hrsHave} hours a month you have.</b> At full speed (usually around month 3, once customers come back and refer friends), your goal is within reach.` : `<b>That's more than the ${m.hrsHave} hours a month you have.</b> At your hours, full speed is about ${m.capUnits} ${pl(e)} a month, or about <b>${money(m.capTake)}</b> take-home. To close the gap you can: <br>• raise your average price to about <b>${money(m.priceNeeded)}</b> per ${e.unit} (bigger jobs, bundles, premium offers), <br>• give it about <b>${m.hoursForGoal} hours a week</b> instead, or <br>• grow into it: hit ${money(m.capTake)} first, then raise prices as reviews come in.`}</p>
+      <h3>Your month-by-month targets (estimates)</h3>
+      <table class="tbl"><tr><th></th><th style="text-align:right">${pl(e)[0].toUpperCase() + pl(e).slice(1)}</th><th>Take-home ≈</th></tr>
+        <tr><td>Month 1 (mostly setup)</td><td>${m.ramp[0]}</td><td>${money(m.takeAt(m.ramp[0]))}</td></tr>
+        <tr><td>Month 2 (first customers)</td><td>${m.ramp[1]}</td><td>${money(m.takeAt(m.ramp[1]))}</td></tr>
+        <tr><td>Month 3 (getting steady)</td><td>${m.ramp[2]}</td><td>${money(m.takeAt(m.ramp[2]))}</td></tr>
+        <tr><td>Full speed</td><td>${m.plannedUnits}</td><td>${money(m.takeAt(m.plannedUnits))}</td></tr></table>
+      <p class="muted" style="margin-top:10px">Month 1 take-home can be $0 or negative while you buy your kit. That's normal.</p>` : `<p>Go back and enter a monthly goal to see the math.</p>`}
     </div>
-    <p style="margin-top:14px"><b>Safe to leave</b> means all three: side income has covered your must-pays for 3 straight months, the safety net is saved, and you've sorted out health insurance and other benefits your job gives your family. Until then, the job is the funding for the plan.</p>
   </div>
 
-  <div class="row"><button class="btn" onclick="copyPlan()">Copy my plan</button><button class="btn ghost" onclick="A={};save();intro()">Retake the quiz</button></div>
-  <p class="note">This is a planning tool, not financial, legal or tax advice. No income is promised; results depend on your effort, area and market. Check licensing, insurance and tax rules where you live, and your employer's policy on side work.</p>`;
-  window.scrollTo(0,0);
+  <div class="${view === "exit" ? "" : "hide"}">
+    <h2>Your exit numbers</h2>
+    <div class="card">
+      <p>Your must-pays: <b>${money(must)}</b> a month. Right now you could cover them for ${savedTxt}.</p>
+      <div class="grid2">
+        <div class="card" style="margin:0"><div class="muted">Milestone 1</div><div class="num">${money(must * .25)}/mo</div><p style="margin:0">Side income covers a quarter of your must-pays. Breathing room.</p></div>
+        <div class="card" style="margin:0"><div class="muted">Milestone 2</div><div class="num">${money(must * .5)}/mo</div><p style="margin:0">Half your must-pays, 3 months in a row. Real options.</p></div>
+        <div class="card" style="margin:0"><div class="muted">Milestone 3</div><div class="num">${money(must)}/mo</div><p style="margin:0">Side income covers all your must-pays, 3 months in a row.</p></div>
+        <div class="card" style="margin:0"><div class="muted">Safety net</div><div class="num">${money(must * 6)}</div><p style="margin:0">Six months of must-pays saved. Many planners suggest 3–6 months; with a family, aim for the top.</p></div>
+      </div>
+      <p style="margin-top:14px">${m.goal >= must && must > 0 ? `Your goal of ${money(m.goal)} a month would reach Milestone 3.` : must > 0 ? `Your goal of ${money(m.goal)} a month is ${Math.round(m.goal / must * 100)}% of your must-pays. That's a strong start toward Milestone ${m.goal >= must * .5 ? 2 : 1}.` : ""}</p>
+      <p><b>Safe to leave</b> means all three: side income has covered your must-pays for 3 straight months, the safety net is saved, and you've sorted out health insurance and other benefits your job gives your family. Until then, the job is the funding for the plan.</p>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top:10px"><button class="btn ghost" onclick="A={};save();intro()">Retake the quiz</button></div>
+  ${disclosure()}`;
 }
+function tick(pid, key, val){ let d = {}; try{ d = JSON.parse(localStorage.getItem("ebDone_" + pid) || "{}"); }catch(e){} d[key] = val; try{ localStorage.setItem("ebDone_" + pid, JSON.stringify(d)); }catch(e){} }
 function copyPlan(){
-  const top = score().slice(0, 3); const p = top[activeTab].p;
-  const lines = [`${A.name || "My"} Exit Blueprint`, "", "Top 3 side businesses:", ...top.map((x, i) => `${i + 1}. ${x.p.name}`), "",
-    `Plan: ${p.name}`, `Schedule: ${scheduleLine()}`, "First offers:", ...p.offers.map(o => "- " + o), "",
-    ...plan90(p).flatMap(([h, items]) => [h, ...items.map(i => "- " + i), ""]),
-    `Must-pays: ${money(Number(A.must || 0))}/mo. Safety net goal: ${money(Number(A.must || 0) * 6)}.`];
-  const done = () => { const t = document.createElement("div"); t.className = "toast"; t.textContent = "Plan copied. Paste it into your notes."; document.body.appendChild(t); setTimeout(() => t.remove(), 2500); };
-  try{ navigator.clipboard.writeText(lines.join("\n")).then(done, () => alertFallback(lines)); }catch(e){ alertFallback(lines); }
+  const top = score().slice(0, 3); const p = top[activeTab].p; const plan = buildPlanner(p);
+  const lines = [`${A.name || "My"} Exit Blueprint: ${p.name}`, "Estimates only. No guaranteed results.", ""];
+  plan.forEach(d => { lines.push(`Day ${d.n} (${d.date.toLocaleDateString("en-US", {weekday:"short", month:"short", day:"numeric"})})${d.work ? " WORK BLOCK" : ""}`); d.tasks.forEach(t => lines.push("[ ] " + t)); lines.push(""); });
+  const doneMsg = () => { const t = document.createElement("div"); t.className = "toast"; t.textContent = "All 90 days copied. Paste into your notes."; document.body.appendChild(t); setTimeout(() => t.remove(), 2500); };
+  try{ navigator.clipboard.writeText(lines.join("\n")).then(doneMsg, () => alertFallback(lines)); }catch(e){ alertFallback(lines); }
 }
 function alertFallback(lines){
   const ta = document.createElement("textarea"); ta.value = lines.join("\n"); ta.style.cssText = "width:100%;height:260px;margin-top:12px;background:#12151b;color:#eceae4;border:1px solid #2a2f3a;border-radius:10px;padding:10px";
@@ -381,5 +577,6 @@ function alertFallback(lines){
 }
 intro();
 </script>
+
 </body>
 </html>
