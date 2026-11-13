@@ -219,3 +219,30 @@ Keep the want-vs-must hook, and make line 2 turn toward the exit. Use the photo 
  - sunset = the end of the shift / the day you clock out for good;  road, trail, horizon = the way out;  water wearing down rock = staying with no plan.
  e.g. "You'd walk out tomorrow if the bills would let you. / So build the way out after your shift. / Read the caption."
 Line 3 rotates between "Read the caption." and "Free exit quiz in bio ↓" (use the quiz line about 1 post in 3).
+
+## POST FRAMEWORK + CONTENT MIX — STANDING RULE from Nov 13 (user's two screenshots: "implement all of these and keep everything")
+Everything above still applies. Every post must hit all 6 parts, in this order:
+ 1) BROAD, UNIVERSAL HOOK: any working man stops (on-screen line 1 / slide 1). "You'd walk out tomorrow if the bills would let you."
+ 2) CURIOSITY GAP OR EMOTIONAL ENTRY: the line that makes him need the rest (on-screen line 2 / slide 2 / caption lines 2-3).
+ 3) SPECIFIC PAIN / DESIRE / FEAR TIED TO WHAT WE SELL: stuck with no way out, no plan, fear of missing a paycheck,
+    "what would I even do?" Those are exactly what the Exit Blueprint answers.
+ 4) VALUE THAT SOLVES IT: one real, usable step he can take this week, even if he never buys.
+ 5) PROOF OF AUTHORITY: a verified figure from the bank, a named study, or the user's own real story (only when he provides it).
+    Never invented.
+ 6) UNIQUE VOICE / POV: the page's stance, said plainly: "Don't quit first. Build first." "Staying for your family is strength.
+    Staying with no plan is how a man disappears." Talk like a man who's been there, not a therapist or a guru.
+
+CONTENT MIX (label each post REACH or CONVERT in the log; 2 carousels a day = 1 REACH + 1 CONVERT; Reels mostly REACH,
+about 1 in 3 CONVERT):
+ REACH (grows the page): controversy (honest, never cruel; e.g. "Hustle culture lied to providers"), broad hooks, timely topics
+   (layoffs, raises, holidays, return-to-office), curiosity gaps, stakes/suspense ("Every year you wait costs you..."), appeal to emotions.
+ CONVERT (turns followers into buyers):
+   - Transformations: only REAL ones (figures from the bank; the user's own; buyers who give permission). Never invented.
+   - Client testimonials: ONLY real, from real buyers, quoted word for word, with their permission. Until there are any, don't make
+     testimonial posts and never write fake ones.
+   - Objection handling: "I don't have time" (15 minutes a day, built around your days), "I don't have money" (start under $100 with tools
+     you own), "I don't have skills" (the quiz finds the ones people already ask you for), "What if it fails?" (you keep your paycheck while
+     you build), "$19.99 is a lot right now" (compare honestly; the quiz is free).
+   - Case studies / results breakdown: break down a figure from the bank step by step (job -> side build -> leap), or walk through a sample
+     Exit Blueprint result ("a warehouse guy with a truck and 6 hours a week gets..."), clearly labeled as an example with estimates only.
+ Every CONVERT post ends with the free Exit Quiz CTA. REACH posts use it too, but softer.
