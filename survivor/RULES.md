@@ -290,3 +290,12 @@ Length may run to about 180 words when the loops need it.
 - Lines 1-2 have to do the pulling on their own: shocking, emotionally compelling, curiosity-driven, urgent, controversial, and relatable to a man who is
   stuck at his job, burnt out, and can't leave because his family depends on him (job, boss, shift, raise, family counting on him).
   Line 2 twists the knife or opens the loop ("Your family thinks you're fine. You're not, and you can't quit.").
+
+## NOV 14 — NICHE RESEARCH + NO-AI VOICE (user: research the top pages, apply their principles, "remove anything that sounds like AI")
+Read NICHE_RESEARCH_NOV14.md before writing ANY on-screen text or caption. Its banned list overrides every earlier template line, including:
+"That's not weakness. That's...", "It's not X. It's Y.", "Here's the part nobody tells you", "Hold that thought", "Stay with me",
+three-fragment drumrolls, em dashes, and the "He didn't quit first. He built first." ending (at most once a week).
+- Mix in humor: about 1 Reel in 3 is dry, self-aware work humor (Man Therapy / meme-page style) that still ends with "Read the caption."
+- Each caption: one hyper-specific real-life detail, a varied length and shape, a plain CTA ('Comment "EXIT" and I'll send you the quiz.').
+  A founder story is optional (about 1 in 3 posts).
+- Before sending, re-read every line out loud. If it sounds like a LinkedIn post or a therapist, rewrite it like a text to a buddy.
