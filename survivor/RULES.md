@@ -299,3 +299,10 @@ three-fragment drumrolls, em dashes, and the "He didn't quit first. He built fir
 - Each caption: one hyper-specific real-life detail, a varied length and shape, a plain CTA ('Comment "EXIT" and I'll send you the quiz.').
   A founder story is optional (about 1 in 3 posts).
 - Before sending, re-read every line out loud. If it sounds like a LinkedIn post or a therapist, rewrite it like a text to a buddy.
+
+## NOV 14, 6:05 AM — CALL OUT THE VIEWER (user; applies to every future hook, all earlier rules still apply)
+On-screen line 1 must START by calling out the viewer directly, e.g.:
+ "You'd...", "You...", "The reason you...", "If you...", "Your boss...", "Your family...", "You've been...", "Why you..."
+Never open with a third person ("Most men...", "Nobody...", "One founder...") or a scene with no "you".
+The caption's first line also speaks to "you". Everything else stays: plain job/burnout/family words, line 3 "Read the caption.",
+no comment line on screen, the no-AI-voice banned list, serif text, motion, no orphan words.
