@@ -284,3 +284,9 @@ Length may run to about 180 words when the loops need it.
 - CLARITY (user, Nov 13): every on-screen text must make it OBVIOUS it's about burnout, a job/career, or being stuck at work.
   Use plain words like job, shift, boss, burnout, burnt out, raise, stuck. No metaphor-only lines ("laps", "a warning") that
   could be about anything; if the photo metaphor is used, tie it to the job in the same line.
+
+## LINE 3 + HOOK TONE — STANDING RULE from Nov 13, 10:56 PM (user; overrides the "open-loop pointer" line 3 above)
+- Line 3 is ALWAYS exactly: "Read the caption." It's the format of the ~2,500-view Reel. NEVER "The answer is in the caption", "What it means is in the caption", "The way out is in the caption" or any other variant.
+- Lines 1-2 have to do the pulling on their own: shocking, emotionally compelling, curiosity-driven, urgent, controversial, and relatable to a man who is
+  stuck at his job, burnt out, and can't leave because his family depends on him (job, boss, shift, raise, family counting on him).
+  Line 2 twists the knife or opens the loop ("Your family thinks you're fine. You're not, and you can't quit.").
