@@ -310,3 +310,21 @@ no comment line on screen, the no-AI-voice banned list, serif text, motion, no o
 ## NOV 15, 10:57 PM — TEXT IN THE MIDDLE (user: "The onscreen caption is too high, make it in the middle of the screen")
 All photo Reels: render with TEXT_Y=0.50 (the text block is centered on TEXT_Y, so 0.50 = true middle of the screen).
 Never use 0.22-0.30 again. Everything else stays the same.
+
+## NOV 16, 1:55 PM — MISCONCEPTION HOOK (user: "Start implementing this hook along with the other ones")
+Template: "You don't have [common misconception about the problem], you have [the actual cause], from a [qualification]."
+- Add it to the hook rotation: use it on about 1 Reel in 3 (never two days in a row on the same slot). All other hook formats stay.
+- It already calls out the viewer ("You don't have..."), so it satisfies the CALL OUT THE VIEWER rule.
+- This exact template is the ONE allowed exception to the banned "It's not X. It's Y." pattern. Use it only as on-screen line 1,
+  never repeat that shape in the caption.
+- QUALIFICATION MUST BE TRUE. Shaun is NOT a therapist, doctor or coach. Use only what he has said on his own channel:
+  he was stuck at a toxic job, kept getting pulled into the office, couldn't get hired anywhere else, and had a family to provide for.
+  OK: "from a guy who was stuck at a toxic job with a family to provide for", "from a guy who couldn't get hired anywhere else",
+  "from a guy who got pulled into the office 4 times". Never invent years, titles or credentials.
+- No medical words: the "actual cause" is about the job, money, boss, or the situation, not a diagnosis.
+- Keep line 1 under ~22 words so it fits without orphans; line 2 still adds the twist or stakes; line 3 is still "Read the caption."
+- Caption opens by paying off the misconception (why the common belief is wrong), then the usual flow and the EXIT CTA.
+Examples:
+ "You don't have a motivation problem, you have a job that takes everything before you get home, from a guy who was stuck at one."
+ "You don't hate work, you hate working for a boss who can end your paycheck with one bad mood, from a guy who got pulled into the office 4 times."
+ "You don't need a better job, you need one thing that pays you that your boss can't take away, from a guy who couldn't get hired anywhere else."
