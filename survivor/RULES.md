@@ -306,3 +306,7 @@ On-screen line 1 must START by calling out the viewer directly, e.g.:
 Never open with a third person ("Most men...", "Nobody...", "One founder...") or a scene with no "you".
 The caption's first line also speaks to "you". Everything else stays: plain job/burnout/family words, line 3 "Read the caption.",
 no comment line on screen, the no-AI-voice banned list, serif text, motion, no orphan words.
+
+## NOV 15, 10:57 PM — TEXT IN THE MIDDLE (user: "The onscreen caption is too high, make it in the middle of the screen")
+All photo Reels: render with TEXT_Y=0.50 (the text block is centered on TEXT_Y, so 0.50 = true middle of the screen).
+Never use 0.22-0.30 again. Everything else stays the same.
