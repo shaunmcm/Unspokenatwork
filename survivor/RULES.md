@@ -328,3 +328,31 @@ Examples:
  "You don't have a motivation problem, you have a job that takes everything before you get home, from a guy who was stuck at one."
  "You don't hate work, you hate working for a boss who can end your paycheck with one bad mood, from a guy who got pulled into the office 4 times."
  "You don't need a better job, you need one thing that pays you that your boss can't take away, from a guy who couldn't get hired anywhere else."
+
+## NOV 17, 2:42 PM — MIND READING HOOKS (user sent the topicfinder.ai "Mind Reading Hooks 1-10" list; implement alongside the others)
+Rotation now: Mind Reading ~1 in 3, Misconception ~1 in 3, all other formats (call-out, humor, stakes) ~1 in 3. Never the same format twice in one day.
+Every one starts by talking to the viewer, so they satisfy CALL OUT THE VIEWER ("Let me guess. You..." is allowed).
+Templates, adapted to our niche (use these as line 1; line 2 adds the twist; line 3 "Read the caption."):
+ 1 "Let me guess. You [behavior], then [behavior], then wonder why [problem]."
+   e.g. Let me guess. You clock in early, skip lunch, stay late, then wonder why you've got nothing left when you get home.
+ 2 "You've watched [number] videos on [topic] and still haven't [action]."
+   e.g. You've watched 50 videos about side hustles and still haven't made one dollar outside that job.
+ 3 "You open [app] to [intention] and close it an hour later with nothing done."
+   e.g. You open Indeed to find a way out and close it an hour later feeling more stuck than before.
+ 4 "You tell people you're [identity]. Your [evidence] says otherwise."
+   e.g. You tell everyone you're "fine." Your Sunday night dread says otherwise.
+ 5 "Right now you're [situation], and you already know it isn't working."
+   e.g. Right now you're picking up overtime to fix a money problem, and you already know it isn't working.
+ 6 "You know exactly what to do about [problem]. You just haven't done it."
+   e.g. You know exactly what to do about that job. You just haven't done it.
+ 7 "You're not stuck on [topic]. You're scared of [real fear]."
+   e.g. You're not stuck at that job. You're scared of what happens to your family if you try.
+   (Second allowed exception to the banned "not X / Y" shape, on-screen line 1 only, max once a week.)
+ 8 "You've saved videos like this before. You never used them."
+   e.g. You've saved a dozen posts about leaving that job. You never used one.
+ 9 "Your [thing] looks fine from the outside. Inside, [hidden problem]."
+   e.g. Your life looks fine from the outside. Inside, you dread every alarm that goes off.
+ 10 "You've heard [advice] so many times you stopped hearing it."
+   e.g. You've heard "just find another job" so many times you stopped hearing it.
+Rules still apply: plain work words, no medical words, numbers in hooks are relatable hypotheticals (never presented as stats),
+caption pays off the hook first, then the usual flow and the EXIT CTA. Don't reuse the same template number within 7 days; log it in topics_used.txt as "MIND READING #n".
