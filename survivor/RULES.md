@@ -356,3 +356,60 @@ Templates, adapted to our niche (use these as line 1; line 2 adds the twist; lin
    e.g. You've heard "just find another job" so many times you stopped hearing it.
 Rules still apply: plain work words, no medical words, numbers in hooks are relatable hypotheticals (never presented as stats),
 caption pays off the hook first, then the usual flow and the EXIT CTA. Don't reuse the same template number within 7 days; log it in topics_used.txt as "MIND READING #n".
+
+## NOV 19, 1:54 PM — FULL HOOK LIBRARY (user sent Relatability, Authority, Controversy, Labeling and Curiosity Gap hook sheets:
+## "Implement these into your future strategies for postings and still using everything else I taught you")
+Hook FAMILIES now in rotation (log the family + template number in topics_used.txt, e.g. "LABELING #3"):
+ Mind Reading (Nov 17) | Misconception (Nov 16) | Labeling | Curiosity Gap | Controversy | Relatability | Authority | Humor / Call-out / Stakes (older rules)
+ROTATION: never the same family twice in one day; don't reuse a family within 2 days if avoidable; never reuse the exact
+template within 7 days. CONVERT Reels lean on Labeling, Controversy, Misconception, Authority. REACH Reels lean on
+Relatability, Curiosity Gap, Mind Reading, Humor.
+CALL-OUT RULE, updated so these fit: line 1 must speak to the viewer ("you"/"your") within its first ~6 words
+(e.g. "Why does nobody prepare YOU...", "Can we stop pretending YOU..."). Everything else stays: plain work words, line 3 is
+"Read the caption.", TEXT_Y=0.50, no AI patterns, no medical words, no invented stats, Shaun's "I" claims only from his real story.
+AUTHORITY HOOKS: Shaun is NOT a coach/therapist/expert. Authority = lived experience only ("a guy who got pulled into the office
+4 times", "a guy who couldn't get hired anywhere else"). Never "experts say" or invented credentials.
+Niche-adapted templates:
+ LABELING
+  1 If you want out of that job, you're going to have to stop waiting for a better one to save you.
+  2 If you're not getting ahead at work, you're probably missing this one thing.
+  3 If you skip lunch so your boss thinks you're a hard worker, you're the guy they'll never promote.
+  4 If you've tried applying everywhere and it didn't work, check what you're actually applying with.
+  5 If you're still answering work texts at dinner, this is your sign to stop tonight.
+  6 If you're a dad stuck at a job you hate and you want out, listen closely.  (only if "dad" fits; else "a man with a family")
+  7 If you dread Sunday night every week, look at what Monday is really costing you.
+  8 If you need your boss's approval before you feel good about your day, you're working for the wrong reason.
+  9 If "I'll just push through till Friday" sounds familiar, you're running on empty.
+  10 If you can't explain what you'd do without that job, you don't have a plan yet.
+ CURIOSITY GAP
+  1 Don't say "I'm fine" at work. Say "I'm at capacity."
+  2 Most guys pick up more overtime. The ones who get out build something on the side.
+  3 Guys with the worst bosses are better at building a side business than guys with good ones.
+  4 There's a reason the guys who got out never told their boss first.
+  5 The 20 minutes you waste in the parking lot is why you never get ahead.
+  6 Why do guys with no degree sometimes build a way out faster than guys with one?
+  7 Every man who got out of a job he hated did this one thing first.
+  8 This is the stuck-at-work iceberg. The real reason you can't leave is at the bottom.
+  9 Let me tell you a secret nobody at your job talks about.
+  10 What's the one-paycheck rule? It's why your family feels stuck.
+ CONTROVERSY
+  9 Can we stop pretending loyalty to your job is the best way to protect your family?
+  10 The more overtime you pick up, the harder it gets to ever leave.
+  11 "Just find another job" sounds great, but it can keep you stuck for years.
+  12 I'd choose a small side business over a bigger paycheck at a job I hate every time.
+  13 You probably don't need another job. You need income your boss can't take away.
+  14 The advice about burnout is focused on the wrong thing. It's not your sleep. It's who controls your paycheck.
+      (exception to the banned "not X" shape: on-screen only, max once a week, same as Misconception)
+  15 Chasing the next raise might be the thing keeping your family stuck.
+  16 Before you take another overtime shift, ask yourself this.
+ RELATABILITY
+  33 Why does nobody prepare you for how lonely it is to be the one your whole family depends on?
+  34 Still waiting to feel ready before you start something on the side?
+  35 Nobody talks about the stage of being stuck where you're too tired to even look for a way out.
+  36 If figuring out a side business takes you forever, try starting with what people already ask you for help with.
+ AUTHORITY (lived experience only)
+  21 If I were looking at your week today, I'd start with what happens right after your shift.
+  22 Here's what guys who've been stuck at a job for years notice that nobody else does.
+  23 Before you quit anything, check these 3 things.
+  24 If you only learn one thing about being stuck at a job from me, make it this one.
+Captions keep the same flow: pay off the hook first, one real detail, one small step, EXIT CTA, share line, 5 hashtags.
